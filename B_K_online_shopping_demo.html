@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#111827">
+<title>B_K ONLINE SHOPPING</title>
+<style>
+:root{--navy:#111827;--navy2:#202d42;--gold:#f5b942;--teal:#12a889;--bg:#f3f5f8;--muted:#657184}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Arial,sans-serif;color:#172033}a{color:inherit;text-decoration:none}
+header{background:var(--navy);color:white;padding:12px 4%;display:flex;align-items:center;gap:18px;position:sticky;top:0;z-index:5}
+.logo{display:flex;align-items:center;gap:9px;font-weight:800;font-size:19px;white-space:nowrap}.mark{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--gold),#fff0bd);color:#111827;display:grid;place-items:center;font-weight:900;font-size:19px;box-shadow:0 3px 12px #0004}
+.search{display:flex;flex:1;min-width:90px}.search input{width:100%;padding:12px;border:0;border-radius:8px 0 0 8px;outline:0}.search button{border:0;background:var(--gold);padding:0 16px;border-radius:0 8px 8px 0;cursor:pointer;font-weight:bold}
+.cartbtn{border:1px solid #657184;background:transparent;color:white;padding:10px 13px;border-radius:8px;white-space:nowrap;cursor:pointer}
+nav{background:var(--navy2);color:white;display:flex;gap:22px;padding:12px 4%;overflow:auto;white-space:nowrap;font-size:13px}
+.hero{background:linear-gradient(115deg,#14243a,#12685f);color:white;padding:48px 6%;display:grid;grid-template-columns:1.3fr .7fr;align-items:center;gap:20px}
+.hero h1{font-size:clamp(30px,5vw,54px);line-height:1.05;margin:12px 0}.hero p{color:#d9e6ed;line-height:1.6;max-width:620px}.hero .tag{color:#ffda8a;font-weight:bold;letter-spacing:2px}.heroArt{font-size:105px;text-align:center;background:#ffffff14;border:1px solid #ffffff30;border-radius:25px;padding:35px}
+.btn{border:0;border-radius:9px;padding:12px 17px;background:var(--gold);font-weight:bold;cursor:pointer;color:#1b2430}.btn.dark{background:var(--navy);color:white}.wrap{max-width:1450px;margin:auto;padding:22px 4% 50px}
+.trust{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}.trust div,.panel{background:white;border-radius:13px;padding:16px;box-shadow:0 4px 16px #15223808}.trust b{display:block;margin-bottom:5px}.muted{color:var(--muted);font-size:13px;line-height:1.5}
+h2{margin:0 0 14px;font-size:22px}.section{margin:20px 0}.categories{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.cat{background:white;border-radius:13px;padding:18px;cursor:pointer}.cat span{font-size:32px}.cat b{display:block;margin-top:9px}
+.toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.toolbar select{padding:10px;border:1px solid #d6dce5;border-radius:8px;background:white}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.product{background:white;border-radius:13px;padding:13px;display:flex;flex-direction:column;box-shadow:0 4px 16px #15223808}.pic{height:140px;background:#edf3f5;border-radius:10px;display:grid;place-items:center;font-size:65px;margin-bottom:12px}.product h3{font-size:15px;min-height:38px;margin:0 0 8px}.price{font-weight:800;font-size:19px;color:#087b68}.product .muted{margin:8px 0 12px;flex:1}.product button{width:100%;margin-top:6px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.linkbtn{display:inline-block;background:#edf3f7;border:1px solid #dce4eb;padding:10px 13px;border-radius:9px;font-weight:bold;font-size:13px}
+.assistant{position:fixed;right:18px;bottom:18px;z-index:8}.chatToggle{border:0;border-radius:30px;background:var(--teal);color:white;padding:14px 18px;font-weight:bold;box-shadow:0 5px 18px #0003;cursor:pointer}
+.chat{display:none;position:absolute;right:0;bottom:60px;width:min(340px,calc(100vw - 36px));background:white;border-radius:15px;box-shadow:0 8px 35px #0003;overflow:hidden}.chathead{background:var(--navy);color:white;padding:14px;font-weight:bold}.chatbody{height:220px;overflow:auto;padding:12px;font-size:13px}.bubble{background:#edf3f7;padding:9px 11px;border-radius:10px;margin:7px 0;line-height:1.4}.chatrow{display:flex;padding:10px;gap:6px;border-top:1px solid #eee}.chatrow input{min-width:0;flex:1;padding:10px;border:1px solid #ddd;border-radius:8px}
+footer{background:var(--navy);color:white;padding:28px 5%;display:grid;grid-template-columns:2fr 1fr 1fr;gap:20px}footer p{color:#c4cedb;font-size:13px;line-height:1.7}
+#toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#182333;color:white;padding:11px 16px;border-radius:8px;display:none;z-index:12}
+@media(max-width:800px){.products{grid-template-columns:repeat(2,1fr)}.trust{grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:1fr}.heroArt{font-size:75px}.categories{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){header{gap:8px;padding:9px 3%}.logo{font-size:14px}.mark{width:35px;height:35px;font-size:16px}.cartbtn{font-size:12px;padding:9px}.search button{padding:0 10px}.hero{padding:35px 5%}.wrap{padding:15px 3% 40px}.products{gap:9px}.pic{height:110px;font-size:52px}.product{padding:9px}.two{grid-template-columns:1fr}footer{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+ <a class="logo" href="#"><span class="mark">B_K</span><span>B_K ONLINE SHOPPING</span></a>
+ <div class="search"><input id="q" placeholder="Search products..." oninput="render()"><button onclick="render()">Search</button></div>
+ <button class="cartbtn" onclick="showCart()">🛒 Cart <span id="count">0</span></button>
+</header>
+<nav><a href="#home">Home</a><a href="#categories">Categories</a><a href="#products">Shop products</a><a href="#sell">Become a seller</a><a href="#sourcing">Supplier links</a><a href="#contact">Contact</a></nav>
+<section class="hero" id="home"><div><div class="tag">WELCOME TO B_K ONLINE SHOPPING</div><h1>Shop smart. Find more. Every day.</h1><p>A modern online shopping store concept for gadgets, fashion, home essentials and accessories. Browse products, add items to your cart and explore seller and supplier options.</p><button class="btn" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Start shopping</button></div><div class="heroArt">🛍️📦</div></section>
+<main class="wrap">
+ <div class="trust"><div>🚚 <b>Shipping options</b><span class="muted">Delivery details can be added per product</span></div><div>💵 <b>Cash on Delivery</b><span class="muted">Enable through a supported courier/payment setup</span></div><div>🤖 <b>AI shopping assistant</b><span class="muted">Demo helper included on this page</span></div><div>🛡️ <b>Owner-managed store</b><span class="muted">Store owner: B_K (your chosen brand)</span></div></div>
+ <section class="section" id="categories"><h2>Shop by category</h2><div class="categories">
+  <div class="cat" onclick="filterCat('Electronics')"><span>🎧</span><b>Electronics</b><small class="muted">Gadgets and tech</small></div>
+  <div class="cat" onclick="filterCat('Fashion')"><span>👟</span><b>Fashion</b><small class="muted">Clothing and style</small></div>
+  <div class="cat" onclick="filterCat('Home')"><span>🏠</span><b>Home & Living</b><small class="muted">Everyday essentials</small></div>
+  <div class="cat" onclick="filterCat('Accessories')"><span>⌚</span><b>Accessories</b><small class="muted">Useful add-ons</small></div>
+ </div></section>
+ <section class="section" id="products"><div class="toolbar"><h2>Featured products</h2><select id="catfilter" onchange="render()"><option>All</option><option>Electronics</option><option>Fashion</option><option>Home</option><option>Accessories</option></select></div><div class="products" id="grid"></div></section>
+ <section class="section two" id="sell">
+  <div class="panel"><h2>Seller area</h2><p class="muted">The planned seller system can let approved sellers create profiles, list products, update stock and manage orders. This preview shows the concept only; real seller accounts need a secure database, login and admin approval.</p><button class="btn dark" onclick="toast('Seller dashboard is a planned feature. It is not connected in this demo.')">Open seller dashboard</button></div>
+  <div class="panel"><h2>Store owner: B_K</h2><p class="muted">B_K is displayed as the store brand and owner label. Add your public business email, support number and business details before launching. Keep private account details off the public website.</p><button class="btn dark" onclick="toast('Owner settings require a secure admin login in the live version.')">Owner settings</button></div>
+ </section>
+ <section class="section two" id="sourcing">
+  <div class="panel"><h2>Supplier & marketplace links</h2><p class="muted">Find suppliers or compare marketplace listings. These are external links, not automatic product imports.</p><div class="links"><a class="linkbtn" href="https://www.alibaba.com/" target="_blank" rel="noopener">Alibaba suppliers ↗</a><a class="linkbtn" href="https://www.amazon.com/" target="_blank" rel="noopener">Amazon ↗</a></div></div>
+  <div class="panel"><h2>TikTok connection</h2><p class="muted">Link your public TikTok shop/profile here for promotion. Direct product/order sync requires supported TikTok Shop access and approved integration in your market.</p><div class="links"><a class="linkbtn" href="https://www.tiktok.com/" target="_blank" rel="noopener">Open TikTok ↗</a><button class="linkbtn" onclick="toast('Add your public TikTok profile URL when ready.')">Add TikTok profile</button></div></div>
+ </section>
+ <section class="section panel" id="contact"><h2>Shipping, orders & contact</h2><p class="muted">To launch real shipping, connect a courier account and define delivery charges, service areas, return policy and tracking. To accept payments, connect a supported payment provider. Live checkout, order tracking, AI API, and external marketplace syncing are not active in this prototype.</p></section>
+</main>
+<footer><div><div class="logo"><span class="mark">B_K</span> B_K ONLINE SHOPPING</div><p>Online shopping store concept. Owner label: B_K.</p></div><div><b>Customer support</b><p>Add business email<br>Add WhatsApp business number<br>Shipping and returns policy</p></div><div><b>Follow & source</b><p><a href="https://www.tiktok.com/" target="_blank" rel="noopener">TikTok</a><br><a href="https://www.alibaba.com/" target="_blank" rel="noopener">Alibaba</a><br><a href="https://www.amazon.com/" target="_blank" rel="noopener">Amazon</a></p></div></footer>
+<div class="assistant"><div class="chat" id="chat"><div class="chathead">🤖 B_K AI Shopping Assistant</div><div class="chatbody" id="chatbody"><div class="bubble">Assalam-o-alaikum! Main B_K store ka demo assistant hoon. Product search, categories aur website features ke baare mein pooch sakte hain.</div></div><div class="chatrow"><input id="chatinput" placeholder="Ask about shopping..." onkeydown="if(event.key==='Enter')ask()"><button class="btn" onclick="ask()">Send</button></div></div><button class="chatToggle" onclick="toggleChat()">🤖 Ask B_K Assistant</button></div>
+<div id="toast"></div>
+<script>
+const items=[
+{name:"MT5 Ultra AI Smart Glasses",cat:"Electronics",icon:"🕶️",price:41532,desc:"Smart glasses listing. Confirm features and warranty with supplier."},
+{name:"Wireless Earbuds",cat:"Electronics",icon:"🎧",price:3499,desc:"Wireless audio accessory."},
+{name:"Smart Watch",cat:"Accessories",icon:"⌚",price:5999,desc:"Everyday wearable accessory."},
+{name:"Portable Speaker",cat:"Electronics",icon:"🔊",price:4299,desc:"Portable Bluetooth speaker."},
+{name:"Desk LED Lamp",cat:"Home",icon:"💡",price:2499,desc:"Modern desk lamp."},
+{name:"Travel Backpack",cat:"Fashion",icon:"🎒",price:3899,desc:"Everyday travel backpack."},
+{name:"Coffee Mug",cat:"Home",icon:"☕",price:999,desc:"Reusable everyday mug."},
+{name:"Phone Stand",cat:"Accessories",icon:"📱",price:799,desc:"Adjustable phone stand."}
+];let cart=[];
+function money(n){return "Rs. "+n.toLocaleString("en-PK")}
+function render(){let q=document.getElementById("q").value.toLowerCase(),c=document.getElementById("catfilter").value;let a=items.filter(x=>(c==="All"||x.cat===c)&&(x.name.toLowerCase().includes(q)||x.desc.toLowerCase().includes(q)));document.getElementById("grid").innerHTML=a.map(x=>`<article class="product"><div class="pic">${x.icon}</div><h3>${x.name}</h3><div class="price">${money(x.price)}</div><p class="muted">${x.desc}</p><button class="btn" onclick="add('${x.name}')">Add to cart</button></article>`).join("")||"<p>No products found.</p>"}
+function filterCat(c){document.getElementById("catfilter").value=c;render();document.getElementById("products").scrollIntoView({behavior:"smooth"})}
+function add(n){cart.push(n);document.getElementById("count").textContent=cart.length;toast(n+" added to demo cart")}
+function showCart(){toast(cart.length?("Cart items: "+cart.join(", ")):"Your cart is empty")}
+function toast(s){let t=document.getElementById("toast");t.textContent=s;t.style.display="block";clearTimeout(window.tt);window.tt=setTimeout(()=>t.style.display="none",3000)}
+function toggleChat(){let c=document.getElementById("chat");c.style.display=c.style.display==="block"?"none":"block"}
+function ask(){let i=document.getElementById("chatinput"),v=i.value.trim();if(!v)return;let b=document.getElementById("chatbody");b.innerHTML+=`<div class="bubble"><b>You:</b> ${safe(v)}</div>`;let low=v.toLowerCase(),answer="Main is demo mein products search aur cart ke baare mein madad kar sakta hoon. Real AI answers ke liye secure AI service connect karni hogi.";if(low.includes("price")||low.includes("glasses"))answer="MT5 Ultra AI Smart Glasses ki demo listed price Rs. 41,532 hai. Supplier se final cost, shipping, warranty aur stock confirm karein.";else if(low.includes("shipping")||low.includes("delivery"))answer="Shipping abhi demo information hai. Live delivery ke liye courier service aur tracking integration connect karna hoga.";else if(low.includes("tiktok"))answer="TikTok link abhi external profile link ke taur par hai. Direct Shop sync ke liye TikTok Shop eligibility aur approved integration zaroori hai.";else if(low.includes("alibaba")||low.includes("amazon"))answer="Alibaba supplier sourcing ke liye hai aur Amazon alag marketplace hai. Product listing ya order sync automatic tabhi hoga jab supported integration/API aur seller permissions milen.";else if(low.includes("seller"))answer="Seller area ka plan hai. Live seller accounts ke liye secure login, database, seller verification aur admin dashboard chahiye.";b.innerHTML+=`<div class="bubble"><b>B_K Assistant:</b> ${answer}</div>`;b.scrollTop=b.scrollHeight;i.value=""}
+function safe(s){return s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+render();
+</script>
+</body></html>

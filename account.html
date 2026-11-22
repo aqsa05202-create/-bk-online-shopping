@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#17263d"><title>B_K Customer Account</title><link rel="stylesheet" href="account.css"></head>
+<body><header><a class="brand" href="index.html"><span>B_K</span> ONLINE SHOPPING</a><a class="back" href="index.html">Back to store</a></header>
+<main><section class="card"><div class="eyebrow">B_K ONLINE SHOPPING</div><h1>Your account</h1><p class="muted">Create an account or sign in to continue.</p>
+<div id="configNotice" class="notice">Setup required: add your Supabase Project URL and publishable/anon key in <code>supabase-config.js</code>.</div>
+<div id="authArea"><div class="tabs"><button class="tab active" data-mode="signup">Create account</button><button class="tab" data-mode="login">Sign in</button></div>
+<form id="authForm"><label>Email address<input id="email" type="email" autocomplete="email" required placeholder="you@example.com"></label><label>Password<input id="password" type="password" autocomplete="new-password" minlength="8" required placeholder="At least 8 characters"></label><label id="confirmWrap">Confirm password<input id="confirmPassword" type="password" autocomplete="new-password" minlength="8" placeholder="Enter password again"></label><button class="primary" id="submitBtn" type="submit">Create account</button></form>
+<button class="linkbtn" id="forgotBtn" type="button">Forgot password?</button></div>
+<div id="accountArea" hidden><div class="success">You are signed in.</div><p id="userEmail"></p><button class="primary" id="signOutBtn">Sign out</button></div>
+<p id="message" role="status" aria-live="polite"></p><p class="small">Use an email address you control. Never share your password or verification code.</p></section></main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script><script src="account.js"></script></body></html>

@@ -1,11 +1,95 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>B_K ONLINE SHOPPING</title><link rel="stylesheet" href="/style.css"></head>
-<body><header><div class="logo">B_K</div><div><h1>B_K ONLINE SHOPPING</h1><p>Marketplace • Multi-vendor • Worldwide</p></div><nav><a href="#products">Shop</a><a href="#account">Account</a><a href="#seller">Sell</a><a href="#admin">Owner</a></nav></header>
-<main><section class="hero"><div><span class="tag">WELCOME TO B_K MARKETPLACE</span><h2>Shop smart.<br>Sell worldwide.</h2><p>Products from independent sellers, with prices shown in PKR or USD.</p><a class="btn" href="#products">Explore products</a></div><div class="hero-mark">B_K<br><small>ONLINE SHOPPING</small></div></section>
-<section id="products"><h2>Marketplace products</h2><div id="productsGrid" class="grid"></div></section>
-<section id="account" class="panel"><h2>Customer / Seller account</h2><div class="two"><form id="login"><h3>Login</h3><input name="email" type="email" placeholder="Email" required><input name="password" type="password" placeholder="Password" required><button>Login</button></form>
-<form id="register"><h3>Create account</h3><input name="name" placeholder="Full name" required><input name="email" type="email" placeholder="Email" required><input name="password" type="password" minlength="10" placeholder="Password (10+ characters)" required><select name="role"><option value="customer">Customer</option><option value="seller">Seller (needs approval)</option></select><button>Register</button></form></div><p id="accountMsg" class="message"></p><button id="logout" class="secondary">Logout</button></section>
-<section id="seller" class="panel"><h2>Seller dashboard</h2><p>Login with an approved seller account to submit products. Every product is reviewed by the owner.</p><form id="newProduct" class="two"><input name="name" placeholder="Product name" required><input name="price" type="number" min="0.01" step="0.01" placeholder="Price" required><select name="currency"><option>PKR</option><option>USD</option></select><input name="stock" type="number" min="0" step="1" placeholder="Stock quantity" required><input name="image_url" placeholder="Image URL (optional)"><textarea name="description" placeholder="Product description"></textarea><button>Submit product</button></form><p id="sellerMsg" class="message"></p></section>
-<section id="admin" class="panel"><h2>Owner control centre</h2><p>Owner login is created from the private environment settings. Only the owner can approve sellers/products and update order status.</p><button id="loadAdmin">Load owner dashboard</button><div id="adminData"></div><p class="message">Keep your owner password private. Do not share .env or SESSION_SECRET.</p></section></main>
-<footer>© <span id="year"></span> B_K ONLINE SHOPPING • Built for a secure marketplace foundation.</footer><script src="/app.js"></script></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101828">
+  <title>B_K ONLINE SHOPPING | Global Marketplace</title>
+  <meta name="description" content="B_K ONLINE SHOPPING — discover products, compare sellers and shop across categories.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="topbar">Worldwide marketplace <span>•</span> PKR & USD price display <span>•</span> Demo storefront</div>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="B K Online Shopping home">
+      <span class="brand-mark">B<span>_</span>K</span>
+      <span class="brand-name">B_K <b>ONLINE SHOPPING</b><small>GLOBAL MARKETPLACE</small></span>
+    </a>
+    <form class="search" id="searchForm">
+      <input id="searchInput" type="search" placeholder="Search products, brands and categories..." aria-label="Search products">
+      <select id="categoryFilter" aria-label="Filter category"><option value="all">All categories</option><option>Electronics</option><option>Fashion</option><option>Home</option><option>Beauty</option><option>Accessories</option></select>
+      <button type="submit">Search</button>
+    </form>
+    <div class="header-actions">
+      <select id="currency" aria-label="Currency"><option value="PKR">PKR ₨</option><option value="USD">USD $</option></select>
+      <button class="icon-btn" id="accountBtn">Account</button>
+      <button class="cart-btn" id="cartBtn">Cart <span id="cartCount">0</span></button>
+    </div>
+  </header>
+
+  <nav class="nav">
+    <a href="#categories">☰ Categories</a><a href="#deals">Today's deals</a><a href="#products">New arrivals</a><a href="#sell">Sell on B_K</a><a href="#wholesale">Wholesale</a><a href="#help">Help centre</a>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">YOUR WORLD. ONE MARKETPLACE.</div>
+        <h1>Discover more.<br><em>Shop without limits.</em></h1>
+        <p>Explore products from independent sellers and discover great finds across everyday categories.</p>
+        <div class="hero-actions"><a class="primary-btn" href="#products">Explore products</a><a class="text-btn" href="#sell">Start selling →</a></div>
+        <div class="hero-points"><span>✓ Seller marketplace</span><span>✓ Multiple categories</span><span>✓ PKR / USD display</span></div>
+      </div>
+      <div class="hero-art">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="hero-card card-back"><span>NEW ARRIVALS</span><b>Fresh finds<br>for every day</b><small>Explore the collection</small></div>
+        <div class="hero-card card-front"><div class="spark">✦</div><div class="hero-bag">B_K</div><b>SHOP THE<br>WORLD</b><small>One marketplace</small></div>
+        <div class="floating-tag">B_K SELECT</div>
+      </div>
+    </section>
+
+    <section class="trust-strip">
+      <div><b>Multi-vendor</b><small>Independent sellers</small></div><div><b>Smart discovery</b><small>Search by category</small></div><div><b>Global-ready</b><small>PKR & USD display</small></div><div><b>Owner-led</b><small>Marketplace control</small></div>
+    </section>
+
+    <section class="section" id="categories">
+      <div class="section-heading"><div><div class="eyebrow">BROWSE YOUR WAY</div><h2>Shop by category</h2></div><span class="muted">Find something you love</span></div>
+      <div class="category-grid">
+        <button class="category-tile" data-category="Electronics"><span>⌁</span><b>Electronics</b><small>Gadgets & tech</small></button>
+        <button class="category-tile" data-category="Fashion"><span>✧</span><b>Fashion</b><small>Style & clothing</small></button>
+        <button class="category-tile" data-category="Home"><span>⌂</span><b>Home & living</b><small>Make it yours</small></button>
+        <button class="category-tile" data-category="Beauty"><span>❋</span><b>Beauty</b><small>Care & essentials</small></button>
+        <button class="category-tile" data-category="Accessories"><span>◇</span><b>Accessories</b><small>Finishing touches</small></button>
+      </div>
+    </section>
+
+    <section class="deal-banner" id="deals"><div><div class="eyebrow">THE B_K EDIT</div><h2>Good finds.<br>Better discoveries.</h2><p>Browse featured picks from the marketplace.</p></div><a href="#products" class="light-btn">View featured products →</a></section>
+
+    <section class="section" id="products">
+      <div class="section-heading"><div><div class="eyebrow">CURATED FOR YOU</div><h2>Featured products</h2></div><span class="muted" id="resultCount">Showing marketplace picks</span></div>
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <section class="seller-band" id="sell">
+      <div><div class="eyebrow">GROW WITH B_K</div><h2>Have products to sell?</h2><p>Introduce your store to customers browsing the B_K marketplace.</p></div>
+      <button class="primary-btn" id="sellerBtn">Apply as a seller</button>
+    </section>
+
+    <section class="section wholesale" id="wholesale">
+      <div><div class="eyebrow">FOR BULK BUYERS</div><h2>Looking for wholesale?</h2><p>Send a quotation request and tell sellers what you need. This demo stores requests only in this browser.</p></div>
+      <button class="outline-btn" id="quoteBtn">Request a quotation</button>
+    </section>
+
+    <section class="assistant" id="help"><div class="assistant-icon">✦</div><div><div class="eyebrow">B_K SHOPPING ASSISTANT</div><h2>Need help finding something?</h2><p>Ask for product ideas, categories or shopping guidance.</p></div><button class="light-btn" id="assistantBtn">Ask the assistant</button></section>
+  </main>
+
+  <footer><div class="footer-brand"><span class="brand-mark">B<span>_</span>K</span><b>B_K ONLINE SHOPPING</b></div><p>Discover. Compare. Shop.</p><div class="footer-links"><a href="#categories">Categories</a><a href="#sell">Sell on B_K</a><a href="#help">Help</a></div><small>© <span id="year"></span> B_K ONLINE SHOPPING. Prototype storefront — transactions are not enabled.</small></footer>
+
+  <dialog id="modal">
+    <form method="dialog" class="modal-close"><button aria-label="Close">×</button></form>
+    <div id="modalContent"></div>
+  </dialog>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>

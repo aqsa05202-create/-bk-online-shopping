@@ -1,54 +1,10 @@
-B_K ONLINE SHOPPING — FINAL WEBSITE PACKAGE
+Mela - Feed, Reels, Videos
 
-This package is based on the latest B_K login update. It preserves the existing Supabase email/password sign-up, login, logout, session restore and password-reset flow, plus TikTok video links, wishlist, coupons, reviews, customer cart/checkout preview and order tracking.
+Kaise chalayein:
+1. Zip ko extract karein.
+2. index.html par double-click karein. Browser mein khul jayegi.
 
-NEW IN THIS FINAL UPDATE
-- Two professional animated promotional poster panels.
-- Refined motion, hover and mobile responsive styling; respects reduced-motion accessibility settings.
-- Store Preferences panel for display currency, language preference, appearance preference and public support email.
-- PWA manifest, B_K SVG app icon, robots.txt and .nojekyll for GitHub Pages.
-
-PUBLISH TO THE EXISTING PUBLIC SITE
-1. Extract this ZIP.
-2. Open your existing GitHub repository and upload the CONTENTS of this folder to the repository root.
-3. Replace the existing index.html with this index.html. Upload manifest.webmanifest, robots.txt, .nojekyll and the assets folder too.
-4. Keep existing GitHub Pages settings (main branch / root) unchanged.
-5. Wait for the Pages deployment workflow to finish, then open:
-   https://aqsa05202-create.github.io/-bk-online-shopping/
-
-SUPABASE AUTH
-- Existing Supabase project URL and browser publishable key are retained from the latest login package.
-- Supabase Dashboard → Authentication → URL Configuration: ensure the public site URL is in the allowed Redirect URLs.
-- Email provider must be enabled. Configure email confirmation/SMTP as required.
-- Never add a service_role key or other secret to this public website.
-
-IMPORTANT LIMITS
-- This is still a static GitHub Pages front end. Authentication uses Supabase, but products, seller applications, cart, order previews, reviews, coupons, TikTok links and settings that are marked as browser preview are stored in localStorage and are not shared across devices.
-- The public customer page does not expose an owner/admin dashboard. Do not add owner controls to the public navigation.
-- Live payment processing, shared product/order database, real courier tracking, AI API responses and automatic TikTok/Amazon/Alibaba catalogue sync are not enabled. Those require secure backend/database policies, business/provider accounts and approved integrations.
-- Do not enter payment card details or private customer data in demo-only fields.
-
-CHROME
-Open the HTTPS site in Chrome. On Android, use Chrome menu → Add to Home screen (or Install app when offered).
-
-PAYMENT CHECKOUT UPDATE (DEMO ONLY)
------------------------------------
-The checkout now offers JazzCash, Easypaisa and Cash on Delivery choices. Demo orders save the selected method and a clear payment state, and the order management view shows these fields. No payment is collected, no wallet transfer is requested, and no automatic payment confirmation occurs.
-
-To enable real JazzCash/Easypaisa payments later:
-1. A responsible adult/business owner must obtain the relevant merchant account and approval directly from each provider.
-2. Obtain the current merchant integration kit, credentials, callback/signature rules and test credentials from the provider.
-3. Implement payment initiation and server-to-server callback verification in a secure backend (for this project, Supabase Edge Functions can be used).
-4. Store all secret keys only as server-side function secrets. Never put merchant passwords, secret keys, signing keys or private tokens in index.html, GitHub Pages, browser JavaScript or public GitHub repository files.
-5. Mark an order Paid only after the backend validates the provider's authentic callback/status response and amount/currency/order reference. Never rely on a customer screenshot or a browser-side success redirect.
-6. Test using provider sandbox credentials before requesting live activation. Courier booking and COD settlement require separate courier account/API setup.
-
-This ZIP is a front-end checkout update, not a payment gateway integration. Existing localStorage demo data remains browser/device-specific.
-
-BUYING / SELLING / SHIPPING HUB UPDATE
-- Added a public Buying, Selling and Shipping hub with direct navigation cards.
-- Added a demo product listing form for own products and supplier/dropshipping products.
-- Listing form captures product category, price, stock, listing type and preferred shipping method.
-- Checkout now lets customers choose seller/own shipping, courier delivery, or supplier direct shipping.
-- Demo orders record the selected shipping method in the local browser order preview.
-- These features are front-end previews saved in the current browser only. Shared seller listings, live orders, courier bookings, labels, tracking APIs and real payments still require secure backend and provider integrations.
+Note:
+- Feed, Reels, Videos, Stories, Search aur Dark mode kisi bhi browser mein chalte hain.
+- Live chat aur Mela AI sirf claude.ai par kaam karte hain. Zip se kholne par ye band rehte hain.
+- Posts aur uploads sirf page khula rehne tak rehte hain.

@@ -1,454 +1,239 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#0b1424">
-<meta name="description" content="B_K Online Shopping — discover products, shop, connect with sellers and follow store updates.">
-<meta name="robots" content="index,follow">
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" href="assets/bk-icon.svg" type="image/svg+xml">
-<title>B_K ONLINE SHOPPING | Marketplace</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mela – Feed, Reels, Videos</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-:root{--nav:#0b1424;--nav2:#17263c;--gold:#f6bd4b;--gold2:#ffe3a0;--teal:#0d987d;--bg:#f3f5f8;--ink:#172235;--muted:#68758a;--line:#e5e9ef;--white:#fff}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px Arial,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}a{text-decoration:none;color:inherit}
-header{position:sticky;top:0;z-index:9;background:var(--nav);color:white;padding:9px 3%;display:flex;align-items:center;gap:13px;box-shadow:0 3px 15px #0002}
-.brand{display:flex;align-items:center;gap:9px;min-width:max-content}.brand svg{width:48px;height:48px;filter:drop-shadow(0 3px 5px #0005)}.brandname{font-size:15px;font-weight:900;letter-spacing:.4px}.brandname small{display:block;color:#c6d0df;font-size:9px;letter-spacing:2px;margin-top:3px}
-.search{display:flex;flex:1;min-width:80px}.search input{min-width:0;flex:1;padding:12px;border:0;border-radius:8px 0 0 8px}.search button{border:0;background:var(--gold);padding:0 14px;border-radius:0 8px 8px 0;font-weight:bold}
-.headbtn{border:1px solid #64748b;color:white;background:transparent;padding:10px;border-radius:8px;white-space:nowrap}
-nav{background:var(--nav2);color:#fff;display:flex;gap:20px;padding:11px 3%;overflow:auto;white-space:nowrap;font-size:13px}nav a:hover{text-decoration:underline}
-.hero{background:linear-gradient(115deg,#101d33,#12685e);color:#fff;padding:44px 6%;display:grid;grid-template-columns:1.2fr .8fr;gap:20px;align-items:center}.hero h1{font-size:clamp(30px,5vw,54px);line-height:1.04;margin:10px 0}.hero p{color:#d9e6ed;line-height:1.6;max-width:620px}.kicker{color:var(--gold2);font-weight:bold;letter-spacing:2px}.heroArt{font-size:95px;text-align:center;border:1px solid #ffffff30;background:#ffffff14;border-radius:25px;padding:30px}
-.wrap{max-width:1500px;margin:auto;padding:20px 3% 55px}.btn{border:0;background:var(--gold);color:#182233;border-radius:8px;padding:10px 14px;font-weight:bold}.btn.dark{background:var(--nav);color:#fff}.btn.green{background:var(--teal);color:#fff}.btn.red{background:#b83240;color:#fff}.btn.ghost{background:#eef2f6;color:#243247;border:1px solid #dce3eb}.btn.small{padding:7px 9px;font-size:12px}
-.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:11px}.metric,.panel{background:white;border-radius:12px;padding:15px;box-shadow:0 3px 14px #17223808}.metric .num{font-size:23px;font-weight:800;margin-top:5px}.muted{color:var(--muted);font-size:12px;line-height:1.5}.section{margin:20px 0}.section h2{margin:0 0 13px;font-size:21px}
-.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.cat{background:white;padding:17px;border-radius:12px;cursor:pointer}.cat span{font-size:31px}.cat b{display:block;margin-top:8px}
-.products{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.product{background:white;padding:12px;border-radius:12px;display:flex;flex-direction:column;box-shadow:0 3px 14px #17223808}.pic{height:125px;background:#edf2f5;border-radius:9px;display:grid;place-items:center;font-size:58px;margin-bottom:10px}.product h3{font-size:14px;min-height:34px;margin:0 0 7px}.price{font-size:18px;color:#087b69;font-weight:800}.product .muted{flex:1;margin:7px 0}
-.toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}.toolbar select{padding:9px;border:1px solid var(--line);border-radius:8px;background:#fff}
-.layout{display:grid;grid-template-columns:225px minmax(0,1fr);gap:15px;align-items:start}.side{background:var(--nav);color:white;border-radius:12px;padding:13px;position:sticky;top:120px}.side .sideTitle{font-weight:bold;color:var(--gold);padding:7px 9px 12px}.side button{width:100%;text-align:left;border:0;background:transparent;color:#e8edf5;padding:10px;border-radius:7px;margin:2px 0}.side button:hover,.side button.active{background:#2a3b55;color:#fff}.side .sub{font-size:10px;color:#aebbd0;padding:12px 9px 4px;text-transform:uppercase;letter-spacing:1px}
-.adminpanel{background:#fff;border-radius:12px;padding:17px;min-height:420px;box-shadow:0 3px 14px #17223808}.adminpanel h2{margin:0 0 6px}.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.field{display:grid;gap:5px;margin:8px 0}.field label{font-size:12px;font-weight:bold;color:#536176}.field input,.field select,.field textarea{padding:10px;border:1px solid #d7dee7;border-radius:8px;width:100%;background:white}.field textarea{min-height:72px;resize:vertical}.full{grid-column:1/-1}
-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:12px}th,td{text-align:left;padding:10px 7px;border-bottom:1px solid var(--line);vertical-align:top}th{color:#59667a;background:#f8fafc}.tablewrap{overflow:auto}
-.pill{display:inline-block;border-radius:20px;padding:4px 8px;background:#edf2f6;font-size:11px}.notice{background:#fff7e6;border:1px solid #f2d89b;color:#705319;padding:11px;border-radius:9px;font-size:12px;line-height:1.5;margin:10px 0}.success{background:#e8f7f1;border-color:#bce5d5;color:#17634e}
-.twocol{display:grid;grid-template-columns:1fr 1fr;gap:12px}.linkrow{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}.link{display:inline-block;padding:10px 13px;border-radius:8px;background:#edf2f6;border:1px solid #dce3eb;font-weight:bold;font-size:12px}
-footer{background:var(--nav);color:#fff;padding:27px 5%;display:grid;grid-template-columns:2fr 1fr 1fr;gap:18px}footer p{color:#c5ceda;font-size:13px;line-height:1.7}
-.assist{position:fixed;right:15px;bottom:15px;z-index:10}.chatbtn{background:var(--teal);color:white;border:0;border-radius:25px;padding:14px 17px;font-weight:bold;box-shadow:0 5px 18px #0003}.chat{display:none;position:absolute;right:0;bottom:58px;width:min(340px,calc(100vw - 30px));background:#fff;border-radius:14px;box-shadow:0 8px 30px #0004;overflow:hidden}.chathead{background:var(--nav);color:#fff;padding:13px;font-weight:bold}.chatbody{height:220px;overflow:auto;padding:12px;font-size:13px}.bubble{background:#edf2f6;border-radius:10px;padding:9px 11px;margin:7px 0;line-height:1.45}.chatrow{display:flex;padding:9px;gap:6px;border-top:1px solid #eee}.chatrow input{flex:1;min-width:0;padding:9px;border:1px solid #ddd;border-radius:8px}
-#toast{position:fixed;left:50%;bottom:78px;transform:translateX(-50%);background:#182438;color:#fff;border-radius:8px;padding:11px 15px;display:none;z-index:20;max-width:90%;text-align:center}
-@media(max-width:900px){.layout{grid-template-columns:1fr}.side{position:static;display:flex;overflow:auto;gap:4px}.side .sideTitle,.side .sub{display:none}.side button{white-space:nowrap;width:auto}.products{grid-template-columns:repeat(2,1fr)}.cards{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){header{gap:7px;padding:7px 2%}.brand svg{width:38px;height:38px}.brandname{font-size:11px}.brandname small{font-size:7px}.headbtn{font-size:11px;padding:8px}.search button{padding:0 9px}.hero{padding:30px 5%;grid-template-columns:1fr}.heroArt{font-size:60px}.wrap{padding:13px 3% 40px}.products{gap:8px}.product{padding:9px}.pic{height:100px;font-size:48px}.cats{grid-template-columns:repeat(2,1fr)}.twocol,.formgrid{grid-template-columns:1fr}.full{grid-column:auto}footer{grid-template-columns:1fr}.side{top:auto}.side button{font-size:11px;padding:8px}}
-
-.cart-layer{display:none;position:fixed;inset:0;background:#081323c9;z-index:60;align-items:center;justify-content:center;padding:14px}
-.cart-panel{background:#fff;width:min(650px,100%);max-height:92vh;overflow:auto;border-radius:16px;padding:22px;box-shadow:0 20px 60px #0005}
-.cart-head{display:flex;align-items:center;justify-content:space-between;gap:10px}.cart-line{display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center;border-bottom:1px solid #e7ebf0;padding:12px 0}
-.cart-line button{border:0;border-radius:7px;padding:7px 10px}.cart-total{font-size:20px;font-weight:900;text-align:right;padding:15px 0}
-.checkout-fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}.checkout-fields input,.checkout-fields textarea{width:100%;padding:11px;border:1px solid #d7dee7;border-radius:8px}
-.checkout-fields .wide{grid-column:1/-1}.payment-choice{display:flex;align-items:center;gap:9px;padding:11px;border:1px solid #d7dee7;border-radius:8px;margin:7px 0;font-weight:600}.payment-choice input{width:auto}.product-actions{display:flex;gap:7px;flex-wrap:wrap}.product-actions .btn{flex:1}
-@media(max-width:520px){.cart-line{grid-template-columns:1fr auto}.checkout-fields{grid-template-columns:1fr}.checkout-fields .wide{grid-column:auto}}
-
-
-.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
-.feature-card{background:var(--card,#fff);border:1px solid var(--line,#e5eaf0);border-radius:14px;padding:18px;box-shadow:0 8px 24px #12213a0b}
-.feature-card h3{margin:7px 0}.feature-card p{color:var(--muted,#687789);min-height:38px}
-.feature-icon{font-size:28px}.feature-card button{margin-top:8px}.social-list a{display:block;margin:8px 0;overflow-wrap:anywhere}
-.tracking-card{max-width:560px;display:grid;gap:10px}.tracking-card input{padding:12px;border:1px solid #d7dee7;border-radius:8px}
-.tracking-result{margin-top:10px;padding:10px;border-radius:9px;background:#f1f5f9;white-space:pre-wrap}
-
-
-.feature-card details{border-top:1px solid #e7ebf0;padding:10px 0}
-.feature-card summary{cursor:pointer;font-weight:700}
-.feature-card details p{margin:8px 0 0;min-height:0}
-
-
-/* Final B_K campaign and interaction polish */
-html{scroll-behavior:smooth;scroll-padding-top:100px}body{overflow-x:hidden}
-.hero{position:relative;overflow:hidden;isolation:isolate;background:radial-gradient(circle at 78% 24%,#36b6a055,transparent 28%),linear-gradient(120deg,#0b1424 0%,#142b45 52%,#087b69 100%)}
-.hero:after{content:"";position:absolute;width:360px;height:360px;border:1px solid #ffffff24;border-radius:50%;right:-90px;top:-150px;z-index:-1;box-shadow:0 0 0 35px #ffffff08,0 0 0 75px #ffffff06}
-.heroArt{animation:bkFloat 5s ease-in-out infinite;box-shadow:0 18px 50px #0002;backdrop-filter:blur(8px)}
-.campaigns{max-width:1500px;margin:18px auto 0;padding:0 3%;display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.campaign{position:relative;min-height:205px;overflow:hidden;border-radius:17px;padding:24px 26px;color:#fff;display:flex;align-items:center;justify-content:space-between;box-shadow:0 10px 30px #0c1b2c18;isolation:isolate}
-.campaign-tech{background:linear-gradient(118deg,#14233b,#08796e)}.campaign-lifestyle{background:linear-gradient(118deg,#35244e,#a05d37)}
-.campaign:before{content:"";position:absolute;width:230px;height:230px;border-radius:50%;right:4%;top:-70px;background:#ffffff12;z-index:-1}
-.campaign-tag{font-size:10px;letter-spacing:2px;font-weight:800;color:#ffe2a0}.campaign h2{font-size:clamp(20px,3vw,29px);line-height:1.1;margin:10px 0 7px;max-width:360px}.campaign p{font-size:13px;color:#e0e8ef;margin:0 0 14px;max-width:340px;line-height:1.5}.campaign-link{display:inline-block;color:#fff;font-size:12px;font-weight:800;border-bottom:1px solid #fff9;padding-bottom:4px}.campaign-art{display:flex;gap:0;align-items:center;font-size:clamp(38px,5vw,62px);white-space:nowrap;filter:drop-shadow(0 10px 12px #0003);animation:bkFloat 4.5s ease-in-out infinite}.campaign-art span:nth-child(2){animation:bkFloat 4.5s ease-in-out .4s infinite}.campaign-art span:nth-child(3){animation:bkFloat 4.5s ease-in-out .8s infinite}
-.product,.metric,.panel,.cat,.feature-card{transition:transform .22s ease,box-shadow .22s ease}.product:hover,.cat:hover,.feature-card:hover{transform:translateY(-4px);box-shadow:0 12px 28px #17223818}.product .pic{background:linear-gradient(145deg,#eef3f8,#e4edf1);transition:transform .25s ease}.product:hover .pic{transform:scale(.985)}
-.btn,.headbtn,.side button,.chatbtn{transition:transform .18s ease,filter .18s ease}.btn:hover,.headbtn:hover,.chatbtn:hover{filter:brightness(1.05);transform:translateY(-1px)}
-:focus-visible{outline:3px solid #e8ae3c;outline-offset:2px}
-@keyframes bkFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-@media(max-width:680px){.campaigns{grid-template-columns:1fr;padding:0 3%;gap:10px}.campaign{min-height:175px;padding:19px}.campaign-art{font-size:45px}.hero{gap:12px}.heroArt{padding:22px}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
-
+:root{--bg:#fbf6ee;--card:#fff;--ink:#2a1838;--mute:#7a6a85;--line:#eadfd0;--accent:#ff8a00;--teal:#0f8b7f;--onacc:#2a1838;
+color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1a1024;--card:#26183400;--card:#261834;--ink:#f6ecff;--mute:#a995b8;--line:#3a2850;--teal:#34d1c0;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1a1024;--card:#261834;--ink:#f6ecff;--mute:#a995b8;--line:#3a2850;--teal:#34d1c0;color-scheme:dark}
+*,*:before,*:after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Bricolage Grotesque',system-ui,-apple-system,Segoe UI,sans-serif;line-height:1.45}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px;padding:10px 16px}
+.logo{font-weight:800;font-size:1.5rem;letter-spacing:-.03em}
+.logo i{font-style:normal;color:var(--accent)}
+nav{display:flex;gap:4px;margin:0 auto}
+nav button{padding:8px 16px;border-radius:99px;font-weight:600;color:var(--mute)}
+nav button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+.create{background:var(--accent);color:var(--onacc);font-weight:800;padding:9px 16px;border-radius:99px}
+.theme{width:36px;height:36px;border-radius:50%;border:1px solid var(--line)}
+main{max-width:640px;margin:0 auto;padding:16px}
+main.wide{max-width:1100px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;margin-bottom:16px;overflow:hidden}
+.ph{display:flex;align-items:center;gap:10px;padding:12px 14px}
+.av{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-weight:800;color:#fff;flex:none}
+.ph b{display:block;line-height:1.1}.ph small{color:var(--mute)}
+.txt{padding:0 14px 12px;font-size:1.02rem;max-width:62ch}
+.media{aspect-ratio:16/10;position:relative;overflow:hidden;background:#222}
+.media video,.media img{width:100%;height:100%;object-fit:cover;display:block}
+.art{position:absolute;inset:0}
+.art span{position:absolute;border-radius:50%;filter:blur(2px);animation:drift 9s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translate(30px,-24px) scale(1.25)}}
+.acts{display:flex;gap:4px;padding:6px 8px;border-top:1px solid var(--line)}
+.acts button{padding:8px 12px;border-radius:10px;font-weight:600;color:var(--mute)}
+.acts button:hover{background:var(--line)}
+.acts .on{color:#e5195b}
+.cmts{padding:8px 14px 14px;border-top:1px solid var(--line)}
+.cmts p{margin:6px 0;font-size:.95rem}
+.cmts form{display:flex;gap:8px;margin-top:8px}
+input[type=text],textarea{flex:1;width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:9px 12px}
+.btn{background:var(--ink);color:var(--bg);padding:9px 16px;border-radius:10px;font-weight:600}
+.reels{height:calc(100dvh - 130px);overflow-y:auto;scroll-snap-type:y mandatory;border-radius:18px;max-width:420px;margin:0 auto;scrollbar-width:none}
+.reel{height:100%;scroll-snap-align:start;position:relative;overflow:hidden;background:#222;color:#fff}
+.reel .cap{position:absolute;left:16px;right:80px;bottom:20px;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+.reel .side{position:absolute;right:10px;bottom:24px;display:flex;flex-direction:column;gap:14px;align-items:center}
+.reel .side button{width:52px;color:#fff;font-weight:600;font-size:.8rem;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+.reel .side b{display:block;font-size:1.6rem}
+.reel.paused .art span{animation-play-state:paused}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+.vid{text-align:left;display:block;width:100%}
+.vid .media{border-radius:14px;aspect-ratio:16/9}
+.dur{position:absolute;right:8px;bottom:8px;background:rgba(0,0,0,.75);color:#fff;font-size:.78rem;padding:2px 7px;border-radius:6px;z-index:2}
+.vid h3{margin:8px 0 2px;font-size:1rem;line-height:1.25}.vid small{color:var(--mute)}
+.watch .media{aspect-ratio:16/9;border-radius:16px}
+.bar{position:absolute;left:0;bottom:0;height:5px;background:var(--accent);z-index:2;width:0}
+.play{position:absolute;inset:0;display:grid;place-items:center;z-index:2}
+.play span{width:68px;height:68px;border-radius:50%;background:rgba(255,255,255,.9);display:grid;place-items:center;color:#2a1838;font-size:1.6rem}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:12px 0}
+dialog{border:1px solid var(--line);border-radius:18px;background:var(--card);color:var(--ink);width:min(520px,92vw);padding:18px}
+dialog::backdrop{background:rgba(20,8,30,.55)}
+dialog h2{margin:0 0 10px}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:99px;z-index:40;font-weight:600}
+@media (max-width:560px){header{flex-wrap:wrap}nav{order:3;width:100%;justify-content:space-between}nav button{flex:1;padding:8px 6px}.create{margin-left:auto}}
+.stories{display:flex;gap:12px;overflow-x:auto;padding-bottom:12px;scrollbar-width:none}.stories button{display:grid;justify-items:center;gap:4px;font-size:.8rem;flex:none}.ring{padding:3px;border-radius:50%;background:conic-gradient(var(--accent),#c2185b,var(--teal),var(--accent))}.ring .av{border:3px solid var(--bg)}
+.sv{position:fixed;inset:0;z-index:50;display:grid;place-items:center;color:#fff;text-align:center;padding:30px;font-size:1.5rem;font-weight:800}
+.msgs{height:calc(100dvh - 270px);min-height:240px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;padding:4px}
+.m{max-width:82%;padding:8px 12px;border-radius:14px;background:var(--card);border:1px solid var(--line);white-space:pre-wrap}.m.me{align-self:flex-end;background:var(--accent);color:var(--onacc);border:0}.m small{display:block;color:var(--mute);font-size:.72rem}.m.me small{color:inherit;opacity:.7}
+.chatf{display:flex;gap:8px;margin-top:10px}
+@media (prefers-reduced-motion:reduce){.art span{animation:none}}
 </style>
 </head>
 <body>
 <header>
- <a class="brand" href="#home">
-  <svg viewBox="0 0 100 100" role="img" aria-label="B K logo"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff0bd"/><stop offset=".48" stop-color="#f6bd4b"/><stop offset="1" stop-color="#c98217"/></linearGradient></defs><path d="M50 3 91 26v48L50 97 9 74V26Z" fill="url(#g)" stroke="#fff1c9" stroke-width="2"/><path d="M24 25h24c14 0 19 16 8 24 15 7 9 27-7 27H24Zm13 11v9h10c6 0 6-9 0-9Zm0 20v10h11c7 0 7-10 0-10Z" fill="#111827"/><path d="M60 25h14L60 48l17 28H61L47 52Z" fill="#111827"/><path d="M16 82h68" stroke="#fff5d8" stroke-width="2" opacity=".8"/></svg>
-  <span class="brandname">B_K ONLINE SHOPPING<small>YOUR MARKETPLACE</small></span>
- </a>
- <div class="search"><input id="search" placeholder="Search products..." oninput="renderProducts()"><button onclick="renderProducts()">Search</button></div>
- <button class="headbtn" onclick="showCart()">🛒 Cart <span id="cartCount">0</span></button>
- <button class="headbtn" onclick="openAccount(currentUser?'account':'login')">Account</button>
- <button class="headbtn" onclick="openAccount('signup')">Sign Up</button>
+  <div class="logo">Mela<i>.</i></div>
+  <nav role="tablist" aria-label="Sections">
+    <button role="tab" data-tab="feed">Feed</button>
+    <button role="tab" data-tab="reels">Reels</button>
+    <button role="tab" data-tab="videos">Videos</button>
+    <button role="tab" data-tab="chat">Chat</button>
+    <button role="tab" data-tab="ai">AI</button>
+  </nav>
+  <button class="theme" id="theme" aria-label="Toggle dark mode">◐</button>
+  <button class="create" id="create">+ Create</button>
 </header>
-<nav><a href="#home">Home</a><a href="#categories">Categories</a><a href="#shop">Marketplace</a><a href="#seller">Seller centre</a><a href="#connections">Global links</a><a href="#" onclick="openUpgrade();return false">Upgrade</a><a href="#social">TikTok Videos</a><a href="#extras">More Features</a><a href="#extras" onclick="setTimeout(openStoreSettings,80)">Settings</a><a href="#tracking">Track Order</a></nav>
-<section class="hero" id="home"><div><div class="kicker">B_K ONLINE SHOPPING</div><h1>One marketplace. Your business, your control.</h1><p>A multi-vendor marketplace concept inspired by large B2B and retail platforms: products, suppliers, seller applications, RFQs, orders, logistics and owner tools in one place.</p><button class="btn" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Explore marketplace</button></div><div class="heroArt">🏪📦🌍</div></section>
-<section class="campaigns" aria-label="B_K featured shopping campaigns">
- <article class="campaign campaign-tech">
-  <div class="campaign-copy"><span class="campaign-tag">B_K FEATURED COLLECTION</span><h2>Smart picks. Better everyday.</h2><p>Explore useful gadgets and accessories from the marketplace.</p><a href="#shop" class="campaign-link">Explore products <span aria-hidden="true">→</span></a></div>
-  <div class="campaign-art" aria-hidden="true"><span>⌚</span><span>🎧</span><span>📱</span></div>
- </article>
- <article class="campaign campaign-lifestyle">
-  <div class="campaign-copy"><span class="campaign-tag">DISCOVER SOMETHING NEW</span><h2>Your next favourite is here.</h2><p>Browse fashion, home essentials and more in one place.</p><a href="#categories" class="campaign-link">Browse categories <span aria-hidden="true">→</span></a></div>
-  <div class="campaign-art" aria-hidden="true"><span>🛍️</span><span>📦</span></div>
- </article>
-</section>
-<main class="wrap">
- <div class="cards">
-  <div class="metric"><div class="muted">Marketplace products</div><div class="num" id="metricProducts">8</div><div class="muted">Sample catalogue</div></div>
-  <div class="metric"><div class="muted">Demo cart items</div><div class="num" id="metricCart">0</div><div class="muted">Local preview only</div></div>
-  <div class="metric"><div class="muted">Seller applications</div><div class="num" id="metricSellers">0</div><div class="muted">Saved in this browser</div></div>
-  <div class="metric"><div class="muted">RFQ requests</div><div class="num" id="metricRfqs">0</div><div class="muted">Saved in this browser</div></div>
- </div>
- <section class="section" id="categories"><h2>Shop by category</h2><div class="cats">
-  <div class="cat" onclick="setCat('Electronics')"><span>🎧</span><b>Electronics</b></div><div class="cat" onclick="setCat('Fashion')"><span>👕</span><b>Fashion</b></div><div class="cat" onclick="setCat('Home')"><span>🏠</span><b>Home & Living</b></div><div class="cat" onclick="setCat('Accessories')"><span>⌚</span><b>Accessories</b></div>
- </div></section>
- <section class="section" id="shop"><div class="toolbar"><h2>Marketplace products</h2><select id="category" onchange="renderProducts()"><option>All</option><option>Electronics</option><option>Fashion</option><option>Home</option><option>Accessories</option></select></div><div class="products" id="productGrid"></div></section>
- 
-<section id="social" class="section">
- <div class="section-head"><div><span class="eyebrow">SOCIAL SHOPPING</span><h2>TikTok Videos & Social Links</h2><p>Apni TikTok videos yahan feature karo aur visitors ko store tak lao.</p></div></div>
- <div class="feature-grid">
-  <article class="feature-card"><div class="feature-icon">▶</div><h3>TikTok Store Video</h3><p>Apni TikTok video ka link add karke yahan show karo.</p><button class="btn" onclick="addTikTokLink()">Add TikTok video link</button><div id="tiktokList" class="social-list"></div></article>
-  <article class="feature-card"><div class="feature-icon">↗</div><h3>Visit TikTok Profile</h3><p>Customers ko official TikTok profile par bhejo.</p><button class="btn ghost" onclick="setTikTokProfile()">Set profile link</button><div id="tiktokProfileStatus" class="muted">Profile link not set</div></article>
-  <article class="feature-card"><div class="feature-icon">📣</div><h3>Share Store</h3><p>Website link share karke apne store ki promotion karo.</p><button class="btn ghost" onclick="shareStore()">Share website</button></article>
- </div>
-</section>
-<section id="extras" class="section">
- <div class="section-head"><div><span class="eyebrow">CUSTOMER EXPERIENCE</span><h2>More Shopping Features</h2><p>Useful tools ek hi jagah par.</p></div></div>
- <div class="feature-grid">
-  <article class="feature-card"><div class="feature-icon">♡</div><h3>Wishlist</h3><p>Favourite products save karo.</p><button class="btn" onclick="openWishlist()">Open wishlist</button></article>
-  <article class="feature-card"><div class="feature-icon">🏷</div><h3>Discount Coupons</h3><p>Available coupon codes dekho aur checkout mein apply karo.</p><button class="btn" onclick="openCoupons()">View coupons</button></article>
-  <article class="feature-card"><div class="feature-icon">★</div><h3>Customer Reviews</h3><p>Products par apni rating aur review add karo.</p><button class="btn" onclick="openReviews()">Write a review</button></article>
-  <article class="feature-card"><div class="feature-icon">🌐</div><h3>Language</h3><p>Website language preference select karo.</p><button class="btn ghost" onclick="chooseLanguage()">Language settings</button></article>
-  <article class="feature-card"><div class="feature-icon">💬</div><h3>WhatsApp Support</h3><p>Support WhatsApp number set karo.</p><button class="btn ghost" onclick="setWhatsApp()">Set WhatsApp</button></article>
-  <article class="feature-card"><div class="feature-icon">🤖</div><h3>AI Shopping Assistant</h3><p>Products aur shopping ke liye help panel.</p><button class="btn" onclick="openShoppingAssistant()">Open assistant</button></article>
-  <article class="feature-card"><div class="feature-icon">⚙️</div><h3>Store Preferences</h3><p>Display currency, language, theme aur contact preferences configure karo.</p><button class="btn ghost" onclick="openStoreSettings()">Open settings</button></article>
- </div>
-</section>
-<section id="tracking" class="section">
- <div class="section-head"><div><span class="eyebrow">ORDER SERVICES</span><h2>Track Your Order</h2><p>Preview order ID se is browser mein saved order status check karo.</p></div></div>
- <div class="feature-card tracking-card"><label for="trackOrderId">Order ID</label><input id="trackOrderId" placeholder="Enter order ID"><button class="btn" onclick="trackLocalOrder()">Track order</button><div id="trackingResult" class="tracking-result"></div></div>
-</section>
+<main id="view"></main>
 
-<!-- Owner/admin dashboard removed from public storefront. -->
- <section class="section twocol" id="seller">
-  <div class="panel"><h2>🤝 Seller centre</h2><p class="muted">Sellers can submit a demo application. In the live marketplace, you as owner approve or reject seller accounts and control listing permissions.</p>
-   <div class="field"><label>Shop name</label><input id="sShop" placeholder="Your shop name"></div><div class="field"><label>Contact person</label><input id="sName" placeholder="Contact name"></div><div class="field"><label>Product category</label><select id="sCat"><option>Electronics</option><option>Fashion</option><option>Home</option><option>Accessories</option></select></div><button class="btn" onclick="submitSeller()">Submit seller application</button>
-  </div>
-  <div class="panel"><h2>📩 Request for quotation (RFQ)</h2><p class="muted">A B2B-style feature: ask suppliers for price and terms for a product you want to source.</p>
-   <div class="field"><label>Product needed</label><input id="rfqProduct" placeholder="e.g. Bluetooth headphones"></div><div class="field"><label>Quantity needed</label><input id="rfqQty" type="number" min="1" placeholder="e.g. 20"></div><div class="field"><label>Notes</label><textarea id="rfqNotes" placeholder="Specifications or questions"></textarea></div><button class="btn" onclick="submitRfq()">Submit quotation request</button>
-  </div>
- </section>
- <section class="section" id="connections"><h2>🌍 External platforms & supplier tools</h2><div class="twocol">
-  <div class="panel"><h2>Alibaba supplier sourcing</h2><p class="muted">Explore manufacturers, compare quotes, check minimum order quantity, shipping terms, samples and supplier verification. This link does not import listings automatically.</p><a class="btn" href="https://www.alibaba.com/" target="_blank" rel="noopener">Open Alibaba ↗</a></div>
-  <div class="panel"><h2>Amazon marketplace</h2><p class="muted">Amazon is a separate sales marketplace. Selling there requires an eligible seller account and compliance with Amazon policies. Product and order sync needs approved tools/API.</p><a class="btn dark" href="https://sell.amazon.com/" target="_blank" rel="noopener">Amazon Seller ↗</a></div>
-  <div class="panel"><h2>TikTok promotion</h2><p class="muted">Use TikTok to promote products. Direct Shop catalogue/order integration depends on TikTok Shop availability, account eligibility and approved access in your country.</p><a class="btn" href="https://www.tiktok.com/" target="_blank" rel="noopener">Open TikTok ↗</a></div>
-  <div class="panel"><h2>Shipping partners</h2><p class="muted">Courier accounts, rates, pickup, COD remittance and tracking APIs must be agreed and connected before actual shipping.</p><span class="pill">Integration planned</span></div>
- </div></section>
- <div class="notice">Important: This is a feature-rich front-end prototype, not a live Alibaba/Amazon clone. Real logins, multi-user seller accounts, database, online payments, AI API, inventory sync, supplier imports, courier booking and automatic TikTok/Amazon/Alibaba connections require a secure backend, provider approvals and hosting. Do not enter passwords, bank details or private customer information here.</div>
-</main>
-<footer><div class="brand"><svg viewBox="0 0 100 100" width="42" height="42"><path d="M50 3 91 26v48L50 97 9 74V26Z" fill="#f6bd4b"/><text x="50" y="62" font-size="32" font-weight="bold" text-anchor="middle" fill="#111827">B_K</text></svg><b>B_K ONLINE SHOPPING</b><p>Multi-vendor marketplace prototype. Owner brand: B_K.</p></div><div><b>Customer service</b><p>Orders & shipping<br>Returns and refunds<br>Support centre</p></div><div><b>Business tools</b><p>Seller centre<br>Supplier RFQs<br>Marketplace integrations</p></div></footer>
-<div class="assist"><div class="chat" id="chat"><div class="chathead">🤖 B_K AI Shopping Assistant</div><div class="chatbody" id="chatBody"><div class="bubble">Assalam-o-alaikum! Main B_K website ka demo assistant hoon. Products, sellers, RFQs, suppliers aur shipping ke baare mein pooch sakte hain.</div></div><div class="chatrow"><input id="chatInput" placeholder="Ask a question..." onkeydown="if(event.key==='Enter')askAI()"><button class="btn" onclick="askAI()">Send</button></div></div><button class="chatbtn" onclick="toggleChat()">🤖 B_K Assistant</button></div>
-<div id="toast"></div>
+<dialog id="dlg">
+  <h2>Create something</h2>
+  <textarea id="newText" rows="4" placeholder="Share what’s on your mind…"></textarea>
+  <div class="row"><button class="btn" id="aiCap" hidden>✨ Write with AI</button></div>
+  <div class="row"><label>Add photo or video: <input type="file" id="newFile" accept="image/*,video/*"></label></div>
+  <p style="color:var(--mute);font-size:.85rem;margin:0 0 10px">Videos you add also appear in Reels and Videos while this page is open.</p>
+  <div class="row" style="justify-content:flex-end"><button class="btn" id="cancel" style="background:var(--line);color:var(--ink)">Cancel</button><button class="btn" id="publish">Publish</button></div>
+</dialog>
 
-<div id="cartLayer" class="cart-layer">
- <section class="cart-panel">
-  <div class="cart-head"><h2 id="cartTitle">Your Shopping Cart</h2><button class="btn ghost" onclick="closeCart()">Close ✕</button></div>
-  <div id="cartContent"></div>
- </section>
-</div>
-
-
-<div id="accountLayer" class="account-layer" aria-live="polite">
- <div class="account-card"><button class="close-account" onclick="closeAccount()" aria-label="Close">✕</button><div id="accountContent"></div></div>
-</div>
-<style>
-.account-layer{display:none;position:fixed;inset:0;background:#081323c9;z-index:50;align-items:center;justify-content:center;padding:16px}
-.account-card{position:relative;background:#fff;width:min(470px,100%);max-height:90vh;overflow:auto;border-radius:16px;padding:24px;box-shadow:0 20px 60px #0005}
-.close-account{position:absolute;right:13px;top:12px;border:0;background:#edf1f5;border-radius:8px;padding:8px 11px;font-weight:bold}
-.account-card h2{margin:0 38px 8px 0}.account-card .field{margin:12px 0}
-.account-card .field input{padding:12px;border:1px solid #d7dee7;border-radius:8px;width:100%}
-.account-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}
-.plan-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
-.plan{border:1px solid #dfe5ed;border-radius:12px;padding:13px}.plan h3{margin:0 0 6px}
-@media(max-width:560px){.account-card{padding:19px}.plan-grid{grid-template-columns:1fr}}
-</style>
-
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-// B_K Supabase project configuration (publishable/anon key is intended for browser use).
-const BK_SUPABASE_URL = "https://xkbdxorssrmuxbrbfljd.supabase.co";
-const BK_SUPABASE_KEY = "sb_publishable_qP3N0WKucQgJm_VKbZAjQQ_8CjzJ_9J";
-const bkSupabase = window.supabase.createClient(BK_SUPABASE_URL, BK_SUPABASE_KEY);
-</script>
-<script>
-const initial=[
- {id:1,name:"MT5 Ultra AI Smart Glasses",cat:"Electronics",icon:"🕶️",price:41532,qty:10,desc:"Demo listing. Verify supplier specs, shipping and warranty."},
- {id:2,name:"Wireless Earbuds",cat:"Electronics",icon:"🎧",price:3499,qty:25,desc:"Wireless audio accessory."},
- {id:3,name:"Smart Watch",cat:"Accessories",icon:"⌚",price:5999,qty:12,desc:"Wearable accessory."},
- {id:4,name:"Bluetooth Speaker",cat:"Electronics",icon:"🔊",price:4299,qty:14,desc:"Portable speaker."},
- {id:5,name:"Desk LED Lamp",cat:"Home",icon:"💡",price:2499,qty:20,desc:"Desk lighting."},
- {id:6,name:"Travel Backpack",cat:"Fashion",icon:"🎒",price:3899,qty:18,desc:"Everyday backpack."},
- {id:7,name:"Coffee Mug",cat:"Home",icon:"☕",price:999,qty:30,desc:"Reusable mug."},
- {id:8,name:"Phone Stand",cat:"Accessories",icon:"📱",price:799,qty:40,desc:"Adjustable phone stand."}
+const COLORS=['#ff8a00','#0f8b7f','#c2185b','#5b3fd1','#d1a400','#1b6fd1'];
+const GRAD=[['#ff8a00','#c2185b','#5b3fd1'],['#0f8b7f','#1b6fd1','#2a1838'],['#d1a400','#ff8a00','#c2185b'],['#5b3fd1','#0f8b7f','#ff8a00'],['#c2185b','#2a1838','#1b6fd1'],['#1b6fd1','#34d1c0','#d1a400']];
+const people=['Ayesha Khan','Bilal Ahmed','Sana Malik','Usman Ali','Hira Noor','Danish Raza'];
+let posts=[
+ {id:'p1',who:0,time:'2h',text:'Subah ki chai aur Murree ka view. Zindagi mein aur kya chahiye?',g:0,likes:128,cm:[['Bilal','Wah! Kaunsi jagah hai?']]},
+ {id:'p2',who:1,time:'5h',text:'Finally launched my first app. Six months of late nights, worth it.',g:1,likes:342,cm:[['Sana','Mubarak ho! 🎉'],['Usman','Link share karo']]},
+ {id:'p3',who:2,time:'1d',text:'Biryani recipe thread: the secret is patience and a heavy pot.',g:2,likes:91,cm:[]},
+ {id:'p4',who:3,time:'1d',text:'Cricket match tonight. Who’s watching?',g:3,likes:57,cm:[]}
 ];
-let products=load("bk_products",initial),cart=[],sellers=load("bk_sellers",[]),rfqs=load("bk_rfqs",[]),orders=load("bk_orders",[]),store=load("bk_settings",{name:"B_K ONLINE SHOPPING",owner:"B_K",currency:"PKR",commission:"5",support:""}),currentUser=load("bk_current_user",null),users=load("bk_users",[]);
-function load(k,d){try{let x=localStorage.getItem(k);return x?JSON.parse(x):JSON.parse(JSON.stringify(d))}catch(e){return d}}
-function save(){localStorage.setItem("bk_products",JSON.stringify(products));localStorage.setItem("bk_sellers",JSON.stringify(sellers));localStorage.setItem("bk_rfqs",JSON.stringify(rfqs));localStorage.setItem("bk_orders",JSON.stringify(orders));localStorage.setItem("bk_settings",JSON.stringify(store))}
-function money(n){return "Rs. "+Number(n).toLocaleString("en-PK")}
-function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
-function toast(s){let t=document.getElementById("toast");t.textContent=s;t.style.display="block";clearTimeout(window.tt);window.tt=setTimeout(()=>t.style.display="none",3200)}
-function renderProducts(){let q=document.getElementById("search").value.toLowerCase(),c=document.getElementById("category").value;let a=products.filter(p=>(c==="All"||p.cat===c)&&(p.name.toLowerCase().includes(q)||p.desc.toLowerCase().includes(q)));document.getElementById("productGrid").innerHTML=a.map(p=>`<article class="product"><div class="pic">${esc(p.icon)}</div><h3>${esc(p.name)}</h3><div class="price">${money(p.price)}</div><p class="muted">${esc(p.desc)}<br>Stock: ${p.qty}</p><div class="product-actions"><button class="btn" onclick="addCart(${p.id})">Add to cart</button><button class="btn ghost" onclick="viewProduct(${p.id})">Details</button><button class="btn ghost" onclick="toggleWishlist(${p.id})">♡ Save</button></div></article>`).join("")||"<p>No products found.</p>";document.getElementById("metricProducts").textContent=products.length}
-function setCat(c){document.getElementById("category").value=c;renderProducts();document.getElementById("shop").scrollIntoView({behavior:"smooth"})}
-function addCart(id){let p=products.find(x=>x.id===id);if(!p)return;if(p.qty<1){toast("This demo item is out of stock");return}cart.push(id);document.getElementById("cartCount").textContent=cart.length;document.getElementById("metricCart").textContent=cart.length;toast(p.name+" added to demo cart")}
-function showCart(){renderCart();document.getElementById("cartLayer").style.display="flex"}
-function closeCart(){document.getElementById("cartLayer").style.display="none"}
-function cartTotal(){return cart.reduce((sum,id)=>sum+(products.find(p=>p.id===id)?.price||0),0)}
-function renderCart(){
- const root=document.getElementById("cartContent");
- if(!cart.length){root.innerHTML='<p>Your cart is empty.</p><button class="btn" onclick="closeCart();document.getElementById(\'shop\').scrollIntoView({behavior:\'smooth\'})">Browse products</button>';return}
- const counts={};cart.forEach(id=>counts[id]=(counts[id]||0)+1);
- root.innerHTML=Object.entries(counts).map(([id,qty])=>{const p=products.find(x=>x.id===Number(id));if(!p)return '';return `<div class="cart-line"><div><b>${esc(p.name)}</b><div class="muted">${money(p.price)} each</div></div><div><button onclick="changeCartQty(${p.id},-1)">−</button> ${qty} <button onclick="changeCartQty(${p.id},1)">+</button></div><button onclick="removeCartItem(${p.id})">Remove</button></div>`}).join('')+
- `<div class="cart-total">Total: ${money(cartTotal())}</div><button class="btn" onclick="showCheckout()">Continue to checkout</button>`;
-}
-function changeCartQty(id,delta){const p=products.find(x=>x.id===id);if(delta>0&&p&&cart.filter(x=>x===id).length>=p.qty){toast("Available preview stock limit reached");return}if(delta>0)cart.push(id);else{const i=cart.indexOf(id);if(i>=0)cart.splice(i,1)}syncCartCount();renderCart()}
-function removeCartItem(id){cart=cart.filter(x=>x!==id);syncCartCount();renderCart()}
-function syncCartCount(){document.getElementById("cartCount").textContent=cart.length;document.getElementById("metricCart").textContent=cart.length}
-function showCheckout(){
- if(!cart.length){renderCart();return}
- document.getElementById("cartTitle").textContent="Checkout";
- document.getElementById("cartContent").innerHTML=`<p>Order total: <b>${money(cartTotal())}</b></p>
- <div class="checkout-fields">
- <input id="coName" placeholder="Full name" required>
- <input id="coPhone" placeholder="Phone number" required>
- <input id="coEmail" type="email" placeholder="Email (optional)">
- <input id="coCity" placeholder="City" required>
- <textarea id="coAddress" class="wide" rows="3" placeholder="Delivery address" required></textarea>
- </div>
- <div class="field"><label>Payment method</label>
- <label class="payment-choice"><input type="radio" name="bkPaymentMethod" value="JazzCash" checked> JazzCash</label>
- <label class="payment-choice"><input type="radio" name="bkPaymentMethod" value="Easypaisa"> Easypaisa</label>
- <label class="payment-choice"><input type="radio" name="bkPaymentMethod" value="Cash on Delivery"> Cash on Delivery (COD)</label></div>
- <p class="notice">Payment gateway setup is not connected yet. JazzCash/Easypaisa selections are saved as Awaiting gateway setup — no money is collected and do not send money to any number. COD is recorded as Cash on Delivery. Live automatic confirmation requires approved merchant accounts and secure server-side gateway verification.</p>
- <button class="btn" onclick="placeLocalOrder()">Place demo order</button> <button class="btn ghost" onclick="renderCart();document.getElementById('cartTitle').textContent='Your Shopping Cart'">Back to cart</button>`;
-}
-function placeLocalOrder(){
- const name=document.getElementById("coName").value.trim(),phone=document.getElementById("coPhone").value.trim(),city=document.getElementById("coCity").value.trim(),address=document.getElementById("coAddress").value.trim();
- if(!name||!phone||!city||!address){toast("Please fill name, phone, city and address");return}
- const grouped={};cart.forEach(id=>{const p=products.find(x=>x.id===id);if(p)grouped[p.name]=(grouped[p.name]||0)+1});
- const items=Object.entries(grouped).map(([n,q])=>q+" x "+n).join(" | ");
- const paymentMethod=document.querySelector('input[name="bkPaymentMethod"]:checked')?.value||"Cash on Delivery";
- const paymentStatus=paymentMethod==="Cash on Delivery"?"COD — collect on delivery":"Awaiting gateway setup — unpaid";
- orders.push({id:Date.now(),customer:name,phone,city,address,items,total:cartTotal(),status:"New demo order",paymentMethod,paymentStatus});
- save();cart=[];syncCartCount();closeCart();toast("Demo order saved — payment not collected");tab("orders",document.querySelector('[data-tab=orders]'));
-}
-function viewProduct(id){
- const p=products.find(x=>x.id===id);if(!p)return;rememberViewedProduct(id);
- document.getElementById("cartTitle").textContent="Product details";
- document.getElementById("cartContent").innerHTML=`<div style="font-size:56px;text-align:center;padding:15px">${esc(p.icon)}</div><h2>${esc(p.name)}</h2><div class="price">${money(p.price)}</div><p>${esc(p.desc)}</p><p>Category: ${esc(p.cat)} · Available preview stock: ${p.qty}</p><button class="btn" onclick="addCart(${p.id});closeCart()">Add to cart</button>`;
- document.getElementById("cartLayer").style.display="flex";
-}
-document.getElementById("cartLayer").addEventListener("click",function(e){if(e.target===this)closeCart()});
-function tab(name,el){document.querySelectorAll(".side button").forEach(b=>b.classList.remove("active"));if(el)el.classList.add("active");let root=document.getElementById("adminContent");if(name==="overview")root.innerHTML=`<h2>Owner overview</h2><p class="muted">Your marketplace control panel preview</p><div class="cards"><div class="metric">Products<div class="num">${products.length}</div></div><div class="metric">Seller requests<div class="num">${sellers.length}</div></div><div class="metric">RFQs<div class="num">${rfqs.length}</div></div><div class="metric">Demo orders<div class="num">${orders.length}</div></div></div><div class="notice">As owner, the live system should let you approve sellers, manage listings, set commissions, review orders, handle disputes and control platform settings.</div><h3>Marketplace modules</h3><p class="muted">Catalogue · Seller management · RFQ sourcing · Orders · Logistics · Marketing · Finance · Reports · Settings</p>`;
-else if(name==="manageProducts")root.innerHTML=`<h2>Product management</h2><p class="muted">Add demo products to the public catalogue. Changes save in this browser.</p><div class="formgrid"><div class="field"><label>Product name</label><input id="pName" placeholder="Product name"></div><div class="field"><label>Category</label><select id="pCat"><option>Electronics</option><option>Fashion</option><option>Home</option><option>Accessories</option></select></div><div class="field"><label>Price (PKR)</label><input id="pPrice" type="number" min="1" placeholder="Price"></div><div class="field"><label>Stock quantity</label><input id="pQty" type="number" min="0" placeholder="Quantity"></div><div class="field"><label>Emoji icon</label><input id="pIcon" placeholder="📦"></div><div class="field"><label>Description</label><input id="pDesc" placeholder="Product description"></div></div><button class="btn" onclick="addProduct()">Add product</button><div class="tablewrap"><table><tr><th>Product</th><th>Price</th><th>Stock</th><th>Action</th></tr>${products.map(p=>`<tr><td>${esc(p.name)}</td><td>${money(p.price)}</td><td>${p.qty}</td><td><button class="btn red small" onclick="deleteProduct(${p.id})">Delete</button></td></tr>`).join("")}</table></div>`;
-else if(name==="orders")root.innerHTML=`<h2>Order management</h2><p class="muted">Demo orders created from the shopping cart. Payment state is shown separately from shipping status.</p><div class="tablewrap"><table><tr><th>Order</th><th>Items</th><th>Total</th><th>Payment</th><th>Payment state</th><th>Shipping status</th><th>Update</th></tr>${orders.map(o=>`<tr><td>#${o.id.toString().slice(-6)}</td><td>${esc(o.items)}</td><td>${money(o.total)}</td><td>${esc(o.paymentMethod||"Not recorded")}</td><td>${esc(o.paymentStatus||"Not verified")}</td><td>${esc(o.status)}</td><td><select onchange="updateOrder(${o.id},this.value)"><option ${o.status==="New demo order"?"selected":""}>New demo order</option><option>Processing</option><option>Dispatched</option><option>Delivered</option><option>Cancelled</option></select></td></tr>`).join("")||"<tr><td colspan='7'>No demo orders yet.</td></tr>"}</table></div>`;
-else if(name==="sellers")root.innerHTML=`<h2>Seller management</h2><p class="muted">Review demo seller applications and approve or reject them.</p><div class="tablewrap"><table><tr><th>Shop</th><th>Contact</th><th>Category</th><th>Status</th><th>Action</th></tr>${sellers.map(s=>`<tr><td>${esc(s.shop)}</td><td>${esc(s.name)}</td><td>${esc(s.cat)}</td><td>${esc(s.status)}</td><td><button class="btn small" onclick="sellerStatus(${s.id},'Approved')">Approve</button> <button class="btn red small" onclick="sellerStatus(${s.id},'Rejected')">Reject</button></td></tr>`).join("")||"<tr><td colspan='5'>No applications yet.</td></tr>"}</table></div>`;
-else if(name==="rfqs")root.innerHTML=`<h2>RFQ / quotation requests</h2><p class="muted">Review sourcing requests made through the RFQ form.</p><div class="tablewrap"><table><tr><th>Product</th><th>Quantity</th><th>Notes</th><th>Status</th></tr>${rfqs.map(r=>`<tr><td>${esc(r.product)}</td><td>${r.qty}</td><td>${esc(r.notes)}</td><td><span class="pill">Awaiting quote</span></td></tr>`).join("")||"<tr><td colspan='4'>No RFQs yet.</td></tr>"}</table></div>`;
-else if(name==="suppliers")root.innerHTML=`<h2>Supplier sourcing centre</h2><p class="muted">Supplier checklist inspired by B2B sourcing platforms.</p><ul><li>Compare multiple supplier quotations</li><li>Check minimum order quantity (MOQ)</li><li>Request product samples</li><li>Confirm production lead time and shipping terms</li><li>Verify supplier identity and trade terms</li><li>Agree written refund, defect and delivery conditions</li></ul><a class="btn" href="https://www.alibaba.com/" target="_blank" rel="noopener">Browse Alibaba suppliers ↗</a><div class="notice">This demo does not scrape Alibaba, place supplier orders or import listings. Use supplier platform permissions and approved integrations.</div>`;
-else if(name==="logistics")root.innerHTML=`<h2>Logistics & shipping</h2><p class="muted">Plan for courier selection, shipping rates, pickup requests, parcel labels, tracking and COD reconciliation.</p><div class="notice">No courier is connected. Live shipping requires a courier business account, service agreement and API credentials stored securely on a backend.</div><p>Shipping workflow: Order confirmed → Seller packs → Courier pickup → In transit → Delivered → COD settlement.</p>`;
-else if(name==="marketing")root.innerHTML=`<h2>Marketing centre</h2><p class="muted">Promote products through your own social channels and marketplace campaigns.</p><div class="linkrow"><a class="link" href="https://www.tiktok.com/" target="_blank" rel="noopener">TikTok ↗</a><a class="link" href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook ↗</a><a class="link" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram ↗</a></div><p>Planned tools: campaign calendar, discount coupons, featured products, affiliate tracking and performance reports.</p>`;
-else if(name==="finance")root.innerHTML=`<h2>Finance & payments</h2><p class="muted">Checkout now records JazzCash, Easypaisa or COD as a demo payment choice. This does not charge customers or verify transfers.</p><div class="notice">JazzCash and Easypaisa are NOT live. Before activation, obtain approved merchant accounts, gateway credentials and provider integration instructions. Credentials must stay in Supabase Edge Function secrets, never in this public GitHub Pages code. Verify payment only from a signed server-to-server provider callback; never trust a browser success message or screenshot.</div><div class="feature-grid"><article class="feature-card"><h3>JazzCash</h3><p class="muted">Status: Awaiting merchant setup and secure gateway integration.</p></article><article class="feature-card"><h3>Easypaisa</h3><p class="muted">Status: Awaiting merchant setup and secure gateway integration.</p></article><article class="feature-card"><h3>Cash on Delivery</h3><p class="muted">Demo orders record COD for collection at delivery. Courier/COD settlement is not connected.</p></article></div><div class="field"><label>Marketplace commission preview (%)</label><input id="commission" type="number" min="0" max="100" value="${esc(store.commission)}"></div><button class="btn" onclick="store.commission=document.getElementById('commission').value;save();toast('Demo commission setting saved')">Save preview setting</button>`;
-else if(name==="settings")root.innerHTML=`<h2>Store settings</h2><div class="field"><label>Store name</label><input id="storeName" value="${esc(store.name)}"></div><div class="field"><label>Owner display name</label><input id="ownerName" value="${esc(store.owner)}"></div><div class="field"><label>Support email or public contact</label><input id="support" value="${esc(store.support)}" placeholder="Business contact (optional)"></div><div class="field"><label>Currency</label><select id="currency"><option ${store.currency==="PKR"?"selected":""}>PKR</option><option ${store.currency==="USD"?"selected":""}>USD</option></select></div><button class="btn" onclick="saveSettings()">Save settings</button><div class="notice">Settings are saved only in this browser. A live admin account must use secure sign-in and server-side permissions.</div>`;
-if(document.getElementById("metricSellers"))document.getElementById("metricSellers").textContent=sellers.length;document.getElementById("metricRfqs").textContent=rfqs.length}
-function addProduct(){let name=document.getElementById("pName").value.trim(),price=Number(document.getElementById("pPrice").value),qty=Number(document.getElementById("pQty").value);if(!name||price<=0||qty<0){toast("Enter a product name, valid price and stock");return}products.push({id:Date.now(),name,cat:document.getElementById("pCat").value,price,qty,icon:document.getElementById("pIcon").value||"📦",desc:document.getElementById("pDesc").value||"New demo product"});save();renderProducts();tab("manageProducts",document.querySelector('[data-tab=manageProducts]'));toast("Demo product added")}
-function deleteProduct(id){if(!confirm("Delete this demo product?"))return;products=products.filter(p=>p.id!==id);save();renderProducts();tab("manageProducts",document.querySelector('[data-tab=manageProducts]'))}
-function submitSeller(){let shop=document.getElementById("sShop").value.trim(),name=document.getElementById("sName").value.trim();if(!shop||!name){toast("Enter shop and contact name");return}sellers.push({id:Date.now(),shop,name,cat:document.getElementById("sCat").value,status:"Pending"});save();document.getElementById("sShop").value="";document.getElementById("sName").value="";tab("sellers",document.querySelector('[data-tab=sellers]'));toast("Demo seller application added")}
-function sellerStatus(id,status){let s=sellers.find(x=>x.id===id);if(s)s.status=status;save();tab("sellers",document.querySelector('[data-tab=sellers]'))}
-function submitRfq(){let product=document.getElementById("rfqProduct").value.trim(),qty=Number(document.getElementById("rfqQty").value);if(!product||qty<1){toast("Enter product and quantity");return}rfqs.push({id:Date.now(),product,qty,notes:document.getElementById("rfqNotes").value});save();document.getElementById("rfqProduct").value="";document.getElementById("rfqQty").value="";document.getElementById("rfqNotes").value="";tab("rfqs",document.querySelector('[data-tab=rfqs]'));toast("Demo RFQ saved")}
-function updateOrder(id,status){let o=orders.find(x=>x.id===id);if(o)o.status=status;save();tab("orders",document.querySelector('[data-tab=orders]'))}
-function saveSettings(){store.name=document.getElementById("storeName").value;store.owner=document.getElementById("ownerName").value;store.support=document.getElementById("support").value;store.currency=document.getElementById("currency").value;save();toast("Demo store settings saved")}
-function toggleChat(){let c=document.getElementById("chat");c.style.display=c.style.display==="block"?"none":"block"}
-function askAI(){let i=document.getElementById("chatInput"),v=i.value.trim();if(!v)return;let b=document.getElementById("chatBody");b.innerHTML+=`<div class="bubble"><b>You:</b> ${esc(v)}</div>`;let q=v.toLowerCase(),a="I can guide you around this demo store. A real AI assistant needs a secure AI API connection.";if(q.includes("product")||q.includes("price"))a="Use the search bar and category filter to find products. The owner can add or remove sample products from store management panel.";else if(q.includes("seller"))a="Sellers can submit a demo application. The owner reviews it under seller management panel.";else if(q.includes("rfq")||q.includes("supplier"))a="Use the RFQ form to record a sample quotation request, then review it under quotation management panel. Check supplier MOQ, quality, shipping and terms.";else if(q.includes("shipping")||q.includes("order"))a="Demo orders can be created from the cart. Real courier booking and parcel tracking need a courier account and secure API integration.";else if(q.includes("tiktok")||q.includes("amazon")||q.includes("alibaba"))a="External platform links are provided. Automatic catalogue or order sync needs official API access, eligibility and approved integrations.";else if(q.includes("owner")||q.includes("control"))a="The store management preview includes products, orders, sellers, RFQs, suppliers, logistics, marketing, finance and settings.";b.innerHTML+=`<div class="bubble"><b>B_K Assistant:</b> ${a}</div>`;b.scrollTop=b.scrollHeight;i.value=""}
+let reels=[
+ {id:'r1',who:4,text:'60-second pasta that actually works',g:4,likes:2400},
+ {id:'r2',who:5,text:'Sunset timelapse from my rooftop',g:0,likes:1800},
+ {id:'r3',who:0,text:'3 tips to learn faster, no fluff',g:1,likes:3100},
+ {id:'r4',who:1,text:'Street food tour, part 1',g:2,likes:950}
+];
+let videos=[
+ {id:'v1',who:3,title:'Learn JavaScript in 20 minutes',dur:'20:14',views:'48K views',g:3},
+ {id:'v2',who:2,title:'Hunza valley: a 7 day road trip',dur:'12:40',views:'210K views',g:1},
+ {id:'v3',who:4,title:'Home workout, no equipment',dur:'15:02',views:'96K views',g:2},
+ {id:'v4',who:5,title:'How to start a small business',dur:'9:31',views:'33K views',g:4},
+ {id:'v5',who:0,title:'Chai masala from scratch',dur:'6:18',views:'71K views',g:0},
+ {id:'v6',who:1,title:'Build a website in one hour',dur:'58:00',views:'120K views',g:5}
+];
+let liked={},tab='feed',watching=null;
+try{liked=JSON.parse(localStorage.getItem('mela-liked')||'{}')}catch(e){}
+const $=s=>document.querySelector(s), view=$('#view');
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function save(){try{localStorage.setItem('mela-liked',JSON.stringify(liked))}catch(e){}}
+function toast(m){const t=document.createElement('div');t.className='toast';t.textContent=m;document.body.appendChild(t);setTimeout(()=>t.remove(),1800)}
+function art(g){const c=GRAD[g%GRAD.length];return `<div class="art" style="background:linear-gradient(135deg,${c[0]},${c[1]})"><span style="width:55%;aspect-ratio:1;left:-8%;top:-10%;background:${c[2]};opacity:.55"></span><span style="width:40%;aspect-ratio:1;right:-6%;bottom:-8%;background:${c[0]};opacity:.7;animation-delay:-3s"></span><span style="width:22%;aspect-ratio:1;left:45%;top:40%;background:#fff;opacity:.25;animation-delay:-6s"></span></div>`}
+function media(o){if(o.src){return o.kind==='video'?`<video src="${o.src}" controls loop muted playsinline></video>`:`<img src="${o.src}" alt="Uploaded photo">`}return art(o.g||0)}
+function av(i){return `<div class="av" style="background:${COLORS[i%6]}">${people[i%6][0]}</div>`}
+function likeBtn(id,n,label){const on=liked[id];return `<button class="${on?'on':''}" data-like="${id}" aria-pressed="${!!on}">${on?'♥':'♡'} ${n+(on?1:0)}${label||''}</button>`}
 
-function openAccount(mode){
- const root=document.getElementById("accountContent");
- document.getElementById("accountLayer").style.display="flex";
- if(mode==="signup"){
-  root.innerHTML=`<h2>Create your B_K account</h2><p class="muted">Register a local preview account on this device.</p>
-   <div class="field"><label>Full name</label><input id="authName" autocomplete="name" placeholder="Your name"></div>
-   <div class="field"><label>Email</label><input id="authEmail" type="email" autocomplete="email" placeholder="you@example.com"></div>
-   <div class="field"><label>Password</label><input id="authPassword" type="password" autocomplete="new-password" placeholder="Create a password"></div>
-   <div class="account-actions"><button class="btn" onclick="registerAccount()">Create account</button><button class="btn ghost" onclick="openAccount('login')">I already have an account</button></div>`;
- }else if(mode==="login"){
-  root.innerHTML=`<h2>Login to B_K</h2><p class="muted">Sign in securely using your B_K customer account.</p>
-   <div class="field"><label>Email</label><input id="authEmail" type="email" autocomplete="email" placeholder="you@example.com"></div>
-   <div class="field"><label>Password</label><input id="authPassword" type="password" autocomplete="current-password" placeholder="Your password"></div>
-   <div class="account-actions"><button class="btn" onclick="loginAccount()">Login</button><button class="btn ghost" onclick="openAccount('signup')">Create account</button><button class="btn ghost" onclick="resetPassword()">Forgot password?</button></div>`;
- }else{
-  if(!currentUser){openAccount("login");return}
-  root.innerHTML=`<h2>My account</h2><p>Welcome, <b>${esc(currentUser.name)}</b></p><p class="muted">${esc(currentUser.email)}</p>
-   <div class="account-actions"><button class="btn" onclick="closeAccount();showCart()">My cart</button><button class="btn ghost" onclick="closeAccount();document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Continue shopping</button><button class="btn red" onclick="logoutAccount()">Logout</button></div>
-   <div class="notice">Your account is secured by Supabase Authentication and can be used across devices.</div>`;
- }
+function renderFeed(){
+ view.className='';
+ view.innerHTML=storiesHtml()+posts.filter(p=>!q||p.text.toLowerCase().includes(q)).map(p=>`<article class="card" id="${p.id}">
+  <div class="ph">${av(p.who)}<div><b>${esc(people[p.who%6])}</b><small>${p.time} ago</small></div></div>
+  <div class="txt">${esc(p.text)}</div>
+  ${(p.src||p.g!==undefined&&p.showMedia!==false)&&p.g!==undefined||p.src?`<div class="media">${media(p)}</div>`:''}
+  <div class="acts">${likeBtn(p.id,p.likes)}<button data-cm="${p.id}">💬 ${p.cm.length}</button><button data-share="${p.id}">↗ Share</button></div>
+  <div class="cmts" hidden>${p.cm.map(c=>`<p><b>${esc(c[0])}</b> ${esc(c[1])}</p>`).join('')}
+   <form data-form="${p.id}"><input type="text" placeholder="Write a comment…" aria-label="Comment"><button class="btn">Send</button></form></div>
+ </article>`).join('');
 }
-async function resetPassword(){const email=document.getElementById("authEmail").value.trim();if(!email){toast("Pehle email enter karein");return}const {error}=await bkSupabase.auth.resetPasswordForEmail(email,{redirectTo:location.origin+location.pathname});toast(error?error.message:"Password reset link email kar diya gaya hai")}
-function closeAccount(){document.getElementById("accountLayer").style.display="none"}
-async function registerAccount(){
- const name=(document.getElementById("authName")?.value||"").trim();
- const email=document.getElementById("authEmail").value.trim().toLowerCase();
- const password=document.getElementById("authPassword").value;
- if(!name||!/^\S+@\S+\.\S+$/.test(email)||password.length<6){toast("Name, valid email aur kam az kam 6-character password enter karein");return}
- const {data,error}=await bkSupabase.auth.signUp({email,password,options:{data:{full_name:name}}});
- if(error){toast(error.message);return}
- if(data.session){currentUser={name,email};localStorage.setItem("bk_current_user",JSON.stringify(currentUser));closeAccount();toast("Account create aur login ho gaya")}
- else {toast("Account ban gaya. Email inbox check karke verification link open karein, phir login karein.") ;openAccount("login")}
+function renderReels(){
+ view.className='';
+ view.innerHTML=`<div class="reels">${reels.map(r=>`<section class="reel" data-reel>
+  ${r.src?`<video src="${r.src}" autoplay loop muted playsinline controls style="width:100%;height:100%;object-fit:cover"></video>`:art(r.g)}
+  <div class="cap"><b>@${esc(people[r.who%6].split(' ')[0].toLowerCase())}</b><div>${esc(r.text)}</div></div>
+  <div class="side">${likeBtn(r.id,r.likes).replace('<button','<button style="font-size:1.1rem"')}<button data-share="${r.id}"><b>↗</b>Share</button></div>
+ </section>`).join('')}</div>
+ <p style="text-align:center;color:var(--mute);font-size:.85rem">Scroll for the next reel. Tap a reel to pause the motion.</p>`;
 }
-async function loginAccount(){
- const email=document.getElementById("authEmail").value.trim().toLowerCase(),password=document.getElementById("authPassword").value;
- if(!email||!password){toast("Email aur password enter karein");return}
- const {data,error}=await bkSupabase.auth.signInWithPassword({email,password});
- if(error){toast(error.message);return}
- const u=data.user;currentUser={name:u.user_metadata?.full_name||email.split("@")[0],email:u.email};
- localStorage.setItem("bk_current_user",JSON.stringify(currentUser));closeAccount();toast("Login successful")
+function renderVideos(){
+ view.className='wide';
+ if(watching){const v=videos.find(x=>x.id===watching);
+  view.innerHTML=`<div class="watch" style="max-width:860px;margin:0 auto"><button class="btn" data-back style="margin-bottom:12px">← All videos</button>
+   <div class="media">${v.src?`<video src="${v.src}" controls autoplay playsinline></video>`:art(v.g)+'<div class="play" data-play><span>▶</span></div><div class="bar" id="bar"></div>'}</div>
+   <h2 style="margin:12px 0 4px">${esc(v.title)}</h2><small style="color:var(--mute)">${v.views}</small>
+   <div class="row">${av(v.who)}<b>${esc(people[v.who%6])}</b><button class="btn" data-sub style="margin-left:auto">Subscribe</button>${likeBtn(v.id,420)}<button class="btn" data-share="${v.id}" style="background:var(--line);color:var(--ink)">↗ Share</button></div></div>`;return}
+ view.innerHTML=`<div class="grid">${videos.map(v=>`<button class="vid" data-open="${v.id}"><div class="media">${media(v)}<span class="dur">${v.dur}</span></div><h3>${esc(v.title)}</h3><small>${esc(people[v.who%6])} · ${v.views}</small></button>`).join('')}</div>`;
 }
-async function logoutAccount(){const {error}=await bkSupabase.auth.signOut();if(error){toast(error.message);return}currentUser=null;localStorage.removeItem("bk_current_user");closeAccount();toast("Logout ho gaya")}
-// Restore a valid Supabase session when the page opens.
-bkSupabase.auth.getSession().then(({data})=>{const u=data.session?.user;if(u){currentUser={name:u.user_metadata?.full_name||u.email.split("@")[0],email:u.email};localStorage.setItem("bk_current_user",JSON.stringify(currentUser))}else{currentUser=null;localStorage.removeItem("bk_current_user")}});
-bkSupabase.auth.onAuthStateChange((_event,session)=>{const u=session?.user;if(u){currentUser={name:u.user_metadata?.full_name||u.email.split("@")[0],email:u.email};localStorage.setItem("bk_current_user",JSON.stringify(currentUser))}});
-function openUpgrade(){
- const root=document.getElementById("accountContent");
- document.getElementById("accountLayer").style.display="flex";
- root.innerHTML=`<h2>Upgrade B_K Website</h2><p class="muted">Choose the next stage for your store. No payment is collected on this page.</p>
-  <div class="plan-grid">
-   <div class="plan"><h3>Starter</h3><b>Current preview</b><p class="muted">Product catalogue, cart preview and local owner tools.</p></div>
-   <div class="plan"><h3>Live store</h3><b>Backend required</b><p class="muted">Secure accounts, shared database, real orders and inventory.</p></div>
-  </div>
-  <div class="notice">A real upgrade needs backend deployment, database configuration, authentication and payment/courier provider setup. This button does not charge money or pretend those services are connected.</div>
-  <div class="account-actions"><button class="btn" onclick="closeAccount();document.getElementById('owner').scrollIntoView({behavior:'smooth'})">Open store management</button><button class="btn ghost" onclick="closeAccount()">Close</button></div>`;
+function render(){
+ document.querySelectorAll('nav button').forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===tab));
+ ({feed:renderFeed,reels:renderReels,videos:renderVideos,chat:renderChat,ai:renderAI})[tab]();
 }
-document.getElementById("accountLayer").addEventListener("click",function(e){if(e.target===this)closeAccount()});
+function find(id){return posts.find(x=>x.id===id)||reels.find(x=>x.id===id)||videos.find(x=>x.id===id)}
 
-
-let bkWishlist=JSON.parse(localStorage.getItem("bk_wishlist")||"[]");
-let bkTikTokLinks=JSON.parse(localStorage.getItem("bk_tiktok_links")||"[]");
-let bkTikTokProfile=localStorage.getItem("bk_tiktok_profile")||"";
-let bkWhatsApp=localStorage.getItem("bk_whatsapp")||"";
-let bkReviews=JSON.parse(localStorage.getItem("bk_reviews")||"[]");
-let bkCoupon=localStorage.getItem("bk_coupon")||"";
-function persistExtra(){localStorage.setItem("bk_wishlist",JSON.stringify(bkWishlist));localStorage.setItem("bk_tiktok_links",JSON.stringify(bkTikTokLinks));localStorage.setItem("bk_reviews",JSON.stringify(bkReviews))}
-function addTikTokLink(){
- const link=prompt("Paste your TikTok video share link:");
- if(!link)return;
- try{const u=new URL(link);if(!/tiktok\.com$/i.test(u.hostname)&&!u.hostname.toLowerCase().endsWith(".tiktok.com"))throw 0;bkTikTokLinks.push(link);persistExtra();renderTikTokLinks();toast("TikTok link added")}catch(e){toast("Valid TikTok link enter karein")}
+document.addEventListener('click',e=>{
+ const t=e.target.closest('button,[data-reel]');if(!t)return;
+ if(t.dataset.tab){tab=t.dataset.tab;watching=null;render();window.scrollTo(0,0)}
+ else if(t.dataset.like){const id=t.dataset.like;liked[id]=!liked[id];save();render()}
+ else if(t.dataset.cm){const c=t.closest('article').querySelector('.cmts');c.hidden=!c.hidden;if(!c.hidden)c.querySelector('input').focus()}
+ else if(t.dataset.share){try{navigator.clipboard.writeText(location.href.split('#')[0]+'#'+t.dataset.share)}catch(x){}toast('Link copied')}
+ else if(t.dataset.open){watching=t.dataset.open;render();window.scrollTo(0,0)}
+ else if('back' in t.dataset){watching=null;render()}
+ else if('sub' in t.dataset){const on=t.textContent==='Subscribe';t.textContent=on?'Subscribed ✓':'Subscribe';if(on)toast('Subscribed')}
+ else if(t.id==='theme'){const d=document.documentElement,dark=getComputedStyle(d).colorScheme==='dark';d.dataset.theme=dark?'light':'dark'}
+ else if(t.id==='create'){$('#dlg').showModal()}
+ else if(t.id==='cancel'){$('#dlg').close()}
+ else if(t.id==='publish'){publish()}
+});
+document.addEventListener('click',e=>{
+ const p=e.target.closest('[data-play]');
+ if(p){p.remove();const bar=$('#bar');let w=0;const iv=setInterval(()=>{if(!document.body.contains(bar)||w>=100){clearInterval(iv);return}w+=.5;bar.style.width=w+'%'},100)}
+ const r=e.target.closest('[data-reel]');if(r&&!e.target.closest('button,video'))r.classList.toggle('paused');
+});
+document.addEventListener('submit',e=>{
+ e.preventDefault();const id=e.target.dataset.form;if(!id)return;
+ const i=e.target.querySelector('input');if(!i.value.trim())return;
+ find(id).cm.push(['You',i.value.trim()]);const open=id;render();
+ const c=document.getElementById(open).querySelector('.cmts');c.hidden=false;
+});
+function publish(){
+ const text=$('#newText').value.trim(),f=$('#newFile').files[0];
+ if(!text&&!f){toast('Write something or add a file first');return}
+ const o={id:'u'+Date.now(),who:0,time:'Just now',text:text||'New upload',likes:0,cm:[]};
+ if(f){o.src=URL.createObjectURL(f);o.kind=f.type.startsWith('video')?'video':'image';
+  if(o.kind==='video'){reels.unshift({id:o.id+'r',who:0,text:o.text,likes:0,src:o.src});videos.unshift({id:o.id+'v',who:0,title:o.text.slice(0,60),dur:'New',views:'0 views',g:0,src:o.src})}}
+ else o.g=Math.floor(Math.random()*6);
+ if(!f)delete o.g;
+ posts.unshift(o);$('#newText').value='';$('#newFile').value='';$('#dlg').close();tab='feed';render();toast('Published');
 }
-function renderTikTokLinks(){
- const el=document.getElementById("tiktokList");if(!el)return;
- el.innerHTML=bkTikTokLinks.map((u,i)=>`<p><a href="${esc(u)}" target="_blank" rel="noopener">Open TikTok video ${i+1}</a> <button onclick="removeTikTokLink(${i})">Remove</button></p>`).join("");
+let q='',chat=[],room=null,sample=null,aiLog=[];
+const myName='Guest'+Math.floor(100+Math.random()*900);
+const SYS='You are Mela AI, a friendly assistant inside a social app. Reply briefly, in the same language the user writes (Roman Urdu or English).\n\n';
+function storiesHtml(){return `<div class="stories">${people.map((n,i)=>`<button data-story="${i}"><span class="ring"><span class="av" style="background:${COLORS[i]}">${n[0]}</span></span>${esc(n.split(' ')[0])}</button>`).join('')}</div><input type="text" id="search" placeholder="Search posts…" value="${esc(q)}" aria-label="Search posts" style="margin-bottom:14px">`}
+const storyText=['Chai time ☕','New project loading…','Weekend plans?','Match day!','Fresh bake today','Morning run done'];
+function msgs(list,empty){return list.length?list.map(m=>`<div class="m ${m.me?'me':''}"><small>${esc(m.n)}</small>${esc(m.t)}</div>`).join(''):`<p style="color:var(--mute);text-align:center">${empty}</p>`}
+function renderChat(){view.className='';
+ view.innerHTML=`<h2 style="margin:0 0 8px">Live chat</h2><small style="color:var(--mute)">${room?'Everyone with this page open right now can see your messages.':'Live chat connects when this page is open on claude.ai.'}</small><div class="msgs" id="msgs">${msgs(chat,'No messages yet. Say salaam!')}</div><form class="chatf" id="chatf"><input type="text" placeholder="Type a message…" aria-label="Message"${room?'':' disabled'}><button class="btn"${room?'':' disabled'}>Send</button></form>`;
+ const b=$('#msgs');b.scrollTop=b.scrollHeight}
+function renderAI(){view.className='';
+ view.innerHTML=`<h2 style="margin:0 0 8px">Mela AI ✨</h2><small style="color:var(--mute)">${sample?'Ask for caption ideas, video scripts, or advice.':'AI works when this page is open on claude.ai.'}</small><div class="msgs" id="msgs">${msgs(aiLog.map(m=>({me:m.role==='user',n:m.role==='user'?'You':'Mela AI',t:m.content})),'Try: “Mere reel ke liye 3 caption do”')}</div><form class="chatf" id="aif"><input type="text" placeholder="Ask Mela AI…" aria-label="Ask AI"${sample?'':' disabled'}><button class="btn"${sample?'':' disabled'}>Ask</button></form>`;
+ const b=$('#msgs');b.scrollTop=b.scrollHeight}
+async function askAI(t){aiLog.push({role:'user',content:t});const a={role:'assistant',content:'…'};const hist=aiLog.map((m,i)=>i?m:{role:'user',content:SYS+m.content});aiLog.push(a);renderAI();
+ try{const r=await sample(hist,{cache:false,onText:({text})=>{a.content=text;if(tab==='ai')renderAI()}});a.content=r.text}catch(e){a.content=e&&e.code==='not_granted'?'AI permission was declined.':'AI is busy, try again soon.'}
+ if(tab==='ai')renderAI()}
+document.addEventListener('submit',e=>{const id=e.target.id;if(id!=='chatf'&&id!=='aif')return;e.preventDefault();const i=e.target.querySelector('input'),t=i.value.trim();if(!t)return;i.value='';
+ if(id==='aif'){askAI(t);return}
+ chat.push({n:myName,t,me:true});try{room.emit('msg',{n:myName,t})}catch(x){}renderChat()},true);
+document.addEventListener('input',e=>{if(e.target.id==='search'){q=e.target.value.toLowerCase();const p=e.target.selectionStart;renderFeed();const s=$('#search');s.focus();s.setSelectionRange(p,p)}});
+document.addEventListener('click',async e=>{
+ const s=e.target.closest('[data-story]');
+ if(s){const i=+s.dataset.story,c=GRAD[i%6],d=document.createElement('div');d.className='sv';d.style.background=`linear-gradient(160deg,${c[0]},${c[1]},${c[2]})`;d.innerHTML=`<div>${esc(people[i])}<br><span style="font-weight:600;font-size:1.1rem">${storyText[i]}</span></div>`;d.onclick=()=>d.remove();document.body.appendChild(d);setTimeout(()=>d.remove(),4000);return}
+ if(e.target.id==='aiCap'&&sample){const b=e.target,idea=$('#newText').value.trim()||'a fun everyday moment';b.textContent='Writing…';
+ try{const r=await sample('Write one catchy social media post (max 30 words, add 1-2 emojis) about this idea. Use the same language as the idea. Reply with the post only.\n\nIdea: '+idea,{cache:false});$('#newText').value=r.text.trim()}catch(x){toast('AI is unavailable right now')}b.textContent='✨ Write with AI'}
+});
+if(window.claude){
+ claude.use('sample').then(s=>{sample=s;if(s)$('#aiCap').hidden=false;if(tab==='ai')render()}).catch(()=>{});
+ claude.use('room').then(r=>{if(!r)return;room=r;r.on('msg',d=>{if(d&&d.t){chat.push({n:String(d.n||'Guest').slice(0,30),t:String(d.t).slice(0,500)});if(tab==='chat')renderChat()}});if(tab==='chat')render()}).catch(()=>{});
 }
-function removeTikTokLink(i){bkTikTokLinks.splice(i,1);persistExtra();renderTikTokLinks()}
-function setTikTokProfile(){const u=prompt("Paste your TikTok profile URL:",bkTikTokProfile);if(!u)return;try{const x=new URL(u);if(!x.hostname.toLowerCase().endsWith("tiktok.com"))throw 0;bkTikTokProfile=u;localStorage.setItem("bk_tiktok_profile",u);document.getElementById("tiktokProfileStatus").textContent="Profile link saved";toast("TikTok profile saved")}catch(e){toast("Valid TikTok profile link enter karein")}}
-function shareStore(){const u=location.href; if(navigator.share){navigator.share({title:"B_K ONLINE SHOPPING",url:u}).catch(()=>{})}else if(navigator.clipboard){navigator.clipboard.writeText(u).then(()=>toast("Website link copied"))}else{prompt("Copy website link",u)}}
-function toggleWishlist(id){const i=bkWishlist.indexOf(id);if(i>=0)bkWishlist.splice(i,1);else bkWishlist.push(id);persistExtra();toast(i>=0?"Wishlist se remove ho gaya":"Wishlist mein add ho gaya");}
-function openWishlist(){const names=bkWishlist.map(id=>products.find(p=>p.id===id)).filter(Boolean);const body=names.length?names.map(p=>`<p>${esc(p.icon||"🛍")} <b>${esc(p.name)}</b> — ${money(p.price)} <button onclick="addCart(${p.id})">Add to cart</button></p>`).join(""):"<p>Wishlist abhi empty hai.</p>";showFeaturePanel("My Wishlist",body)}
-function openCoupons(){showFeaturePanel("Discount Coupons",`<p><b>WELCOME5</b> — preview coupon, 5% off</p><p><b>BK10</b> — preview coupon, 10% off</p><p class="notice">Coupon codes sirf preview hain; live checkout/backend par discount calculate karna abhi configure nahi.</p><button class="btn" onclick="applyPreviewCoupon('WELCOME5')">Apply WELCOME5</button> <button class="btn ghost" onclick="applyPreviewCoupon('BK10')">Apply BK10</button>`)}
-function applyPreviewCoupon(code){bkCoupon=code;localStorage.setItem("bk_coupon",code);toast(code+" selected for preview")}
-function openReviews(){const productOptions=products.map(p=>`<option value="${p.id}">${esc(p.name)}</option>`).join("");showFeaturePanel("Write a Review",`<label>Product</label><select id="reviewProduct">${productOptions}</select><label>Rating</label><select id="reviewRating"><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select><label>Your review</label><textarea id="reviewText" rows="3" placeholder="Write your feedback"></textarea><button class="btn" onclick="saveReview()">Submit review</button><div>${bkReviews.slice(-5).map(r=>`<p>★ ${r.rating}/5 — ${esc(r.text)}</p>`).join("")}</div>`)}
-function saveReview(){const p=products.find(x=>x.id===Number(document.getElementById("reviewProduct").value));const textValue=document.getElementById("reviewText").value.trim();if(!p||!textValue){toast("Product aur review likhein");return}bkReviews.push({product:p.name,rating:Number(document.getElementById("reviewRating").value),text:textValue});persistExtra();toast("Review is browser preview mein save ho gaya");openReviews()}
-function chooseLanguage(){const choice=prompt("Language preference: English / Urdu","English");if(choice){localStorage.setItem("bk_language",choice);toast("Preference saved: "+choice+". Full translation requires language content.")}}
-function setWhatsApp(){const n=prompt("WhatsApp number country code ke sath, e.g. 923001234567",bkWhatsApp);if(!n)return;const clean=n.replace(/\D/g,"");if(clean.length<10){toast("Valid WhatsApp number enter karein");return}bkWhatsApp=clean;localStorage.setItem("bk_whatsapp",clean);toast("WhatsApp number saved")}
-function openShoppingAssistant(){showFeaturePanel("AI Shopping Assistant",`<p>Welcome! Product dhoondne ke liye apna sawal likhein.</p><input id="aiShopQuestion" placeholder="e.g. Show me shoes under Rs 5000"><button class="btn" onclick="answerShoppingQuestion()">Ask</button><div id="aiShopAnswer" class="tracking-result"></div><p class="muted">Ye basic local helper hai; real AI answers ke liye secure AI service/backend integration chahiye.</p>`)}
-function answerShoppingQuestion(){const q=document.getElementById("aiShopQuestion").value.toLowerCase();const matches=products.filter(p=>(p.name+" "+p.cat+" "+p.desc).toLowerCase().includes(q.split(" ").filter(w=>w.length>3)[0]||""));document.getElementById("aiShopAnswer").textContent=matches.length?"Matching products: "+matches.map(p=>p.name+" ("+money(p.price)+")").join(", "):"Products page par categories ya search use karke dekhein."}
-
-function openStoreSettings(){
- const currency=localStorage.getItem("bk_display_currency")||"PKR";
- const language=localStorage.getItem("bk_language")||"English";
- const theme=localStorage.getItem("bk_theme")||"light";
- const support=localStorage.getItem("bk_public_support")||"";
- showFeaturePanel("Store Preferences",`<p class="muted">Yeh preferences isi browser mein save hoti hain. Account, payments aur admin permissions ko yahan se change nahi kiya ja sakta.</p>
- <div class="field"><label for="prefCurrency">Display currency</label><select id="prefCurrency"><option ${currency==="PKR"?"selected":""}>PKR</option><option ${currency==="USD"?"selected":""}>USD</option><option ${currency==="EUR"?"selected":""}>EUR</option><option ${currency==="GBP"?"selected":""}>GBP</option><option ${currency==="AED"?"selected":""}>AED</option><option ${currency==="SAR"?"selected":""}>SAR</option></select></div>
- <div class="field"><label for="prefLanguage">Language preference</label><select id="prefLanguage"><option ${language==="English"?"selected":""}>English</option><option ${language==="Urdu"?"selected":""}>Urdu</option><option ${language==="Roman Urdu"?"selected":""}>Roman Urdu</option></select></div>
- <div class="field"><label for="prefTheme">Appearance</label><select id="prefTheme"><option value="light" ${theme==="light"?"selected":""}>Light</option><option value="dark" ${theme==="dark"?"selected":""}>Dark preference (saved)</option></select></div>
- <div class="field"><label for="prefSupport">Public support email (optional)</label><input id="prefSupport" type="email" value="${esc(support)}" placeholder="support@example.com"></div>
- <button class="btn" onclick="saveStoreSettings()">Save preferences</button>`);
-}
-function saveStoreSettings(){
- const email=(document.getElementById("prefSupport").value||"").trim();
- if(email&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){toast("Valid support email enter karein");return}
- localStorage.setItem("bk_display_currency",document.getElementById("prefCurrency").value);
- localStorage.setItem("bk_language",document.getElementById("prefLanguage").value);
- localStorage.setItem("bk_theme",document.getElementById("prefTheme").value);
- localStorage.setItem("bk_public_support",email);
- toast("Store preferences saved in this browser");
-}
-
-function showFeaturePanel(title,body){document.getElementById("cartTitle").textContent=title;document.getElementById("cartContent").innerHTML=body;document.getElementById("cartLayer").style.display="flex"}
-function trackLocalOrder(){const id=document.getElementById("trackOrderId").value.trim();const order=orders.find(o=>String(o.id)===id);document.getElementById("trackingResult").textContent=order?`Order #${order.id}\nCustomer: ${order.customer}\nItems: ${order.items}\nTotal: ${money(order.total)}\nStatus: ${order.status}\nPayment: ${order.paymentMethod||"Not recorded"}\nPayment state: ${order.paymentStatus||"Not verified"}`:"Order nahi mila. Sirf isi browser mein banaye gaye preview orders yahan track ho sakte hain."}
-
-
-let bkRecent=JSON.parse(localStorage.getItem("bk_recent_products")||"[]");
-let bkSubscribers=JSON.parse(localStorage.getItem("bk_update_subscribers")||"[]");
-function contactStore(){
- if(bkWhatsApp){window.open("https://wa.me/"+bkWhatsApp,"_blank","noopener");return}
- const email=store&&store.support?store.support:"";
- if(email){location.href="mailto:"+email;return}
- toast("Store support contact abhi configure nahi hai");
-}
-function subscribeUpdates(){
- const el=document.getElementById("newsletterEmail"),email=(el.value||"").trim().toLowerCase();
- if(!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)){toast("Valid email address enter karein");return}
- if(!bkSubscribers.includes(email)){bkSubscribers.push(email);localStorage.setItem("bk_update_subscribers",JSON.stringify(bkSubscribers))}
- el.value="";toast("Interest is browser preview mein save ho gaya");
-}
-function rememberViewedProduct(id){
- bkRecent=[id,...bkRecent.filter(x=>x!==id)].slice(0,6);
- localStorage.setItem("bk_recent_products",JSON.stringify(bkRecent));
- renderRecentlyViewed();
-}
-function renderRecentlyViewed(){
- const el=document.getElementById("recentProducts");if(!el)return;
- const list=bkRecent.map(id=>products.find(p=>p.id===id)).filter(Boolean);
- el.innerHTML=list.length?list.map(p=>`<article class="feature-card"><div class="feature-icon">${esc(p.icon||"🛍")}</div><b>${esc(p.name)}</b><p>${money(p.price)}</p><button class="btn" onclick="viewProduct(${p.id})">View product</button></article>`).join(""):'<p class="muted">Products you view will appear here.</p>';
-}
-
-renderTikTokLinks();
-renderRecentlyViewed();
-renderProducts();tab("overview",document.querySelector('[data-tab=overview]'));
+render();
 </script>
-
-
-<section id="help-center" class="section">
- <div class="section-head"><div><span class="eyebrow">HELP & SUPPORT</span><h2>Help Center</h2><p>Common questions aur customer support information.</p></div></div>
- <div class="feature-grid">
-  <article class="feature-card"><div class="feature-icon">❓</div><h3>FAQs</h3>
-   <details><summary>Order kaise place karun?</summary><p>Product select karein, cart mein add karein aur checkout form complete karein.</p></details>
-   <details><summary>Order status kahan check hoga?</summary><p>Track Order section mein apna preview order ID enter karein.</p></details>
-   <details><summary>Payment kaise hogi?</summary><p>Is website preview mein online payment enable nahi. Live payment setup abhi required hai.</p></details>
-  </article>
-  <article class="feature-card"><div class="feature-icon">✉️</div><h3>Contact Support</h3><p>Store support email ya WhatsApp contact set karne ke baad customers yahan se contact kar sakte hain.</p>
-   <button class="btn" onclick="contactStore()">Contact store</button>
-  </article>
-  <article class="feature-card"><div class="feature-icon">🔔</div><h3>Product Updates</h3><p>New arrivals aur offers ke liye email interest register karein.</p>
-   <input id="newsletterEmail" type="email" placeholder="Your email address" style="width:100%;padding:11px;border:1px solid #d7dee7;border-radius:8px;margin:8px 0">
-   <button class="btn" onclick="subscribeUpdates()">Subscribe</button>
-  </article>
- </div>
-</section>
-<section id="recently-viewed" class="section">
- <div class="section-head"><div><span class="eyebrow">YOUR ACTIVITY</span><h2>Recently Viewed</h2></div></div>
- <div id="recentProducts" class="feature-grid"><p class="muted">Products you view will appear here.</p></div>
-</section>
-
-<footer class="section" style="text-align:center;padding:24px">
- <h3>B_K ONLINE SHOPPING</h3>
- <p class="muted">Shop smart. Shop with confidence.</p>
- <p><a href="#home">Home</a> · <a href="#shop">Shop</a> · <a href="#social">TikTok</a> · <a href="#tracking">Track order</a></p>
- <small class="muted">Customer storefront. Management tools are not displayed here.</small>
-</footer>
-
-<button id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" style="position:fixed;right:16px;bottom:16px;z-index:25;border:0;border-radius:50%;width:46px;height:46px;background:#14243b;color:white;font-size:20px;box-shadow:0 5px 18px #0003">↑</button>
-</body></html>
+</body>
+</html>

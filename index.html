@@ -19,7 +19,7 @@ nav{background:var(--nav2);color:#fff;display:flex;gap:20px;padding:11px 3%;over
 .products{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.product{background:white;padding:12px;border-radius:12px;display:flex;flex-direction:column;box-shadow:0 3px 14px #17223808}.pic{height:125px;background:#edf2f5;border-radius:9px;display:grid;place-items:center;font-size:58px;margin-bottom:10px}.product h3{font-size:14px;min-height:34px;margin:0 0 7px}.price{font-size:18px;color:#087b69;font-weight:800}.product .muted{flex:1;margin:7px 0}
 .toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}.toolbar select{padding:9px;border:1px solid var(--line);border-radius:8px;background:#fff}
 .layout{display:grid;grid-template-columns:225px minmax(0,1fr);gap:15px;align-items:start}.side{background:var(--nav);color:white;border-radius:12px;padding:13px;position:sticky;top:120px}.side .sideTitle{font-weight:bold;color:var(--gold);padding:7px 9px 12px}.side button{width:100%;text-align:left;border:0;background:transparent;color:#e8edf5;padding:10px;border-radius:7px;margin:2px 0}.side button:hover,.side button.active{background:#2a3b55;color:#fff}.side .sub{font-size:10px;color:#aebbd0;padding:12px 9px 4px;text-transform:uppercase;letter-spacing:1px}
-#owner{display:none!important}.adminpanel{background:#fff;border-radius:12px;padding:17px;min-height:420px;box-shadow:0 3px 14px #17223808}.adminpanel h2{margin:0 0 6px}.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.field{display:grid;gap:5px;margin:8px 0}.field label{font-size:12px;font-weight:bold;color:#536176}.field input,.field select,.field textarea{padding:10px;border:1px solid #d7dee7;border-radius:8px;width:100%;background:white}.field textarea{min-height:72px;resize:vertical}.full{grid-column:1/-1}
+.adminpanel{background:#fff;border-radius:12px;padding:17px;min-height:420px;box-shadow:0 3px 14px #17223808}.adminpanel h2{margin:0 0 6px}.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.field{display:grid;gap:5px;margin:8px 0}.field label{font-size:12px;font-weight:bold;color:#536176}.field input,.field select,.field textarea{padding:10px;border:1px solid #d7dee7;border-radius:8px;width:100%;background:white}.field textarea{min-height:72px;resize:vertical}.full{grid-column:1/-1}
 table{width:100%;border-collapse:collapse;font-size:12px;margin-top:12px}th,td{text-align:left;padding:10px 7px;border-bottom:1px solid var(--line);vertical-align:top}th{color:#59667a;background:#f8fafc}.tablewrap{overflow:auto}
 .pill{display:inline-block;border-radius:20px;padding:4px 8px;background:#edf2f6;font-size:11px}.notice{background:#fff7e6;border:1px solid #f2d89b;color:#705319;padding:11px;border-radius:9px;font-size:12px;line-height:1.5;margin:10px 0}.success{background:#e8f7f1;border-color:#bce5d5;color:#17634e}
 .twocol{display:grid;grid-template-columns:1fr 1fr;gap:12px}.linkrow{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}.link{display:inline-block;padding:10px 13px;border-radius:8px;background:#edf2f6;border:1px solid #dce3eb;font-weight:bold;font-size:12px}
@@ -27,8 +27,29 @@ footer{background:var(--nav);color:#fff;padding:27px 5%;display:grid;grid-templa
 .assist{position:fixed;right:15px;bottom:15px;z-index:10}.chatbtn{background:var(--teal);color:white;border:0;border-radius:25px;padding:14px 17px;font-weight:bold;box-shadow:0 5px 18px #0003}.chat{display:none;position:absolute;right:0;bottom:58px;width:min(340px,calc(100vw - 30px));background:#fff;border-radius:14px;box-shadow:0 8px 30px #0004;overflow:hidden}.chathead{background:var(--nav);color:#fff;padding:13px;font-weight:bold}.chatbody{height:220px;overflow:auto;padding:12px;font-size:13px}.bubble{background:#edf2f6;border-radius:10px;padding:9px 11px;margin:7px 0;line-height:1.45}.chatrow{display:flex;padding:9px;gap:6px;border-top:1px solid #eee}.chatrow input{flex:1;min-width:0;padding:9px;border:1px solid #ddd;border-radius:8px}
 #toast{position:fixed;left:50%;bottom:78px;transform:translateX(-50%);background:#182438;color:#fff;border-radius:8px;padding:11px 15px;display:none;z-index:20;max-width:90%;text-align:center}
 @media(max-width:900px){.layout{grid-template-columns:1fr}.side{position:static;display:flex;overflow:auto;gap:4px}.side .sideTitle,.side .sub{display:none}.side button{white-space:nowrap;width:auto}.products{grid-template-columns:repeat(2,1fr)}.cards{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){nav{gap:13px;font-size:12px}header{gap:7px;padding:7px 2%}.brand svg{width:38px;height:38px}.brandname{font-size:11px}.brandname small{font-size:7px}.headbtn{font-size:11px;padding:8px}.search button{padding:0 9px}.hero{padding:30px 5%;grid-template-columns:1fr}.heroArt{font-size:60px}.wrap{padding:13px 3% 40px}.products{gap:8px}.product{padding:9px}.pic{height:100px;font-size:48px}.cats{grid-template-columns:repeat(2,1fr)}.twocol,.formgrid{grid-template-columns:1fr}.full{grid-column:auto}footer{grid-template-columns:1fr}.side{top:auto}.side button{font-size:11px;padding:8px}}
-body.darkmode{--bg:#101827;--ink:#e8eef7;--muted:#aab7c8;--line:#344256;--white:#172438}body.darkmode .metric,body.darkmode .panel,body.darkmode .product,body.darkmode .cat,body.darkmode .adminpanel{background:#172438;color:#e8eef7}body.darkmode .toolbar select,body.darkmode .field input,body.darkmode .field select{background:#172438;color:#e8eef7;border-color:#344256}body.darkmode .pic{background:#24364c}body.darkmode th{background:#24364c;color:#dce6f3}
+@media(max-width:560px){header{gap:7px;padding:7px 2%}.brand svg{width:38px;height:38px}.brandname{font-size:11px}.brandname small{font-size:7px}.headbtn{font-size:11px;padding:8px}.search button{padding:0 9px}.hero{padding:30px 5%;grid-template-columns:1fr}.heroArt{font-size:60px}.wrap{padding:13px 3% 40px}.products{gap:8px}.product{padding:9px}.pic{height:100px;font-size:48px}.cats{grid-template-columns:repeat(2,1fr)}.twocol,.formgrid{grid-template-columns:1fr}.full{grid-column:auto}footer{grid-template-columns:1fr}.side{top:auto}.side button{font-size:11px;padding:8px}}
+
+.cart-layer{display:none;position:fixed;inset:0;background:#081323c9;z-index:60;align-items:center;justify-content:center;padding:14px}
+.cart-panel{background:#fff;width:min(650px,100%);max-height:92vh;overflow:auto;border-radius:16px;padding:22px;box-shadow:0 20px 60px #0005}
+.cart-head{display:flex;align-items:center;justify-content:space-between;gap:10px}.cart-line{display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center;border-bottom:1px solid #e7ebf0;padding:12px 0}
+.cart-line button{border:0;border-radius:7px;padding:7px 10px}.cart-total{font-size:20px;font-weight:900;text-align:right;padding:15px 0}
+.checkout-fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}.checkout-fields input,.checkout-fields textarea{width:100%;padding:11px;border:1px solid #d7dee7;border-radius:8px}
+.checkout-fields .wide{grid-column:1/-1}.product-actions{display:flex;gap:7px;flex-wrap:wrap}.product-actions .btn{flex:1}
+@media(max-width:520px){.cart-line{grid-template-columns:1fr auto}.checkout-fields{grid-template-columns:1fr}.checkout-fields .wide{grid-column:auto}}
+
+
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.feature-card{background:var(--card,#fff);border:1px solid var(--line,#e5eaf0);border-radius:14px;padding:18px;box-shadow:0 8px 24px #12213a0b}
+.feature-card h3{margin:7px 0}.feature-card p{color:var(--muted,#687789);min-height:38px}
+.feature-icon{font-size:28px}.feature-card button{margin-top:8px}.social-list a{display:block;margin:8px 0;overflow-wrap:anywhere}
+.tracking-card{max-width:560px;display:grid;gap:10px}.tracking-card input{padding:12px;border:1px solid #d7dee7;border-radius:8px}
+.tracking-result{margin-top:10px;padding:10px;border-radius:9px;background:#f1f5f9;white-space:pre-wrap}
+
+
+.feature-card details{border-top:1px solid #e7ebf0;padding:10px 0}
+.feature-card summary{cursor:pointer;font-weight:700}
+.feature-card details p{margin:8px 0 0;min-height:0}
+
 </style>
 </head>
 <body>
@@ -38,9 +59,11 @@ body.darkmode{--bg:#101827;--ink:#e8eef7;--muted:#aab7c8;--line:#344256;--white:
   <span class="brandname">B_K ONLINE SHOPPING<small>YOUR MARKETPLACE</small></span>
  </a>
  <div class="search"><input id="search" placeholder="Search products..." oninput="renderProducts()"><button onclick="renderProducts()">Search</button></div>
- <button class="headbtn" onclick="toggleTheme()">🌙 Theme</button><button class="headbtn" onclick="showCart()">🛒 Cart <span id="cartCount">0</span></button>
+ <button class="headbtn" onclick="showCart()">🛒 Cart <span id="cartCount">0</span></button>
+ <button class="headbtn" onclick="openAccount(currentUser?'account':'login')">Account</button>
+ <button class="headbtn" onclick="openAccount('signup')">Sign Up</button>
 </header>
-<nav><a href="#home">Home</a><a href="#categories">Categories</a><a href="#shop">Marketplace</a><a href="#seller">Seller centre</a><a href="#connections">Global links</a></nav>
+<nav><a href="#home">Home</a><a href="#categories">Categories</a><a href="#shop">Marketplace</a><a href="#seller">Seller centre</a><a href="#connections">Global links</a><a href="#" onclick="openUpgrade();return false">Upgrade</a><a href="#social">TikTok Videos</a><a href="#extras">More Features</a><a href="#tracking">Track Order</a></nav>
 <section class="hero" id="home"><div><div class="kicker">B_K ONLINE SHOPPING</div><h1>One marketplace. Your business, your control.</h1><p>A multi-vendor marketplace concept inspired by large B2B and retail platforms: products, suppliers, seller applications, RFQs, orders, logistics and owner tools in one place.</p><button class="btn" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Explore marketplace</button></div><div class="heroArt">🏪📦🌍</div></section>
 <main class="wrap">
  <div class="cards">
@@ -52,33 +75,39 @@ body.darkmode{--bg:#101827;--ink:#e8eef7;--muted:#aab7c8;--line:#344256;--white:
  <section class="section" id="categories"><h2>Shop by category</h2><div class="cats">
   <div class="cat" onclick="setCat('Electronics')"><span>🎧</span><b>Electronics</b></div><div class="cat" onclick="setCat('Fashion')"><span>👕</span><b>Fashion</b></div><div class="cat" onclick="setCat('Home')"><span>🏠</span><b>Home & Living</b></div><div class="cat" onclick="setCat('Accessories')"><span>⌚</span><b>Accessories</b></div>
  </div></section>
- <section class="section" id="shop"><div class="toolbar"><h2>Marketplace products</h2><div style="display:flex;gap:8px;flex-wrap:wrap"><select id="sortProducts" onchange="renderProducts()"><option value="default">Sort: Featured</option><option value="low">Price: Low to high</option><option value="high">Price: High to low</option><option value="name">Name: A to Z</option></select><select id="category" onchange="renderProducts()"><option>All</option><option>Electronics</option><option>Fashion</option><option>Home</option><option>Accessories</option></select></div></div><div class="muted" id="compareHint">Compare up to 3 products.</div><div class="products" id="productGrid"></div><div id="comparePanel" class="panel" style="display:none;margin-top:12px"></div></section>
- <section class="section" id="owner"><h2>👑 B_K owner control centre</h2><p class="muted">Owner workspace preview. Changes to products and demo records are saved in this browser only.</p>
-  <div class="layout">
-   <aside class="side">
-    <div class="sideTitle">B_K CONTROL</div>
-    <div class="sub">Marketplace management</div>
-    <button class="active" data-tab="overview" onclick="tab('overview',this)">📊 Overview</button>
-    <button data-tab="manageProducts" onclick="tab('manageProducts',this)">📦 Products</button>
-    <button data-tab="orders" onclick="tab('orders',this)">🧾 Orders</button>
-    <button data-tab="sellers" onclick="tab('sellers',this)">🏪 Sellers</button>
-    <button data-tab="rfqs" onclick="tab('rfqs',this)">📨 RFQ / Quotes</button>
-    <button data-tab="suppliers" onclick="tab('suppliers',this)">🌐 Suppliers</button>
-    <button data-tab="logistics" onclick="tab('logistics',this)">🚚 Logistics</button>
-    <div class="sub">Growth & settings</div>
-    <button data-tab="marketing" onclick="tab('marketing',this)">📣 Marketing</button>
-    <button data-tab="finance" onclick="tab('finance',this)">💳 Finance</button>
-    <button data-tab="settings" onclick="tab('settings',this)">⚙️ Store settings</button>
-   </aside>
-   <div class="adminpanel" id="adminContent"></div>
-  </div>
- </section>
+ <section class="section" id="shop"><div class="toolbar"><h2>Marketplace products</h2><select id="category" onchange="renderProducts()"><option>All</option><option>Electronics</option><option>Fashion</option><option>Home</option><option>Accessories</option></select></div><div class="products" id="productGrid"></div></section>
+ 
+<section id="social" class="section">
+ <div class="section-head"><div><span class="eyebrow">SOCIAL SHOPPING</span><h2>TikTok Videos & Social Links</h2><p>Apni TikTok videos yahan feature karo aur visitors ko store tak lao.</p></div></div>
+ <div class="feature-grid">
+  <article class="feature-card"><div class="feature-icon">▶</div><h3>TikTok Store Video</h3><p>Apni TikTok video ka link add karke yahan show karo.</p><button class="btn" onclick="addTikTokLink()">Add TikTok video link</button><div id="tiktokList" class="social-list"></div></article>
+  <article class="feature-card"><div class="feature-icon">↗</div><h3>Visit TikTok Profile</h3><p>Customers ko official TikTok profile par bhejo.</p><button class="btn ghost" onclick="setTikTokProfile()">Set profile link</button><div id="tiktokProfileStatus" class="muted">Profile link not set</div></article>
+  <article class="feature-card"><div class="feature-icon">📣</div><h3>Share Store</h3><p>Website link share karke apne store ki promotion karo.</p><button class="btn ghost" onclick="shareStore()">Share website</button></article>
+ </div>
+</section>
+<section id="extras" class="section">
+ <div class="section-head"><div><span class="eyebrow">CUSTOMER EXPERIENCE</span><h2>More Shopping Features</h2><p>Useful tools ek hi jagah par.</p></div></div>
+ <div class="feature-grid">
+  <article class="feature-card"><div class="feature-icon">♡</div><h3>Wishlist</h3><p>Favourite products save karo.</p><button class="btn" onclick="openWishlist()">Open wishlist</button></article>
+  <article class="feature-card"><div class="feature-icon">🏷</div><h3>Discount Coupons</h3><p>Available coupon codes dekho aur checkout mein apply karo.</p><button class="btn" onclick="openCoupons()">View coupons</button></article>
+  <article class="feature-card"><div class="feature-icon">★</div><h3>Customer Reviews</h3><p>Products par apni rating aur review add karo.</p><button class="btn" onclick="openReviews()">Write a review</button></article>
+  <article class="feature-card"><div class="feature-icon">🌐</div><h3>Language</h3><p>Website language preference select karo.</p><button class="btn ghost" onclick="chooseLanguage()">Language settings</button></article>
+  <article class="feature-card"><div class="feature-icon">💬</div><h3>WhatsApp Support</h3><p>Support WhatsApp number set karo.</p><button class="btn ghost" onclick="setWhatsApp()">Set WhatsApp</button></article>
+  <article class="feature-card"><div class="feature-icon">🤖</div><h3>AI Shopping Assistant</h3><p>Products aur shopping ke liye help panel.</p><button class="btn" onclick="openShoppingAssistant()">Open assistant</button></article>
+ </div>
+</section>
+<section id="tracking" class="section">
+ <div class="section-head"><div><span class="eyebrow">ORDER SERVICES</span><h2>Track Your Order</h2><p>Preview order ID se is browser mein saved order status check karo.</p></div></div>
+ <div class="feature-card tracking-card"><label for="trackOrderId">Order ID</label><input id="trackOrderId" placeholder="Enter order ID"><button class="btn" onclick="trackLocalOrder()">Track order</button><div id="trackingResult" class="tracking-result"></div></div>
+</section>
+
+<!-- Owner/admin dashboard removed from public storefront. -->
  <section class="section twocol" id="seller">
   <div class="panel"><h2>🤝 Seller centre</h2><p class="muted">Sellers can submit a demo application. In the live marketplace, you as owner approve or reject seller accounts and control listing permissions.</p>
-   <div class="field"><label>Shop name</label><input id="sShop" placeholder="Your shop name"></div><div class="field"><label>Contact person</label><input id="sName" placeholder="Contact name"></div><div class="field"><label>Product category</label><select id="sCat"><option>Electronics</option><option>Fashion</option><option>Home</option><option>Accessories</option></select></div><button class="btn" onclick="submitSeller()">Send demo application</button>
+   <div class="field"><label>Shop name</label><input id="sShop" placeholder="Your shop name"></div><div class="field"><label>Contact person</label><input id="sName" placeholder="Contact name"></div><div class="field"><label>Product category</label><select id="sCat"><option>Electronics</option><option>Fashion</option><option>Home</option><option>Accessories</option></select></div><button class="btn" onclick="submitSeller()">Submit seller application</button>
   </div>
   <div class="panel"><h2>📩 Request for quotation (RFQ)</h2><p class="muted">A B2B-style feature: ask suppliers for price and terms for a product you want to source.</p>
-   <div class="field"><label>Product needed</label><input id="rfqProduct" placeholder="e.g. Bluetooth headphones"></div><div class="field"><label>Quantity needed</label><input id="rfqQty" type="number" min="1" placeholder="e.g. 20"></div><div class="field"><label>Notes</label><textarea id="rfqNotes" placeholder="Specifications or questions"></textarea></div><button class="btn" onclick="submitRfq()">Create demo RFQ</button>
+   <div class="field"><label>Product needed</label><input id="rfqProduct" placeholder="e.g. Bluetooth headphones"></div><div class="field"><label>Quantity needed</label><input id="rfqQty" type="number" min="1" placeholder="e.g. 20"></div><div class="field"><label>Notes</label><textarea id="rfqNotes" placeholder="Specifications or questions"></textarea></div><button class="btn" onclick="submitRfq()">Submit quotation request</button>
   </div>
  </section>
  <section class="section" id="connections"><h2>🌍 External platforms & supplier tools</h2><div class="twocol">
@@ -92,6 +121,38 @@ body.darkmode{--bg:#101827;--ink:#e8eef7;--muted:#aab7c8;--line:#344256;--white:
 <footer><div class="brand"><svg viewBox="0 0 100 100" width="42" height="42"><path d="M50 3 91 26v48L50 97 9 74V26Z" fill="#f6bd4b"/><text x="50" y="62" font-size="32" font-weight="bold" text-anchor="middle" fill="#111827">B_K</text></svg><b>B_K ONLINE SHOPPING</b><p>Multi-vendor marketplace prototype. Owner brand: B_K.</p></div><div><b>Customer service</b><p>Orders & shipping<br>Returns and refunds<br>Support centre</p></div><div><b>Business tools</b><p>Seller centre<br>Supplier RFQs<br>Marketplace integrations</p></div></footer>
 <div class="assist"><div class="chat" id="chat"><div class="chathead">🤖 B_K AI Shopping Assistant</div><div class="chatbody" id="chatBody"><div class="bubble">Assalam-o-alaikum! Main B_K website ka demo assistant hoon. Products, sellers, RFQs, suppliers aur shipping ke baare mein pooch sakte hain.</div></div><div class="chatrow"><input id="chatInput" placeholder="Ask a question..." onkeydown="if(event.key==='Enter')askAI()"><button class="btn" onclick="askAI()">Send</button></div></div><button class="chatbtn" onclick="toggleChat()">🤖 B_K Assistant</button></div>
 <div id="toast"></div>
+
+<div id="cartLayer" class="cart-layer">
+ <section class="cart-panel">
+  <div class="cart-head"><h2 id="cartTitle">Your Shopping Cart</h2><button class="btn ghost" onclick="closeCart()">Close ✕</button></div>
+  <div id="cartContent"></div>
+ </section>
+</div>
+
+
+<div id="accountLayer" class="account-layer" aria-live="polite">
+ <div class="account-card"><button class="close-account" onclick="closeAccount()" aria-label="Close">✕</button><div id="accountContent"></div></div>
+</div>
+<style>
+.account-layer{display:none;position:fixed;inset:0;background:#081323c9;z-index:50;align-items:center;justify-content:center;padding:16px}
+.account-card{position:relative;background:#fff;width:min(470px,100%);max-height:90vh;overflow:auto;border-radius:16px;padding:24px;box-shadow:0 20px 60px #0005}
+.close-account{position:absolute;right:13px;top:12px;border:0;background:#edf1f5;border-radius:8px;padding:8px 11px;font-weight:bold}
+.account-card h2{margin:0 38px 8px 0}.account-card .field{margin:12px 0}
+.account-card .field input{padding:12px;border:1px solid #d7dee7;border-radius:8px;width:100%}
+.account-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}
+.plan-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.plan{border:1px solid #dfe5ed;border-radius:12px;padding:13px}.plan h3{margin:0 0 6px}
+@media(max-width:560px){.account-card{padding:19px}.plan-grid{grid-template-columns:1fr}}
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+// B_K Supabase project configuration (publishable/anon key is intended for browser use).
+const BK_SUPABASE_URL = "https://xkbdxorssrmuxbrbfljd.supabase.co";
+const BK_SUPABASE_KEY = "sb_publishable_qP3N0WKucQgJm_VKbZAjQQ_8CjzJ_9J";
+const bkSupabase = window.supabase.createClient(BK_SUPABASE_URL, BK_SUPABASE_KEY);
+</script>
 <script>
 const initial=[
  {id:1,name:"MT5 Ultra AI Smart Glasses",cat:"Electronics",icon:"🕶️",price:41532,qty:10,desc:"Demo listing. Verify supplier specs, shipping and warranty."},
@@ -103,65 +164,69 @@ const initial=[
  {id:7,name:"Coffee Mug",cat:"Home",icon:"☕",price:999,qty:30,desc:"Reusable mug."},
  {id:8,name:"Phone Stand",cat:"Accessories",icon:"📱",price:799,qty:40,desc:"Adjustable phone stand."}
 ];
-let products=load("bk_products",initial),cart=[],sellers=load("bk_sellers",[]),rfqs=load("bk_rfqs",[]),orders=load("bk_orders",[]),store=load("bk_settings",{name:"B_K ONLINE SHOPPING",owner:"B_K",currency:"PKR",commission:"5",support:""});
+let products=load("bk_products",initial),cart=[],sellers=load("bk_sellers",[]),rfqs=load("bk_rfqs",[]),orders=load("bk_orders",[]),store=load("bk_settings",{name:"B_K ONLINE SHOPPING",owner:"B_K",currency:"PKR",commission:"5",support:""}),currentUser=load("bk_current_user",null),users=load("bk_users",[]);
 function load(k,d){try{let x=localStorage.getItem(k);return x?JSON.parse(x):JSON.parse(JSON.stringify(d))}catch(e){return d}}
 function save(){localStorage.setItem("bk_products",JSON.stringify(products));localStorage.setItem("bk_sellers",JSON.stringify(sellers));localStorage.setItem("bk_rfqs",JSON.stringify(rfqs));localStorage.setItem("bk_orders",JSON.stringify(orders));localStorage.setItem("bk_settings",JSON.stringify(store))}
-const CURRENCIES={
- PKR:{name:"Pakistani Rupee",symbol:"Rs.",toPKR:1}, USD:{name:"US Dollar",symbol:"$",toPKR:280},
- EUR:{name:"Euro",symbol:"€",toPKR:305}, GBP:{name:"British Pound",symbol:"£",toPKR:355},
- AED:{name:"UAE Dirham",symbol:"د.إ",toPKR:76}, SAR:{name:"Saudi Riyal",symbol:"﷼",toPKR:74},
- CNY:{name:"Chinese Yuan",symbol:"¥",toPKR:39}, INR:{name:"Indian Rupee",symbol:"₹",toPKR:3.3},
- CAD:{name:"Canadian Dollar",symbol:"C$",toPKR:205}, AUD:{name:"Australian Dollar",symbol:"A$",toPKR:183},
- JPY:{name:"Japanese Yen",symbol:"¥",toPKR:1.9}, TRY:{name:"Turkish Lira",symbol:"₺",toPKR:8.5}
-};
-function money(n,c="PKR"){let x=CURRENCIES[c]||CURRENCIES.PKR;return x.symbol+" "+Number(n).toLocaleString("en-US",{maximumFractionDigits:2})}
-function convertCurrency(amount,from,to){let a=CURRENCIES[from]||CURRENCIES.PKR,b=CURRENCIES[to]||CURRENCIES.PKR;return Number(amount)*a.toPKR/b.toPKR}
-function currencyOptions(selected="PKR"){return Object.keys(CURRENCIES).map(c=>`<option value="${c}" ${c===selected?"selected":""}>${c} - ${CURRENCIES[c].name}</option>`).join("")}
+function money(n){return "Rs. "+Number(n).toLocaleString("en-PK")}
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
 function toast(s){let t=document.getElementById("toast");t.textContent=s;t.style.display="block";clearTimeout(window.tt);window.tt=setTimeout(()=>t.style.display="none",3200)}
-let compareIds=[];
-function renderProducts(){let q=document.getElementById("search").value.toLowerCase(),c=document.getElementById("category").value,sort=document.getElementById("sortProducts")?.value||"default";let a=products.filter(p=>(c==="All"||p.cat===c)&&(p.name.toLowerCase().includes(q)||p.desc.toLowerCase().includes(q)));if(sort==="low")a.sort((x,y)=>x.price-y.price);if(sort==="high")a.sort((x,y)=>y.price-x.price);if(sort==="name")a.sort((x,y)=>x.name.localeCompare(y.name));document.getElementById("productGrid").innerHTML=a.map(p=>`<article class="product"><div class="pic">${esc(p.icon)}</div><h3>${esc(p.name)}</h3><div class="price">${money(p.price,p.currency||"PKR")}</div><span class="pill">${esc(p.cat)}</span><p class="muted">${esc(p.desc)}<br>Stock: ${p.qty}</p><label class="muted"><input type="checkbox" ${compareIds.includes(p.id)?"checked":""} onchange="toggleCompare(${p.id})"> Compare</label><button class="btn" onclick="addCart(${p.id})">Add to cart</button></article>`).join("")||"<p>No products found. Try another search or category.</p>";document.getElementById("metricProducts").textContent=products.length;renderCompare()}
-function toggleCompare(id){if(compareIds.includes(id))compareIds=compareIds.filter(x=>x!==id);else if(compareIds.length<3)compareIds.push(id);else{toast("Compare up to 3 products only");renderProducts();return}renderProducts()}
-function renderCompare(){let el=document.getElementById("comparePanel"),list=products.filter(p=>compareIds.includes(p.id));if(!list.length){el.style.display="none";return}el.style.display="block";el.innerHTML='<h3>Product comparison</h3><div class="tablewrap"><table><tr><th>Product</th>'+list.map(p=>`<td>${esc(p.name)}</td>`).join('')+'</tr><tr><th>Category</th>'+list.map(p=>`<td>${esc(p.cat)}</td>`).join('')+'</tr><tr><th>Price</th>'+list.map(p=>`<td>${money(p.price,p.currency||"PKR")}</td>`).join('')+'</tr><tr><th>Stock</th>'+list.map(p=>`<td>${p.qty}</td>`).join('')+'</tr></table></div><button class="btn ghost small" onclick="compareIds=[];renderProducts()">Clear comparison</button>'}
-function toggleTheme(){document.body.classList.toggle("darkmode");localStorage.setItem("bk-theme",document.body.classList.contains("darkmode")?"dark":"light")}
-if(localStorage.getItem("bk-theme")==="dark")document.body.classList.add("darkmode");
+function renderProducts(){let q=document.getElementById("search").value.toLowerCase(),c=document.getElementById("category").value;let a=products.filter(p=>(c==="All"||p.cat===c)&&(p.name.toLowerCase().includes(q)||p.desc.toLowerCase().includes(q)));document.getElementById("productGrid").innerHTML=a.map(p=>`<article class="product"><div class="pic">${esc(p.icon)}</div><h3>${esc(p.name)}</h3><div class="price">${money(p.price)}</div><p class="muted">${esc(p.desc)}<br>Stock: ${p.qty}</p><div class="product-actions"><button class="btn" onclick="addCart(${p.id})">Add to cart</button><button class="btn ghost" onclick="viewProduct(${p.id})">Details</button><button class="btn ghost" onclick="toggleWishlist(${p.id})">♡ Save</button></div></article>`).join("")||"<p>No products found.</p>";document.getElementById("metricProducts").textContent=products.length}
 function setCat(c){document.getElementById("category").value=c;renderProducts();document.getElementById("shop").scrollIntoView({behavior:"smooth"})}
 function addCart(id){let p=products.find(x=>x.id===id);if(!p)return;if(p.qty<1){toast("This demo item is out of stock");return}cart.push(id);document.getElementById("cartCount").textContent=cart.length;document.getElementById("metricCart").textContent=cart.length;toast(p.name+" added to demo cart")}
-function showCart(){
- if(!cart.length){toast("Your demo cart is empty");return}
- let grouped={},totalPKR=0;
- cart.forEach(id=>{let p=products.find(x=>x.id===id);if(p){grouped[p.name]=(grouped[p.name]||0)+1;totalPKR+=convertCurrency(p.price,p.currency||"PKR","PKR")}});
- let detail=Object.entries(grouped).map(([n,q])=>q+" x "+n).join(" | ");
- let chosen=prompt("Choose checkout currency: "+Object.keys(CURRENCIES).join(", ")+"
-Type currency code (e.g. PKR or USD):","PKR");
- if(!chosen)return;
- chosen=chosen.trim().toUpperCase();
- if(!CURRENCIES[chosen]){toast("Currency not supported in this demo");return}
- let total=convertCurrency(totalPKR,"PKR",chosen);
- if(confirm(detail+"
-Estimated total: "+money(total,chosen)+"
-Create a demo order?")){
-  orders.push({id:Date.now(),items:detail,total,currency:chosen,status:"Demo order - payment not processed"});
-  save();cart=[];document.getElementById("cartCount").textContent="0";document.getElementById("metricCart").textContent="0";
-  toast("Demo order created. No money was charged.");tab("orders",document.querySelector('[data-tab=orders]'))
- }
+function showCart(){renderCart();document.getElementById("cartLayer").style.display="flex"}
+function closeCart(){document.getElementById("cartLayer").style.display="none"}
+function cartTotal(){return cart.reduce((sum,id)=>sum+(products.find(p=>p.id===id)?.price||0),0)}
+function renderCart(){
+ const root=document.getElementById("cartContent");
+ if(!cart.length){root.innerHTML='<p>Your cart is empty.</p><button class="btn" onclick="closeCart();document.getElementById(\'shop\').scrollIntoView({behavior:\'smooth\'})">Browse products</button>';return}
+ const counts={};cart.forEach(id=>counts[id]=(counts[id]||0)+1);
+ root.innerHTML=Object.entries(counts).map(([id,qty])=>{const p=products.find(x=>x.id===Number(id));if(!p)return '';return `<div class="cart-line"><div><b>${esc(p.name)}</b><div class="muted">${money(p.price)} each</div></div><div><button onclick="changeCartQty(${p.id},-1)">−</button> ${qty} <button onclick="changeCartQty(${p.id},1)">+</button></div><button onclick="removeCartItem(${p.id})">Remove</button></div>`}).join('')+
+ `<div class="cart-total">Total: ${money(cartTotal())}</div><button class="btn" onclick="showCheckout()">Continue to checkout</button>`;
 }
+function changeCartQty(id,delta){const p=products.find(x=>x.id===id);if(delta>0&&p&&cart.filter(x=>x===id).length>=p.qty){toast("Available preview stock limit reached");return}if(delta>0)cart.push(id);else{const i=cart.indexOf(id);if(i>=0)cart.splice(i,1)}syncCartCount();renderCart()}
+function removeCartItem(id){cart=cart.filter(x=>x!==id);syncCartCount();renderCart()}
+function syncCartCount(){document.getElementById("cartCount").textContent=cart.length;document.getElementById("metricCart").textContent=cart.length}
+function showCheckout(){
+ if(!cart.length){renderCart();return}
+ document.getElementById("cartTitle").textContent="Checkout";
+ document.getElementById("cartContent").innerHTML=`<p>Order total: <b>${money(cartTotal())}</b></p>
+ <div class="checkout-fields">
+ <input id="coName" placeholder="Full name" required>
+ <input id="coPhone" placeholder="Phone number" required>
+ <input id="coEmail" type="email" placeholder="Email (optional)">
+ <input id="coCity" placeholder="City" required>
+ <textarea id="coAddress" class="wide" rows="3" placeholder="Delivery address" required></textarea>
+ </div>
+ <p class="notice">Preview checkout only: this form stores an order on this browser. No payment is taken and no courier is booked.</p>
+ <button class="btn" onclick="placeLocalOrder()">Place preview order</button> <button class="btn ghost" onclick="renderCart();document.getElementById('cartTitle').textContent='Your Shopping Cart'">Back to cart</button>`;
+}
+function placeLocalOrder(){
+ const name=document.getElementById("coName").value.trim(),phone=document.getElementById("coPhone").value.trim(),city=document.getElementById("coCity").value.trim(),address=document.getElementById("coAddress").value.trim();
+ if(!name||!phone||!city||!address){toast("Please fill name, phone, city and address");return}
+ const grouped={};cart.forEach(id=>{const p=products.find(x=>x.id===id);if(p)grouped[p.name]=(grouped[p.name]||0)+1});
+ const items=Object.entries(grouped).map(([n,q])=>q+" x "+n).join(" | ");
+ orders.push({id:Date.now(),customer:name,phone,city,address,items,total:cartTotal(),status:"New preview order"});
+ save();cart=[];syncCartCount();closeCart();toast("Preview order saved on this device");tab("orders",document.querySelector('[data-tab=orders]'));
+}
+function viewProduct(id){
+ const p=products.find(x=>x.id===id);if(!p)return;rememberViewedProduct(id);
+ document.getElementById("cartTitle").textContent="Product details";
+ document.getElementById("cartContent").innerHTML=`<div style="font-size:56px;text-align:center;padding:15px">${esc(p.icon)}</div><h2>${esc(p.name)}</h2><div class="price">${money(p.price)}</div><p>${esc(p.desc)}</p><p>Category: ${esc(p.cat)} · Available preview stock: ${p.qty}</p><button class="btn" onclick="addCart(${p.id});closeCart()">Add to cart</button>`;
+ document.getElementById("cartLayer").style.display="flex";
+}
+document.getElementById("cartLayer").addEventListener("click",function(e){if(e.target===this)closeCart()});
 function tab(name,el){document.querySelectorAll(".side button").forEach(b=>b.classList.remove("active"));if(el)el.classList.add("active");let root=document.getElementById("adminContent");if(name==="overview")root.innerHTML=`<h2>Owner overview</h2><p class="muted">Your marketplace control panel preview</p><div class="cards"><div class="metric">Products<div class="num">${products.length}</div></div><div class="metric">Seller requests<div class="num">${sellers.length}</div></div><div class="metric">RFQs<div class="num">${rfqs.length}</div></div><div class="metric">Demo orders<div class="num">${orders.length}</div></div></div><div class="notice">As owner, the live system should let you approve sellers, manage listings, set commissions, review orders, handle disputes and control platform settings.</div><h3>Marketplace modules</h3><p class="muted">Catalogue · Seller management · RFQ sourcing · Orders · Logistics · Marketing · Finance · Reports · Settings</p>`;
-else if(name==="manageProducts")root.innerHTML=`<h2>Product management</h2><p class="muted">Add demo products to the public catalogue. Choose the currency for each product. Changes save in this browser.</p><div class="formgrid"><div class="field"><label>Product name</label><input id="pName" placeholder="Product name"></div><div class="field"><label>Category</label><select id="pCat"><option>Electronics</option><option>Fashion</option><option>Home</option><option>Accessories</option></select></div><div class="field"><label>Product price</label><input id="pPrice" type="number" min="0.01" step="0.01" placeholder="Price"></div><div class="field"><label>Seller currency</label><select id="pCurrency">${currencyOptions("PKR")}</select></div><div class="field"><label>Stock quantity</label><input id="pQty" type="number" min="0" placeholder="Quantity"></div><div class="field"><label>Emoji icon</label><input id="pIcon" placeholder="📦"></div><div class="field"><label>Description</label><input id="pDesc" placeholder="Product description"></div></div><button class="btn" onclick="addProduct()">Add product</button><div class="tablewrap"><table><tr><th>Product</th><th>Price</th><th>Stock</th><th>Action</th></tr>${products.map(p=>`<tr><td>${esc(p.name)}</td><td>${money(p.price,p.currency||"PKR")}</td><td>${p.qty}</td><td><button class="btn red small" onclick="deleteProduct(${p.id})">Delete</button></td></tr>`).join("")}</table></div>`;
-else if(name==="orders")root.innerHTML=`<h2>Order management</h2><p class="muted">Demo orders created from the shopping cart.</p><div class="tablewrap"><table><tr><th>Order</th><th>Items</th><th>Total</th><th>Status</th><th>Update</th></tr>${orders.map(o=>`<tr><td>#${o.id.toString().slice(-6)}</td><td>${esc(o.items)}</td><td>${money(o.total,o.currency||"PKR")}</td><td>${esc(o.status)}</td><td><select onchange="updateOrder(${o.id},this.value)"><option ${o.status==="New demo order"?"selected":""}>New demo order</option><option>Processing</option><option>Dispatched</option><option>Delivered</option><option>Cancelled</option></select></td></tr>`).join("")||"<tr><td colspan='5'>No demo orders yet.</td></tr>"}</table></div>`;
+else if(name==="manageProducts")root.innerHTML=`<h2>Product management</h2><p class="muted">Add demo products to the public catalogue. Changes save in this browser.</p><div class="formgrid"><div class="field"><label>Product name</label><input id="pName" placeholder="Product name"></div><div class="field"><label>Category</label><select id="pCat"><option>Electronics</option><option>Fashion</option><option>Home</option><option>Accessories</option></select></div><div class="field"><label>Price (PKR)</label><input id="pPrice" type="number" min="1" placeholder="Price"></div><div class="field"><label>Stock quantity</label><input id="pQty" type="number" min="0" placeholder="Quantity"></div><div class="field"><label>Emoji icon</label><input id="pIcon" placeholder="📦"></div><div class="field"><label>Description</label><input id="pDesc" placeholder="Product description"></div></div><button class="btn" onclick="addProduct()">Add product</button><div class="tablewrap"><table><tr><th>Product</th><th>Price</th><th>Stock</th><th>Action</th></tr>${products.map(p=>`<tr><td>${esc(p.name)}</td><td>${money(p.price)}</td><td>${p.qty}</td><td><button class="btn red small" onclick="deleteProduct(${p.id})">Delete</button></td></tr>`).join("")}</table></div>`;
+else if(name==="orders")root.innerHTML=`<h2>Order management</h2><p class="muted">Demo orders created from the shopping cart.</p><div class="tablewrap"><table><tr><th>Order</th><th>Items</th><th>Total</th><th>Status</th><th>Update</th></tr>${orders.map(o=>`<tr><td>#${o.id.toString().slice(-6)}</td><td>${esc(o.items)}</td><td>${money(o.total)}</td><td>${esc(o.status)}</td><td><select onchange="updateOrder(${o.id},this.value)"><option ${o.status==="New demo order"?"selected":""}>New demo order</option><option>Processing</option><option>Dispatched</option><option>Delivered</option><option>Cancelled</option></select></td></tr>`).join("")||"<tr><td colspan='5'>No demo orders yet.</td></tr>"}</table></div>`;
 else if(name==="sellers")root.innerHTML=`<h2>Seller management</h2><p class="muted">Review demo seller applications and approve or reject them.</p><div class="tablewrap"><table><tr><th>Shop</th><th>Contact</th><th>Category</th><th>Status</th><th>Action</th></tr>${sellers.map(s=>`<tr><td>${esc(s.shop)}</td><td>${esc(s.name)}</td><td>${esc(s.cat)}</td><td>${esc(s.status)}</td><td><button class="btn small" onclick="sellerStatus(${s.id},'Approved')">Approve</button> <button class="btn red small" onclick="sellerStatus(${s.id},'Rejected')">Reject</button></td></tr>`).join("")||"<tr><td colspan='5'>No applications yet.</td></tr>"}</table></div>`;
 else if(name==="rfqs")root.innerHTML=`<h2>RFQ / quotation requests</h2><p class="muted">Review sourcing requests made through the RFQ form.</p><div class="tablewrap"><table><tr><th>Product</th><th>Quantity</th><th>Notes</th><th>Status</th></tr>${rfqs.map(r=>`<tr><td>${esc(r.product)}</td><td>${r.qty}</td><td>${esc(r.notes)}</td><td><span class="pill">Awaiting quote</span></td></tr>`).join("")||"<tr><td colspan='4'>No RFQs yet.</td></tr>"}</table></div>`;
 else if(name==="suppliers")root.innerHTML=`<h2>Supplier sourcing centre</h2><p class="muted">Supplier checklist inspired by B2B sourcing platforms.</p><ul><li>Compare multiple supplier quotations</li><li>Check minimum order quantity (MOQ)</li><li>Request product samples</li><li>Confirm production lead time and shipping terms</li><li>Verify supplier identity and trade terms</li><li>Agree written refund, defect and delivery conditions</li></ul><a class="btn" href="https://www.alibaba.com/" target="_blank" rel="noopener">Browse Alibaba suppliers ↗</a><div class="notice">This demo does not scrape Alibaba, place supplier orders or import listings. Use supplier platform permissions and approved integrations.</div>`;
 else if(name==="logistics")root.innerHTML=`<h2>Logistics & shipping</h2><p class="muted">Plan for courier selection, shipping rates, pickup requests, parcel labels, tracking and COD reconciliation.</p><div class="notice">No courier is connected. Live shipping requires a courier business account, service agreement and API credentials stored securely on a backend.</div><p>Shipping workflow: Order confirmed → Seller packs → Courier pickup → In transit → Delivered → COD settlement.</p>`;
 else if(name==="marketing")root.innerHTML=`<h2>Marketing centre</h2><p class="muted">Promote products through your own social channels and marketplace campaigns.</p><div class="linkrow"><a class="link" href="https://www.tiktok.com/" target="_blank" rel="noopener">TikTok ↗</a><a class="link" href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook ↗</a><a class="link" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram ↗</a></div><p>Planned tools: campaign calendar, discount coupons, featured products, affiliate tracking and performance reports.</p>`;
-else if(name==="finance")root.innerHTML=`<h2>Finance & payments</h2><p class="muted">Planned owner controls: seller commission, order totals, refunds, seller payouts, COD reconciliation and transaction reports.</p><div class="notice">This preview supports currency selection and estimated conversions only. It does NOT charge cards, accept deposits or transfer money. Live checkout needs an approved payment gateway, secure backend, business checks and supported-country approval.</div>
-<h3>Supported currency preview</h3><p class="muted">PKR, USD, EUR, GBP, AED, SAR, CNY, INR, CAD, AUD, JPY and TRY. Sellers can choose a currency for each product; buyers can choose a checkout display currency.</p>
-<div class="field"><label>Default store currency</label><select id="financeCurrency">${currencyOptions(store.currency||"PKR")}</select></div>
-<button class="btn ghost" onclick="store.currency=document.getElementById('financeCurrency').value;save();toast('Default currency saved in this browser')">Save default currency</button>
-<p class="muted">Exchange rates shown in this demo are sample estimates, not live rates. A real checkout must use current rates and confirm the amount with the payment provider.</p><div class="field"><label>Marketplace commission preview (%)</label><input id="commission" type="number" min="0" max="100" value="${esc(store.commission)}"></div><button class="btn" onclick="store.commission=document.getElementById('commission').value;save();toast('Demo commission setting saved')">Save preview setting</button>`;
-else if(name==="settings")root.innerHTML=`<h2>Store settings</h2><div class="field"><label>Store name</label><input id="storeName" value="${esc(store.name)}"></div><div class="field"><label>Owner display name</label><input id="ownerName" value="${esc(store.owner)}"></div><div class="field"><label>Support email or public contact</label><input id="support" value="${esc(store.support)}" placeholder="Business contact (optional)"></div><div class="field"><label>Currency</label><select id="currency">${currencyOptions(store.currency||"PKR")}</select></div><button class="btn" onclick="saveSettings()">Save settings</button><div class="notice">Settings are saved only in this browser. A live admin account must use secure sign-in and server-side permissions.</div>`;
-document.getElementById("metricSellers").textContent=sellers.length;document.getElementById("metricRfqs").textContent=rfqs.length}
-function addProduct(){let name=document.getElementById("pName").value.trim(),price=Number(document.getElementById("pPrice").value),qty=Number(document.getElementById("pQty").value);if(!name||price<=0||qty<0){toast("Enter a product name, valid price and stock");return}products.push({id:Date.now(),name,cat:document.getElementById("pCat").value,price,currency:document.getElementById("pCurrency").value,qty,icon:document.getElementById("pIcon").value||"📦",desc:document.getElementById("pDesc").value||"New demo product"});save();renderProducts();tab("manageProducts",document.querySelector('[data-tab=manageProducts]'));toast("Demo product added")}
+else if(name==="finance")root.innerHTML=`<h2>Finance & payments</h2><p class="muted">Planned store managements: seller commission, order totals, refunds, seller payouts, COD reconciliation and transaction reports.</p><div class="notice">No real payments or money transfers are processed by this demo. A regulated payment provider and secure server integration are required. Never enter bank credentials here.</div><div class="field"><label>Marketplace commission preview (%)</label><input id="commission" type="number" min="0" max="100" value="${esc(store.commission)}"></div><button class="btn" onclick="store.commission=document.getElementById('commission').value;save();toast('Demo commission setting saved')">Save preview setting</button>`;
+else if(name==="settings")root.innerHTML=`<h2>Store settings</h2><div class="field"><label>Store name</label><input id="storeName" value="${esc(store.name)}"></div><div class="field"><label>Owner display name</label><input id="ownerName" value="${esc(store.owner)}"></div><div class="field"><label>Support email or public contact</label><input id="support" value="${esc(store.support)}" placeholder="Business contact (optional)"></div><div class="field"><label>Currency</label><select id="currency"><option ${store.currency==="PKR"?"selected":""}>PKR</option><option ${store.currency==="USD"?"selected":""}>USD</option></select></div><button class="btn" onclick="saveSettings()">Save settings</button><div class="notice">Settings are saved only in this browser. A live admin account must use secure sign-in and server-side permissions.</div>`;
+if(document.getElementById("metricSellers"))document.getElementById("metricSellers").textContent=sellers.length;document.getElementById("metricRfqs").textContent=rfqs.length}
+function addProduct(){let name=document.getElementById("pName").value.trim(),price=Number(document.getElementById("pPrice").value),qty=Number(document.getElementById("pQty").value);if(!name||price<=0||qty<0){toast("Enter a product name, valid price and stock");return}products.push({id:Date.now(),name,cat:document.getElementById("pCat").value,price,qty,icon:document.getElementById("pIcon").value||"📦",desc:document.getElementById("pDesc").value||"New demo product"});save();renderProducts();tab("manageProducts",document.querySelector('[data-tab=manageProducts]'));toast("Demo product added")}
 function deleteProduct(id){if(!confirm("Delete this demo product?"))return;products=products.filter(p=>p.id!==id);save();renderProducts();tab("manageProducts",document.querySelector('[data-tab=manageProducts]'))}
 function submitSeller(){let shop=document.getElementById("sShop").value.trim(),name=document.getElementById("sName").value.trim();if(!shop||!name){toast("Enter shop and contact name");return}sellers.push({id:Date.now(),shop,name,cat:document.getElementById("sCat").value,status:"Pending"});save();document.getElementById("sShop").value="";document.getElementById("sName").value="";tab("sellers",document.querySelector('[data-tab=sellers]'));toast("Demo seller application added")}
 function sellerStatus(id,status){let s=sellers.find(x=>x.id===id);if(s)s.status=status;save();tab("sellers",document.querySelector('[data-tab=sellers]'))}
@@ -169,7 +234,159 @@ function submitRfq(){let product=document.getElementById("rfqProduct").value.tri
 function updateOrder(id,status){let o=orders.find(x=>x.id===id);if(o)o.status=status;save();tab("orders",document.querySelector('[data-tab=orders]'))}
 function saveSettings(){store.name=document.getElementById("storeName").value;store.owner=document.getElementById("ownerName").value;store.support=document.getElementById("support").value;store.currency=document.getElementById("currency").value;save();toast("Demo store settings saved")}
 function toggleChat(){let c=document.getElementById("chat");c.style.display=c.style.display==="block"?"none":"block"}
-function askAI(){let i=document.getElementById("chatInput"),v=i.value.trim();if(!v)return;let b=document.getElementById("chatBody");b.innerHTML+=`<div class="bubble"><b>You:</b> ${esc(v)}</div>`;let q=v.toLowerCase(),a="I can guide you around this demo store. A real AI assistant needs a secure AI API connection.";if(q.includes("product")||q.includes("price"))a="Use the search bar and category filter to find products. The owner can add or remove sample products from Owner Control → Products.";else if(q.includes("seller"))a="Sellers can submit a demo application. The owner reviews it under Owner Control → Sellers.";else if(q.includes("rfq")||q.includes("supplier"))a="Use the RFQ form to record a sample quotation request, then review it under Owner Control → RFQ. Check supplier MOQ, quality, shipping and terms.";else if(q.includes("shipping")||q.includes("order"))a="Demo orders can be created from the cart. Real courier booking and parcel tracking need a courier account and secure API integration.";else if(q.includes("tiktok")||q.includes("amazon")||q.includes("alibaba"))a="External platform links are provided. Automatic catalogue or order sync needs official API access, eligibility and approved integrations.";else if(q.includes("owner")||q.includes("control"))a="The owner control preview includes products, orders, sellers, RFQs, suppliers, logistics, marketing, finance and settings.";b.innerHTML+=`<div class="bubble"><b>B_K Assistant:</b> ${a}</div>`;b.scrollTop=b.scrollHeight;i.value=""}
+function askAI(){let i=document.getElementById("chatInput"),v=i.value.trim();if(!v)return;let b=document.getElementById("chatBody");b.innerHTML+=`<div class="bubble"><b>You:</b> ${esc(v)}</div>`;let q=v.toLowerCase(),a="I can guide you around this demo store. A real AI assistant needs a secure AI API connection.";if(q.includes("product")||q.includes("price"))a="Use the search bar and category filter to find products. The owner can add or remove sample products from store management panel.";else if(q.includes("seller"))a="Sellers can submit a demo application. The owner reviews it under seller management panel.";else if(q.includes("rfq")||q.includes("supplier"))a="Use the RFQ form to record a sample quotation request, then review it under quotation management panel. Check supplier MOQ, quality, shipping and terms.";else if(q.includes("shipping")||q.includes("order"))a="Demo orders can be created from the cart. Real courier booking and parcel tracking need a courier account and secure API integration.";else if(q.includes("tiktok")||q.includes("amazon")||q.includes("alibaba"))a="External platform links are provided. Automatic catalogue or order sync needs official API access, eligibility and approved integrations.";else if(q.includes("owner")||q.includes("control"))a="The store management preview includes products, orders, sellers, RFQs, suppliers, logistics, marketing, finance and settings.";b.innerHTML+=`<div class="bubble"><b>B_K Assistant:</b> ${a}</div>`;b.scrollTop=b.scrollHeight;i.value=""}
+
+function openAccount(mode){
+ const root=document.getElementById("accountContent");
+ document.getElementById("accountLayer").style.display="flex";
+ if(mode==="signup"){
+  root.innerHTML=`<h2>Create your B_K account</h2><p class="muted">Register a local preview account on this device.</p>
+   <div class="field"><label>Full name</label><input id="authName" autocomplete="name" placeholder="Your name"></div>
+   <div class="field"><label>Email</label><input id="authEmail" type="email" autocomplete="email" placeholder="you@example.com"></div>
+   <div class="field"><label>Password</label><input id="authPassword" type="password" autocomplete="new-password" placeholder="Create a password"></div>
+   <div class="account-actions"><button class="btn" onclick="registerAccount()">Create account</button><button class="btn ghost" onclick="openAccount('login')">I already have an account</button></div>`;
+ }else if(mode==="login"){
+  root.innerHTML=`<h2>Login to B_K</h2><p class="muted">Sign in securely using your B_K customer account.</p>
+   <div class="field"><label>Email</label><input id="authEmail" type="email" autocomplete="email" placeholder="you@example.com"></div>
+   <div class="field"><label>Password</label><input id="authPassword" type="password" autocomplete="current-password" placeholder="Your password"></div>
+   <div class="account-actions"><button class="btn" onclick="loginAccount()">Login</button><button class="btn ghost" onclick="openAccount('signup')">Create account</button><button class="btn ghost" onclick="resetPassword()">Forgot password?</button></div>`;
+ }else{
+  if(!currentUser){openAccount("login");return}
+  root.innerHTML=`<h2>My account</h2><p>Welcome, <b>${esc(currentUser.name)}</b></p><p class="muted">${esc(currentUser.email)}</p>
+   <div class="account-actions"><button class="btn" onclick="closeAccount();showCart()">My cart</button><button class="btn ghost" onclick="closeAccount();document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Continue shopping</button><button class="btn red" onclick="logoutAccount()">Logout</button></div>
+   <div class="notice">Your account is secured by Supabase Authentication and can be used across devices.</div>`;
+ }
+}
+async function resetPassword(){const email=document.getElementById("authEmail").value.trim();if(!email){toast("Pehle email enter karein");return}const {error}=await bkSupabase.auth.resetPasswordForEmail(email,{redirectTo:location.origin+location.pathname});toast(error?error.message:"Password reset link email kar diya gaya hai")}
+function closeAccount(){document.getElementById("accountLayer").style.display="none"}
+async function registerAccount(){
+ const name=(document.getElementById("authName")?.value||"").trim();
+ const email=document.getElementById("authEmail").value.trim().toLowerCase();
+ const password=document.getElementById("authPassword").value;
+ if(!name||!/^\S+@\S+\.\S+$/.test(email)||password.length<6){toast("Name, valid email aur kam az kam 6-character password enter karein");return}
+ const {data,error}=await bkSupabase.auth.signUp({email,password,options:{data:{full_name:name}}});
+ if(error){toast(error.message);return}
+ if(data.session){currentUser={name,email};localStorage.setItem("bk_current_user",JSON.stringify(currentUser));closeAccount();toast("Account create aur login ho gaya")}
+ else {toast("Account ban gaya. Email inbox check karke verification link open karein, phir login karein.") ;openAccount("login")}
+}
+async function loginAccount(){
+ const email=document.getElementById("authEmail").value.trim().toLowerCase(),password=document.getElementById("authPassword").value;
+ if(!email||!password){toast("Email aur password enter karein");return}
+ const {data,error}=await bkSupabase.auth.signInWithPassword({email,password});
+ if(error){toast(error.message);return}
+ const u=data.user;currentUser={name:u.user_metadata?.full_name||email.split("@")[0],email:u.email};
+ localStorage.setItem("bk_current_user",JSON.stringify(currentUser));closeAccount();toast("Login successful")
+}
+async function logoutAccount(){const {error}=await bkSupabase.auth.signOut();if(error){toast(error.message);return}currentUser=null;localStorage.removeItem("bk_current_user");closeAccount();toast("Logout ho gaya")}
+// Restore a valid Supabase session when the page opens.
+bkSupabase.auth.getSession().then(({data})=>{const u=data.session?.user;if(u){currentUser={name:u.user_metadata?.full_name||u.email.split("@")[0],email:u.email};localStorage.setItem("bk_current_user",JSON.stringify(currentUser))}else{currentUser=null;localStorage.removeItem("bk_current_user")}});
+bkSupabase.auth.onAuthStateChange((_event,session)=>{const u=session?.user;if(u){currentUser={name:u.user_metadata?.full_name||u.email.split("@")[0],email:u.email};localStorage.setItem("bk_current_user",JSON.stringify(currentUser))}});
+function openUpgrade(){
+ const root=document.getElementById("accountContent");
+ document.getElementById("accountLayer").style.display="flex";
+ root.innerHTML=`<h2>Upgrade B_K Website</h2><p class="muted">Choose the next stage for your store. No payment is collected on this page.</p>
+  <div class="plan-grid">
+   <div class="plan"><h3>Starter</h3><b>Current preview</b><p class="muted">Product catalogue, cart preview and local owner tools.</p></div>
+   <div class="plan"><h3>Live store</h3><b>Backend required</b><p class="muted">Secure accounts, shared database, real orders and inventory.</p></div>
+  </div>
+  <div class="notice">A real upgrade needs backend deployment, database configuration, authentication and payment/courier provider setup. This button does not charge money or pretend those services are connected.</div>
+  <div class="account-actions"><button class="btn" onclick="closeAccount();document.getElementById('owner').scrollIntoView({behavior:'smooth'})">Open store management</button><button class="btn ghost" onclick="closeAccount()">Close</button></div>`;
+}
+document.getElementById("accountLayer").addEventListener("click",function(e){if(e.target===this)closeAccount()});
+
+
+let bkWishlist=JSON.parse(localStorage.getItem("bk_wishlist")||"[]");
+let bkTikTokLinks=JSON.parse(localStorage.getItem("bk_tiktok_links")||"[]");
+let bkTikTokProfile=localStorage.getItem("bk_tiktok_profile")||"";
+let bkWhatsApp=localStorage.getItem("bk_whatsapp")||"";
+let bkReviews=JSON.parse(localStorage.getItem("bk_reviews")||"[]");
+let bkCoupon=localStorage.getItem("bk_coupon")||"";
+function persistExtra(){localStorage.setItem("bk_wishlist",JSON.stringify(bkWishlist));localStorage.setItem("bk_tiktok_links",JSON.stringify(bkTikTokLinks));localStorage.setItem("bk_reviews",JSON.stringify(bkReviews))}
+function addTikTokLink(){
+ const link=prompt("Paste your TikTok video share link:");
+ if(!link)return;
+ try{const u=new URL(link);if(!/tiktok\.com$/i.test(u.hostname)&&!u.hostname.toLowerCase().endsWith(".tiktok.com"))throw 0;bkTikTokLinks.push(link);persistExtra();renderTikTokLinks();toast("TikTok link added")}catch(e){toast("Valid TikTok link enter karein")}
+}
+function renderTikTokLinks(){
+ const el=document.getElementById("tiktokList");if(!el)return;
+ el.innerHTML=bkTikTokLinks.map((u,i)=>`<p><a href="${esc(u)}" target="_blank" rel="noopener">Open TikTok video ${i+1}</a> <button onclick="removeTikTokLink(${i})">Remove</button></p>`).join("");
+}
+function removeTikTokLink(i){bkTikTokLinks.splice(i,1);persistExtra();renderTikTokLinks()}
+function setTikTokProfile(){const u=prompt("Paste your TikTok profile URL:",bkTikTokProfile);if(!u)return;try{const x=new URL(u);if(!x.hostname.toLowerCase().endsWith("tiktok.com"))throw 0;bkTikTokProfile=u;localStorage.setItem("bk_tiktok_profile",u);document.getElementById("tiktokProfileStatus").textContent="Profile link saved";toast("TikTok profile saved")}catch(e){toast("Valid TikTok profile link enter karein")}}
+function shareStore(){const u=location.href; if(navigator.share){navigator.share({title:"B_K ONLINE SHOPPING",url:u}).catch(()=>{})}else if(navigator.clipboard){navigator.clipboard.writeText(u).then(()=>toast("Website link copied"))}else{prompt("Copy website link",u)}}
+function toggleWishlist(id){const i=bkWishlist.indexOf(id);if(i>=0)bkWishlist.splice(i,1);else bkWishlist.push(id);persistExtra();toast(i>=0?"Wishlist se remove ho gaya":"Wishlist mein add ho gaya");}
+function openWishlist(){const names=bkWishlist.map(id=>products.find(p=>p.id===id)).filter(Boolean);const body=names.length?names.map(p=>`<p>${esc(p.icon||"🛍")} <b>${esc(p.name)}</b> — ${money(p.price)} <button onclick="addCart(${p.id})">Add to cart</button></p>`).join(""):"<p>Wishlist abhi empty hai.</p>";showFeaturePanel("My Wishlist",body)}
+function openCoupons(){showFeaturePanel("Discount Coupons",`<p><b>WELCOME5</b> — preview coupon, 5% off</p><p><b>BK10</b> — preview coupon, 10% off</p><p class="notice">Coupon codes sirf preview hain; live checkout/backend par discount calculate karna abhi configure nahi.</p><button class="btn" onclick="applyPreviewCoupon('WELCOME5')">Apply WELCOME5</button> <button class="btn ghost" onclick="applyPreviewCoupon('BK10')">Apply BK10</button>`)}
+function applyPreviewCoupon(code){bkCoupon=code;localStorage.setItem("bk_coupon",code);toast(code+" selected for preview")}
+function openReviews(){const productOptions=products.map(p=>`<option value="${p.id}">${esc(p.name)}</option>`).join("");showFeaturePanel("Write a Review",`<label>Product</label><select id="reviewProduct">${productOptions}</select><label>Rating</label><select id="reviewRating"><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select><label>Your review</label><textarea id="reviewText" rows="3" placeholder="Write your feedback"></textarea><button class="btn" onclick="saveReview()">Submit review</button><div>${bkReviews.slice(-5).map(r=>`<p>★ ${r.rating}/5 — ${esc(r.text)}</p>`).join("")}</div>`)}
+function saveReview(){const p=products.find(x=>x.id===Number(document.getElementById("reviewProduct").value));const textValue=document.getElementById("reviewText").value.trim();if(!p||!textValue){toast("Product aur review likhein");return}bkReviews.push({product:p.name,rating:Number(document.getElementById("reviewRating").value),text:textValue});persistExtra();toast("Review is browser preview mein save ho gaya");openReviews()}
+function chooseLanguage(){const choice=prompt("Language preference: English / Urdu","English");if(choice){localStorage.setItem("bk_language",choice);toast("Preference saved: "+choice+". Full translation requires language content.")}}
+function setWhatsApp(){const n=prompt("WhatsApp number country code ke sath, e.g. 923001234567",bkWhatsApp);if(!n)return;const clean=n.replace(/\D/g,"");if(clean.length<10){toast("Valid WhatsApp number enter karein");return}bkWhatsApp=clean;localStorage.setItem("bk_whatsapp",clean);toast("WhatsApp number saved")}
+function openShoppingAssistant(){showFeaturePanel("AI Shopping Assistant",`<p>Welcome! Product dhoondne ke liye apna sawal likhein.</p><input id="aiShopQuestion" placeholder="e.g. Show me shoes under Rs 5000"><button class="btn" onclick="answerShoppingQuestion()">Ask</button><div id="aiShopAnswer" class="tracking-result"></div><p class="muted">Ye basic local helper hai; real AI answers ke liye secure AI service/backend integration chahiye.</p>`)}
+function answerShoppingQuestion(){const q=document.getElementById("aiShopQuestion").value.toLowerCase();const matches=products.filter(p=>(p.name+" "+p.cat+" "+p.desc).toLowerCase().includes(q.split(" ").filter(w=>w.length>3)[0]||""));document.getElementById("aiShopAnswer").textContent=matches.length?"Matching products: "+matches.map(p=>p.name+" ("+money(p.price)+")").join(", "):"Products page par categories ya search use karke dekhein."}
+function showFeaturePanel(title,body){document.getElementById("cartTitle").textContent=title;document.getElementById("cartContent").innerHTML=body;document.getElementById("cartLayer").style.display="flex"}
+function trackLocalOrder(){const id=document.getElementById("trackOrderId").value.trim();const order=orders.find(o=>String(o.id)===id);document.getElementById("trackingResult").textContent=order?`Order #${order.id}\nCustomer: ${order.customer}\nItems: ${order.items}\nTotal: ${money(order.total)}\nStatus: ${order.status}`:"Order nahi mila. Sirf isi browser mein banaye gaye preview orders yahan track ho sakte hain."}
+
+
+let bkRecent=JSON.parse(localStorage.getItem("bk_recent_products")||"[]");
+let bkSubscribers=JSON.parse(localStorage.getItem("bk_update_subscribers")||"[]");
+function contactStore(){
+ if(bkWhatsApp){window.open("https://wa.me/"+bkWhatsApp,"_blank","noopener");return}
+ const email=store&&store.support?store.support:"";
+ if(email){location.href="mailto:"+email;return}
+ toast("Store support contact abhi configure nahi hai");
+}
+function subscribeUpdates(){
+ const el=document.getElementById("newsletterEmail"),email=(el.value||"").trim().toLowerCase();
+ if(!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)){toast("Valid email address enter karein");return}
+ if(!bkSubscribers.includes(email)){bkSubscribers.push(email);localStorage.setItem("bk_update_subscribers",JSON.stringify(bkSubscribers))}
+ el.value="";toast("Interest is browser preview mein save ho gaya");
+}
+function rememberViewedProduct(id){
+ bkRecent=[id,...bkRecent.filter(x=>x!==id)].slice(0,6);
+ localStorage.setItem("bk_recent_products",JSON.stringify(bkRecent));
+ renderRecentlyViewed();
+}
+function renderRecentlyViewed(){
+ const el=document.getElementById("recentProducts");if(!el)return;
+ const list=bkRecent.map(id=>products.find(p=>p.id===id)).filter(Boolean);
+ el.innerHTML=list.length?list.map(p=>`<article class="feature-card"><div class="feature-icon">${esc(p.icon||"🛍")}</div><b>${esc(p.name)}</b><p>${money(p.price)}</p><button class="btn" onclick="viewProduct(${p.id})">View product</button></article>`).join(""):'<p class="muted">Products you view will appear here.</p>';
+}
+
+renderTikTokLinks();
+renderRecentlyViewed();
 renderProducts();tab("overview",document.querySelector('[data-tab=overview]'));
 </script>
+
+
+<section id="help-center" class="section">
+ <div class="section-head"><div><span class="eyebrow">HELP & SUPPORT</span><h2>Help Center</h2><p>Common questions aur customer support information.</p></div></div>
+ <div class="feature-grid">
+  <article class="feature-card"><div class="feature-icon">❓</div><h3>FAQs</h3>
+   <details><summary>Order kaise place karun?</summary><p>Product select karein, cart mein add karein aur checkout form complete karein.</p></details>
+   <details><summary>Order status kahan check hoga?</summary><p>Track Order section mein apna preview order ID enter karein.</p></details>
+   <details><summary>Payment kaise hogi?</summary><p>Is website preview mein online payment enable nahi. Live payment setup abhi required hai.</p></details>
+  </article>
+  <article class="feature-card"><div class="feature-icon">✉️</div><h3>Contact Support</h3><p>Store support email ya WhatsApp contact set karne ke baad customers yahan se contact kar sakte hain.</p>
+   <button class="btn" onclick="contactStore()">Contact store</button>
+  </article>
+  <article class="feature-card"><div class="feature-icon">🔔</div><h3>Product Updates</h3><p>New arrivals aur offers ke liye email interest register karein.</p>
+   <input id="newsletterEmail" type="email" placeholder="Your email address" style="width:100%;padding:11px;border:1px solid #d7dee7;border-radius:8px;margin:8px 0">
+   <button class="btn" onclick="subscribeUpdates()">Subscribe</button>
+  </article>
+ </div>
+</section>
+<section id="recently-viewed" class="section">
+ <div class="section-head"><div><span class="eyebrow">YOUR ACTIVITY</span><h2>Recently Viewed</h2></div></div>
+ <div id="recentProducts" class="feature-grid"><p class="muted">Products you view will appear here.</p></div>
+</section>
+
+<footer class="section" style="text-align:center;padding:24px">
+ <h3>B_K ONLINE SHOPPING</h3>
+ <p class="muted">Shop smart. Shop with confidence.</p>
+ <p><a href="#home">Home</a> · <a href="#shop">Shop</a> · <a href="#social">TikTok</a> · <a href="#tracking">Track order</a></p>
+ <small class="muted">Customer storefront. Management tools are not displayed here.</small>
+</footer>
+
+<button id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" style="position:fixed;right:16px;bottom:16px;z-index:25;border:0;border-radius:50%;width:46px;height:46px;background:#14243b;color:white;font-size:20px;box-shadow:0 5px 18px #0003">↑</button>
 </body></html>

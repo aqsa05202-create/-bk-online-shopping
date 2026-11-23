@@ -1,16 +1,9 @@
-B_K ONLINE SHOPPING - CUSTOMER TOOLS UPDATE
+B_K ONLINE SHOPPING — NEXT UPDATE
 
-Replace the repository root index.html with this version.
+Upload index.html to the root of your GitHub Pages repository and replace the existing index.html.
 
-Added:
-- Customer Help Center and FAQ
-- Contact Store button (uses configured WhatsApp number or support email)
-- Newsletter interest form
-- Recently Viewed products section
-- Back-to-top button
+Added: price sorting, product comparison (up to 3), dark/light theme toggle, clearer empty-search message, and removed the public Owner Control navigation/section from the storefront view.
 
-Important limitations:
-Newsletter addresses are saved only in the visitor's browser; no email campaign is sent.
-Recently viewed items are local to each browser. Contact links need a real support number
-or email configured. Online payments, real customer accounts and cross-device order data
-still require a secure backend and provider integrations.
+Important: Owner Control is hidden from public view only; this is NOT security. Do not put private data or credentials in this HTML. Real accounts, synced orders, payments, and admin access require secure backend authentication and database permissions. Product/cart/seller/RFQ data in this prototype is browser-local/demo data.
+
+This package was built from the latest available B_K multi-currency HTML in your Library, not by directly editing your live GitHub repository. Check your current site before replacing index.html so newer changes are not overwritten.

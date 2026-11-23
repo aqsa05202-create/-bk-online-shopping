@@ -45,6 +45,11 @@ footer{background:var(--nav);color:#fff;padding:27px 5%;display:grid;grid-templa
 .tracking-card{max-width:560px;display:grid;gap:10px}.tracking-card input{padding:12px;border:1px solid #d7dee7;border-radius:8px}
 .tracking-result{margin-top:10px;padding:10px;border-radius:9px;background:#f1f5f9;white-space:pre-wrap}
 
+
+.feature-card details{border-top:1px solid #e7ebf0;padding:10px 0}
+.feature-card summary{cursor:pointer;font-weight:700}
+.feature-card details p{margin:8px 0 0;min-height:0}
+
 </style>
 </head>
 <body>
@@ -196,7 +201,7 @@ function placeLocalOrder(){
  save();cart=[];syncCartCount();closeCart();toast("Preview order saved on this device");tab("orders",document.querySelector('[data-tab=orders]'));
 }
 function viewProduct(id){
- const p=products.find(x=>x.id===id);if(!p)return;
+ const p=products.find(x=>x.id===id);if(!p)return;rememberViewedProduct(id);
  document.getElementById("cartTitle").textContent="Product details";
  document.getElementById("cartContent").innerHTML=`<div style="font-size:56px;text-align:center;padding:15px">${esc(p.icon)}</div><h2>${esc(p.name)}</h2><div class="price">${money(p.price)}</div><p>${esc(p.desc)}</p><p>Category: ${esc(p.cat)} · Available preview stock: ${p.qty}</p><button class="btn" onclick="addCart(${p.id});closeCart()">Add to cart</button>`;
  document.getElementById("cartLayer").style.display="flex";
@@ -307,9 +312,59 @@ function answerShoppingQuestion(){const q=document.getElementById("aiShopQuestio
 function showFeaturePanel(title,body){document.getElementById("cartTitle").textContent=title;document.getElementById("cartContent").innerHTML=body;document.getElementById("cartLayer").style.display="flex"}
 function trackLocalOrder(){const id=document.getElementById("trackOrderId").value.trim();const order=orders.find(o=>String(o.id)===id);document.getElementById("trackingResult").textContent=order?`Order #${order.id}\nCustomer: ${order.customer}\nItems: ${order.items}\nTotal: ${money(order.total)}\nStatus: ${order.status}`:"Order nahi mila. Sirf isi browser mein banaye gaye preview orders yahan track ho sakte hain."}
 
+
+let bkRecent=JSON.parse(localStorage.getItem("bk_recent_products")||"[]");
+let bkSubscribers=JSON.parse(localStorage.getItem("bk_update_subscribers")||"[]");
+function contactStore(){
+ if(bkWhatsApp){window.open("https://wa.me/"+bkWhatsApp,"_blank","noopener");return}
+ const email=store&&store.support?store.support:"";
+ if(email){location.href="mailto:"+email;return}
+ toast("Store support contact abhi configure nahi hai");
+}
+function subscribeUpdates(){
+ const el=document.getElementById("newsletterEmail"),email=(el.value||"").trim().toLowerCase();
+ if(!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)){toast("Valid email address enter karein");return}
+ if(!bkSubscribers.includes(email)){bkSubscribers.push(email);localStorage.setItem("bk_update_subscribers",JSON.stringify(bkSubscribers))}
+ el.value="";toast("Interest is browser preview mein save ho gaya");
+}
+function rememberViewedProduct(id){
+ bkRecent=[id,...bkRecent.filter(x=>x!==id)].slice(0,6);
+ localStorage.setItem("bk_recent_products",JSON.stringify(bkRecent));
+ renderRecentlyViewed();
+}
+function renderRecentlyViewed(){
+ const el=document.getElementById("recentProducts");if(!el)return;
+ const list=bkRecent.map(id=>products.find(p=>p.id===id)).filter(Boolean);
+ el.innerHTML=list.length?list.map(p=>`<article class="feature-card"><div class="feature-icon">${esc(p.icon||"🛍")}</div><b>${esc(p.name)}</b><p>${money(p.price)}</p><button class="btn" onclick="viewProduct(${p.id})">View product</button></article>`).join(""):'<p class="muted">Products you view will appear here.</p>';
+}
+
 renderTikTokLinks();
+renderRecentlyViewed();
 renderProducts();tab("overview",document.querySelector('[data-tab=overview]'));
 </script>
+
+
+<section id="help-center" class="section">
+ <div class="section-head"><div><span class="eyebrow">HELP & SUPPORT</span><h2>Help Center</h2><p>Common questions aur customer support information.</p></div></div>
+ <div class="feature-grid">
+  <article class="feature-card"><div class="feature-icon">❓</div><h3>FAQs</h3>
+   <details><summary>Order kaise place karun?</summary><p>Product select karein, cart mein add karein aur checkout form complete karein.</p></details>
+   <details><summary>Order status kahan check hoga?</summary><p>Track Order section mein apna preview order ID enter karein.</p></details>
+   <details><summary>Payment kaise hogi?</summary><p>Is website preview mein online payment enable nahi. Live payment setup abhi required hai.</p></details>
+  </article>
+  <article class="feature-card"><div class="feature-icon">✉️</div><h3>Contact Support</h3><p>Store support email ya WhatsApp contact set karne ke baad customers yahan se contact kar sakte hain.</p>
+   <button class="btn" onclick="contactStore()">Contact store</button>
+  </article>
+  <article class="feature-card"><div class="feature-icon">🔔</div><h3>Product Updates</h3><p>New arrivals aur offers ke liye email interest register karein.</p>
+   <input id="newsletterEmail" type="email" placeholder="Your email address" style="width:100%;padding:11px;border:1px solid #d7dee7;border-radius:8px;margin:8px 0">
+   <button class="btn" onclick="subscribeUpdates()">Subscribe</button>
+  </article>
+ </div>
+</section>
+<section id="recently-viewed" class="section">
+ <div class="section-head"><div><span class="eyebrow">YOUR ACTIVITY</span><h2>Recently Viewed</h2></div></div>
+ <div id="recentProducts" class="feature-grid"><p class="muted">Products you view will appear here.</p></div>
+</section>
 
 <footer class="section" style="text-align:center;padding:24px">
  <h3>B_K ONLINE SHOPPING</h3>
@@ -318,4 +373,5 @@ renderProducts();tab("overview",document.querySelector('[data-tab=overview]'));
  <small class="muted">Customer storefront. Management tools are not displayed here.</small>
 </footer>
 
+<button id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" style="position:fixed;right:16px;bottom:16px;z-index:25;border:0;border-radius:50%;width:46px;height:46px;background:#14243b;color:white;font-size:20px;box-shadow:0 5px 18px #0003">↑</button>
 </body></html>

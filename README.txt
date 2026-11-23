@@ -30,3 +30,17 @@ IMPORTANT LIMITS
 
 CHROME
 Open the HTTPS site in Chrome. On Android, use Chrome menu → Add to Home screen (or Install app when offered).
+
+PAYMENT CHECKOUT UPDATE (DEMO ONLY)
+-----------------------------------
+The checkout now offers JazzCash, Easypaisa and Cash on Delivery choices. Demo orders save the selected method and a clear payment state, and the order management view shows these fields. No payment is collected, no wallet transfer is requested, and no automatic payment confirmation occurs.
+
+To enable real JazzCash/Easypaisa payments later:
+1. A responsible adult/business owner must obtain the relevant merchant account and approval directly from each provider.
+2. Obtain the current merchant integration kit, credentials, callback/signature rules and test credentials from the provider.
+3. Implement payment initiation and server-to-server callback verification in a secure backend (for this project, Supabase Edge Functions can be used).
+4. Store all secret keys only as server-side function secrets. Never put merchant passwords, secret keys, signing keys or private tokens in index.html, GitHub Pages, browser JavaScript or public GitHub repository files.
+5. Mark an order Paid only after the backend validates the provider's authentic callback/status response and amount/currency/order reference. Never rely on a customer screenshot or a browser-side success redirect.
+6. Test using provider sandbox credentials before requesting live activation. Courier booking and COD settlement require separate courier account/API setup.
+
+This ZIP is a front-end checkout update, not a payment gateway integration. Existing localStorage demo data remains browser/device-specific.

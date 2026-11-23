@@ -1,0 +1,25 @@
+B_K ONLINE SHOPPING — JAZZCASH / EASYPAISA SETUP
+
+CURRENT STATUS
+- Checkout choices: JazzCash, Easypaisa, Cash on Delivery.
+- The selected method and payment state are recorded in the local demo order.
+- JazzCash/Easypaisa status is "Awaiting gateway setup — unpaid".
+- COD is recorded as "COD — collect on delivery".
+- No money is charged, no wallet transfer is requested, and no payment is automatically confirmed.
+
+WHAT IS NEEDED FOR LIVE PAYMENTS
+1. Approved merchant accounts with JazzCash and/or Easypaisa. A trusted adult/business owner should handle account opening, identity checks and agreements.
+2. Current official merchant API documentation and sandbox credentials from each provider. Do not use random API snippets from third-party sites.
+3. A secure backend endpoint to create payment sessions/requests.
+4. A secure server-side callback/webhook endpoint to verify signatures, transaction references, amounts and currency.
+5. Store provider secrets in Supabase Edge Function Secrets (or another server-side secret manager), never in the public website code.
+6. Update order payment state only after server-side verification. Browser redirects and screenshots are not proof of payment.
+7. Run sandbox tests before live approval.
+
+RECOMMENDED ORDER STATES
+- Payment: Awaiting payment / Paid / Failed / Refunded / COD pending collection.
+- Fulfilment: New / Processing / Packed / Dispatched / Delivered / Cancelled / Returned.
+Keep payment state separate from shipping state.
+
+IMPORTANT
+GitHub Pages is static hosting and cannot safely hold merchant secrets. This package adds the checkout interface and local demo records only. It does not connect to live JazzCash, Easypaisa, Supabase payment functions, couriers or COD remittance.

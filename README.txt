@@ -1,23 +1,15 @@
-B_K ONLINE SHOPPING - EXPANDED FEATURES PACK
+B_K ONLINE SHOPPING - PRIVATE STOREFRONT UPDATE
 
-Upload this index.html to the root of your GitHub Pages repository (replace the old index.html).
+WHAT CHANGED:
+- Removed the Owner Control/Admin Control link from the public navigation.
+- Removed the owner/admin dashboard section from the public storefront page.
+- Kept customer-facing shopping, TikTok, wishlist, coupon preview, review preview,
+  WhatsApp settings, shopping helper, cart, checkout and order tracking sections.
+- Added a clean public footer.
 
-Added sections:
-- TikTok video link gallery and TikTok profile link
-- Share website
-- Wishlist
-- Coupon preview
-- Customer review preview
-- Language preference selector
-- WhatsApp support number setting
-- Basic product-matching shopping helper
-- Local preview order tracking
-
-Also includes the previous cart, checkout, account and product-details updates.
-
-IMPORTANT:
-This is a front-end/browser-local feature pack. TikTok links open TikTok; video playback embedding
-depends on TikTok's embed permissions and is not guaranteed by a plain link. Wishlist, reviews,
-settings and preview orders are stored only in the visitor's browser. Coupons are preview codes,
-not real discounts. WhatsApp support requires setting your actual number. The shopping helper
-is not a connected AI service. Production features require secure backend integrations.
+IMPORTANT SECURITY NOTE:
+This update hides the admin panel from the public storefront. It does NOT create secure
+administrator authentication. A static GitHub Pages website cannot protect private admin
+data or actions by hiding a link or HTML section. Before using real customer data, payments,
+or inventory, the admin dashboard must be moved behind secure server-side authentication
+and database access rules (for example, Supabase Auth + Row Level Security).

@@ -58,7 +58,7 @@ footer{background:var(--nav);color:#fff;padding:27px 5%;display:grid;grid-templa
  <button class="headbtn" onclick="openAccount(currentUser?'account':'login')">Account</button>
  <button class="headbtn" onclick="openAccount('signup')">Sign Up</button>
 </header>
-<nav><a href="#home">Home</a><a href="#categories">Categories</a><a href="#shop">Marketplace</a><a href="#owner">Owner control</a><a href="#seller">Seller centre</a><a href="#connections">Global links</a><a href="#" onclick="openUpgrade();return false">Upgrade</a><a href="#social">TikTok Videos</a><a href="#extras">More Features</a><a href="#tracking">Track Order</a></nav>
+<nav><a href="#home">Home</a><a href="#categories">Categories</a><a href="#shop">Marketplace</a><a href="#seller">Seller centre</a><a href="#connections">Global links</a><a href="#" onclick="openUpgrade();return false">Upgrade</a><a href="#social">TikTok Videos</a><a href="#extras">More Features</a><a href="#tracking">Track Order</a></nav>
 <section class="hero" id="home"><div><div class="kicker">B_K ONLINE SHOPPING</div><h1>One marketplace. Your business, your control.</h1><p>A multi-vendor marketplace concept inspired by large B2B and retail platforms: products, suppliers, seller applications, RFQs, orders, logistics and owner tools in one place.</p><button class="btn" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Explore marketplace</button></div><div class="heroArt">🏪📦🌍</div></section>
 <main class="wrap">
  <div class="cards">
@@ -96,26 +96,7 @@ footer{background:var(--nav);color:#fff;padding:27px 5%;display:grid;grid-templa
  <div class="feature-card tracking-card"><label for="trackOrderId">Order ID</label><input id="trackOrderId" placeholder="Enter order ID"><button class="btn" onclick="trackLocalOrder()">Track order</button><div id="trackingResult" class="tracking-result"></div></div>
 </section>
 
-<section class="section" id="owner"><h2>👑 B_K owner control centre</h2><p class="muted">Owner workspace preview. Changes to products and demo records are saved in this browser only.</p>
-  <div class="layout">
-   <aside class="side">
-    <div class="sideTitle">B_K CONTROL</div>
-    <div class="sub">Marketplace management</div>
-    <button class="active" data-tab="overview" onclick="tab('overview',this)">📊 Overview</button>
-    <button data-tab="manageProducts" onclick="tab('manageProducts',this)">📦 Products</button>
-    <button data-tab="orders" onclick="tab('orders',this)">🧾 Orders</button>
-    <button data-tab="sellers" onclick="tab('sellers',this)">🏪 Sellers</button>
-    <button data-tab="rfqs" onclick="tab('rfqs',this)">📨 RFQ / Quotes</button>
-    <button data-tab="suppliers" onclick="tab('suppliers',this)">🌐 Suppliers</button>
-    <button data-tab="logistics" onclick="tab('logistics',this)">🚚 Logistics</button>
-    <div class="sub">Growth & settings</div>
-    <button data-tab="marketing" onclick="tab('marketing',this)">📣 Marketing</button>
-    <button data-tab="finance" onclick="tab('finance',this)">💳 Finance</button>
-    <button data-tab="settings" onclick="tab('settings',this)">⚙️ Store settings</button>
-   </aside>
-   <div class="adminpanel" id="adminContent"></div>
-  </div>
- </section>
+<!-- Owner/admin dashboard removed from public storefront. -->
  <section class="section twocol" id="seller">
   <div class="panel"><h2>🤝 Seller centre</h2><p class="muted">Sellers can submit a demo application. In the live marketplace, you as owner approve or reject seller accounts and control listing permissions.</p>
    <div class="field"><label>Shop name</label><input id="sShop" placeholder="Your shop name"></div><div class="field"><label>Contact person</label><input id="sName" placeholder="Contact name"></div><div class="field"><label>Product category</label><select id="sCat"><option>Electronics</option><option>Fashion</option><option>Home</option><option>Accessories</option></select></div><button class="btn" onclick="submitSeller()">Submit seller application</button>
@@ -229,9 +210,9 @@ else if(name==="rfqs")root.innerHTML=`<h2>RFQ / quotation requests</h2><p class=
 else if(name==="suppliers")root.innerHTML=`<h2>Supplier sourcing centre</h2><p class="muted">Supplier checklist inspired by B2B sourcing platforms.</p><ul><li>Compare multiple supplier quotations</li><li>Check minimum order quantity (MOQ)</li><li>Request product samples</li><li>Confirm production lead time and shipping terms</li><li>Verify supplier identity and trade terms</li><li>Agree written refund, defect and delivery conditions</li></ul><a class="btn" href="https://www.alibaba.com/" target="_blank" rel="noopener">Browse Alibaba suppliers ↗</a><div class="notice">This demo does not scrape Alibaba, place supplier orders or import listings. Use supplier platform permissions and approved integrations.</div>`;
 else if(name==="logistics")root.innerHTML=`<h2>Logistics & shipping</h2><p class="muted">Plan for courier selection, shipping rates, pickup requests, parcel labels, tracking and COD reconciliation.</p><div class="notice">No courier is connected. Live shipping requires a courier business account, service agreement and API credentials stored securely on a backend.</div><p>Shipping workflow: Order confirmed → Seller packs → Courier pickup → In transit → Delivered → COD settlement.</p>`;
 else if(name==="marketing")root.innerHTML=`<h2>Marketing centre</h2><p class="muted">Promote products through your own social channels and marketplace campaigns.</p><div class="linkrow"><a class="link" href="https://www.tiktok.com/" target="_blank" rel="noopener">TikTok ↗</a><a class="link" href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook ↗</a><a class="link" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram ↗</a></div><p>Planned tools: campaign calendar, discount coupons, featured products, affiliate tracking and performance reports.</p>`;
-else if(name==="finance")root.innerHTML=`<h2>Finance & payments</h2><p class="muted">Planned owner controls: seller commission, order totals, refunds, seller payouts, COD reconciliation and transaction reports.</p><div class="notice">No real payments or money transfers are processed by this demo. A regulated payment provider and secure server integration are required. Never enter bank credentials here.</div><div class="field"><label>Marketplace commission preview (%)</label><input id="commission" type="number" min="0" max="100" value="${esc(store.commission)}"></div><button class="btn" onclick="store.commission=document.getElementById('commission').value;save();toast('Demo commission setting saved')">Save preview setting</button>`;
+else if(name==="finance")root.innerHTML=`<h2>Finance & payments</h2><p class="muted">Planned store managements: seller commission, order totals, refunds, seller payouts, COD reconciliation and transaction reports.</p><div class="notice">No real payments or money transfers are processed by this demo. A regulated payment provider and secure server integration are required. Never enter bank credentials here.</div><div class="field"><label>Marketplace commission preview (%)</label><input id="commission" type="number" min="0" max="100" value="${esc(store.commission)}"></div><button class="btn" onclick="store.commission=document.getElementById('commission').value;save();toast('Demo commission setting saved')">Save preview setting</button>`;
 else if(name==="settings")root.innerHTML=`<h2>Store settings</h2><div class="field"><label>Store name</label><input id="storeName" value="${esc(store.name)}"></div><div class="field"><label>Owner display name</label><input id="ownerName" value="${esc(store.owner)}"></div><div class="field"><label>Support email or public contact</label><input id="support" value="${esc(store.support)}" placeholder="Business contact (optional)"></div><div class="field"><label>Currency</label><select id="currency"><option ${store.currency==="PKR"?"selected":""}>PKR</option><option ${store.currency==="USD"?"selected":""}>USD</option></select></div><button class="btn" onclick="saveSettings()">Save settings</button><div class="notice">Settings are saved only in this browser. A live admin account must use secure sign-in and server-side permissions.</div>`;
-document.getElementById("metricSellers").textContent=sellers.length;document.getElementById("metricRfqs").textContent=rfqs.length}
+if(document.getElementById("metricSellers"))document.getElementById("metricSellers").textContent=sellers.length;document.getElementById("metricRfqs").textContent=rfqs.length}
 function addProduct(){let name=document.getElementById("pName").value.trim(),price=Number(document.getElementById("pPrice").value),qty=Number(document.getElementById("pQty").value);if(!name||price<=0||qty<0){toast("Enter a product name, valid price and stock");return}products.push({id:Date.now(),name,cat:document.getElementById("pCat").value,price,qty,icon:document.getElementById("pIcon").value||"📦",desc:document.getElementById("pDesc").value||"New demo product"});save();renderProducts();tab("manageProducts",document.querySelector('[data-tab=manageProducts]'));toast("Demo product added")}
 function deleteProduct(id){if(!confirm("Delete this demo product?"))return;products=products.filter(p=>p.id!==id);save();renderProducts();tab("manageProducts",document.querySelector('[data-tab=manageProducts]'))}
 function submitSeller(){let shop=document.getElementById("sShop").value.trim(),name=document.getElementById("sName").value.trim();if(!shop||!name){toast("Enter shop and contact name");return}sellers.push({id:Date.now(),shop,name,cat:document.getElementById("sCat").value,status:"Pending"});save();document.getElementById("sShop").value="";document.getElementById("sName").value="";tab("sellers",document.querySelector('[data-tab=sellers]'));toast("Demo seller application added")}
@@ -240,7 +221,7 @@ function submitRfq(){let product=document.getElementById("rfqProduct").value.tri
 function updateOrder(id,status){let o=orders.find(x=>x.id===id);if(o)o.status=status;save();tab("orders",document.querySelector('[data-tab=orders]'))}
 function saveSettings(){store.name=document.getElementById("storeName").value;store.owner=document.getElementById("ownerName").value;store.support=document.getElementById("support").value;store.currency=document.getElementById("currency").value;save();toast("Demo store settings saved")}
 function toggleChat(){let c=document.getElementById("chat");c.style.display=c.style.display==="block"?"none":"block"}
-function askAI(){let i=document.getElementById("chatInput"),v=i.value.trim();if(!v)return;let b=document.getElementById("chatBody");b.innerHTML+=`<div class="bubble"><b>You:</b> ${esc(v)}</div>`;let q=v.toLowerCase(),a="I can guide you around this demo store. A real AI assistant needs a secure AI API connection.";if(q.includes("product")||q.includes("price"))a="Use the search bar and category filter to find products. The owner can add or remove sample products from Owner Control → Products.";else if(q.includes("seller"))a="Sellers can submit a demo application. The owner reviews it under Owner Control → Sellers.";else if(q.includes("rfq")||q.includes("supplier"))a="Use the RFQ form to record a sample quotation request, then review it under Owner Control → RFQ. Check supplier MOQ, quality, shipping and terms.";else if(q.includes("shipping")||q.includes("order"))a="Demo orders can be created from the cart. Real courier booking and parcel tracking need a courier account and secure API integration.";else if(q.includes("tiktok")||q.includes("amazon")||q.includes("alibaba"))a="External platform links are provided. Automatic catalogue or order sync needs official API access, eligibility and approved integrations.";else if(q.includes("owner")||q.includes("control"))a="The owner control preview includes products, orders, sellers, RFQs, suppliers, logistics, marketing, finance and settings.";b.innerHTML+=`<div class="bubble"><b>B_K Assistant:</b> ${a}</div>`;b.scrollTop=b.scrollHeight;i.value=""}
+function askAI(){let i=document.getElementById("chatInput"),v=i.value.trim();if(!v)return;let b=document.getElementById("chatBody");b.innerHTML+=`<div class="bubble"><b>You:</b> ${esc(v)}</div>`;let q=v.toLowerCase(),a="I can guide you around this demo store. A real AI assistant needs a secure AI API connection.";if(q.includes("product")||q.includes("price"))a="Use the search bar and category filter to find products. The owner can add or remove sample products from store management panel.";else if(q.includes("seller"))a="Sellers can submit a demo application. The owner reviews it under seller management panel.";else if(q.includes("rfq")||q.includes("supplier"))a="Use the RFQ form to record a sample quotation request, then review it under quotation management panel. Check supplier MOQ, quality, shipping and terms.";else if(q.includes("shipping")||q.includes("order"))a="Demo orders can be created from the cart. Real courier booking and parcel tracking need a courier account and secure API integration.";else if(q.includes("tiktok")||q.includes("amazon")||q.includes("alibaba"))a="External platform links are provided. Automatic catalogue or order sync needs official API access, eligibility and approved integrations.";else if(q.includes("owner")||q.includes("control"))a="The store management preview includes products, orders, sellers, RFQs, suppliers, logistics, marketing, finance and settings.";b.innerHTML+=`<div class="bubble"><b>B_K Assistant:</b> ${a}</div>`;b.scrollTop=b.scrollHeight;i.value=""}
 
 function openAccount(mode){
  const root=document.getElementById("accountContent");
@@ -289,7 +270,7 @@ function openUpgrade(){
    <div class="plan"><h3>Live store</h3><b>Backend required</b><p class="muted">Secure accounts, shared database, real orders and inventory.</p></div>
   </div>
   <div class="notice">A real upgrade needs backend deployment, database configuration, authentication and payment/courier provider setup. This button does not charge money or pretend those services are connected.</div>
-  <div class="account-actions"><button class="btn" onclick="closeAccount();document.getElementById('owner').scrollIntoView({behavior:'smooth'})">Open owner control</button><button class="btn ghost" onclick="closeAccount()">Close</button></div>`;
+  <div class="account-actions"><button class="btn" onclick="closeAccount();document.getElementById('owner').scrollIntoView({behavior:'smooth'})">Open store management</button><button class="btn ghost" onclick="closeAccount()">Close</button></div>`;
 }
 document.getElementById("accountLayer").addEventListener("click",function(e){if(e.target===this)closeAccount()});
 
@@ -329,4 +310,12 @@ function trackLocalOrder(){const id=document.getElementById("trackOrderId").valu
 renderTikTokLinks();
 renderProducts();tab("overview",document.querySelector('[data-tab=overview]'));
 </script>
+
+<footer class="section" style="text-align:center;padding:24px">
+ <h3>B_K ONLINE SHOPPING</h3>
+ <p class="muted">Shop smart. Shop with confidence.</p>
+ <p><a href="#home">Home</a> · <a href="#shop">Shop</a> · <a href="#social">TikTok</a> · <a href="#tracking">Track order</a></p>
+ <small class="muted">Customer storefront. Management tools are not displayed here.</small>
+</footer>
+
 </body></html>

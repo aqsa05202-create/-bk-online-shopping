@@ -3,6 +3,10 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#0b1424">
+<meta name="description" content="B_K Online Shopping — discover products, shop, connect with sellers and follow store updates.">
+<meta name="robots" content="index,follow">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/bk-icon.svg" type="image/svg+xml">
 <title>B_K ONLINE SHOPPING | Marketplace</title>
 <style>
 :root{--nav:#0b1424;--nav2:#17263c;--gold:#f6bd4b;--gold2:#ffe3a0;--teal:#0d987d;--bg:#f3f5f8;--ink:#172235;--muted:#68758a;--line:#e5e9ef;--white:#fff}
@@ -50,6 +54,24 @@ footer{background:var(--nav);color:#fff;padding:27px 5%;display:grid;grid-templa
 .feature-card summary{cursor:pointer;font-weight:700}
 .feature-card details p{margin:8px 0 0;min-height:0}
 
+
+/* Final B_K campaign and interaction polish */
+html{scroll-behavior:smooth;scroll-padding-top:100px}body{overflow-x:hidden}
+.hero{position:relative;overflow:hidden;isolation:isolate;background:radial-gradient(circle at 78% 24%,#36b6a055,transparent 28%),linear-gradient(120deg,#0b1424 0%,#142b45 52%,#087b69 100%)}
+.hero:after{content:"";position:absolute;width:360px;height:360px;border:1px solid #ffffff24;border-radius:50%;right:-90px;top:-150px;z-index:-1;box-shadow:0 0 0 35px #ffffff08,0 0 0 75px #ffffff06}
+.heroArt{animation:bkFloat 5s ease-in-out infinite;box-shadow:0 18px 50px #0002;backdrop-filter:blur(8px)}
+.campaigns{max-width:1500px;margin:18px auto 0;padding:0 3%;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.campaign{position:relative;min-height:205px;overflow:hidden;border-radius:17px;padding:24px 26px;color:#fff;display:flex;align-items:center;justify-content:space-between;box-shadow:0 10px 30px #0c1b2c18;isolation:isolate}
+.campaign-tech{background:linear-gradient(118deg,#14233b,#08796e)}.campaign-lifestyle{background:linear-gradient(118deg,#35244e,#a05d37)}
+.campaign:before{content:"";position:absolute;width:230px;height:230px;border-radius:50%;right:4%;top:-70px;background:#ffffff12;z-index:-1}
+.campaign-tag{font-size:10px;letter-spacing:2px;font-weight:800;color:#ffe2a0}.campaign h2{font-size:clamp(20px,3vw,29px);line-height:1.1;margin:10px 0 7px;max-width:360px}.campaign p{font-size:13px;color:#e0e8ef;margin:0 0 14px;max-width:340px;line-height:1.5}.campaign-link{display:inline-block;color:#fff;font-size:12px;font-weight:800;border-bottom:1px solid #fff9;padding-bottom:4px}.campaign-art{display:flex;gap:0;align-items:center;font-size:clamp(38px,5vw,62px);white-space:nowrap;filter:drop-shadow(0 10px 12px #0003);animation:bkFloat 4.5s ease-in-out infinite}.campaign-art span:nth-child(2){animation:bkFloat 4.5s ease-in-out .4s infinite}.campaign-art span:nth-child(3){animation:bkFloat 4.5s ease-in-out .8s infinite}
+.product,.metric,.panel,.cat,.feature-card{transition:transform .22s ease,box-shadow .22s ease}.product:hover,.cat:hover,.feature-card:hover{transform:translateY(-4px);box-shadow:0 12px 28px #17223818}.product .pic{background:linear-gradient(145deg,#eef3f8,#e4edf1);transition:transform .25s ease}.product:hover .pic{transform:scale(.985)}
+.btn,.headbtn,.side button,.chatbtn{transition:transform .18s ease,filter .18s ease}.btn:hover,.headbtn:hover,.chatbtn:hover{filter:brightness(1.05);transform:translateY(-1px)}
+:focus-visible{outline:3px solid #e8ae3c;outline-offset:2px}
+@keyframes bkFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@media(max-width:680px){.campaigns{grid-template-columns:1fr;padding:0 3%;gap:10px}.campaign{min-height:175px;padding:19px}.campaign-art{font-size:45px}.hero{gap:12px}.heroArt{padding:22px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
 </style>
 </head>
 <body>
@@ -63,8 +85,18 @@ footer{background:var(--nav);color:#fff;padding:27px 5%;display:grid;grid-templa
  <button class="headbtn" onclick="openAccount(currentUser?'account':'login')">Account</button>
  <button class="headbtn" onclick="openAccount('signup')">Sign Up</button>
 </header>
-<nav><a href="#home">Home</a><a href="#categories">Categories</a><a href="#shop">Marketplace</a><a href="#seller">Seller centre</a><a href="#connections">Global links</a><a href="#" onclick="openUpgrade();return false">Upgrade</a><a href="#social">TikTok Videos</a><a href="#extras">More Features</a><a href="#tracking">Track Order</a></nav>
+<nav><a href="#home">Home</a><a href="#categories">Categories</a><a href="#shop">Marketplace</a><a href="#seller">Seller centre</a><a href="#connections">Global links</a><a href="#" onclick="openUpgrade();return false">Upgrade</a><a href="#social">TikTok Videos</a><a href="#extras">More Features</a><a href="#extras" onclick="setTimeout(openStoreSettings,80)">Settings</a><a href="#tracking">Track Order</a></nav>
 <section class="hero" id="home"><div><div class="kicker">B_K ONLINE SHOPPING</div><h1>One marketplace. Your business, your control.</h1><p>A multi-vendor marketplace concept inspired by large B2B and retail platforms: products, suppliers, seller applications, RFQs, orders, logistics and owner tools in one place.</p><button class="btn" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Explore marketplace</button></div><div class="heroArt">🏪📦🌍</div></section>
+<section class="campaigns" aria-label="B_K featured shopping campaigns">
+ <article class="campaign campaign-tech">
+  <div class="campaign-copy"><span class="campaign-tag">B_K FEATURED COLLECTION</span><h2>Smart picks. Better everyday.</h2><p>Explore useful gadgets and accessories from the marketplace.</p><a href="#shop" class="campaign-link">Explore products <span aria-hidden="true">→</span></a></div>
+  <div class="campaign-art" aria-hidden="true"><span>⌚</span><span>🎧</span><span>📱</span></div>
+ </article>
+ <article class="campaign campaign-lifestyle">
+  <div class="campaign-copy"><span class="campaign-tag">DISCOVER SOMETHING NEW</span><h2>Your next favourite is here.</h2><p>Browse fashion, home essentials and more in one place.</p><a href="#categories" class="campaign-link">Browse categories <span aria-hidden="true">→</span></a></div>
+  <div class="campaign-art" aria-hidden="true"><span>🛍️</span><span>📦</span></div>
+ </article>
+</section>
 <main class="wrap">
  <div class="cards">
   <div class="metric"><div class="muted">Marketplace products</div><div class="num" id="metricProducts">8</div><div class="muted">Sample catalogue</div></div>
@@ -94,6 +126,7 @@ footer{background:var(--nav);color:#fff;padding:27px 5%;display:grid;grid-templa
   <article class="feature-card"><div class="feature-icon">🌐</div><h3>Language</h3><p>Website language preference select karo.</p><button class="btn ghost" onclick="chooseLanguage()">Language settings</button></article>
   <article class="feature-card"><div class="feature-icon">💬</div><h3>WhatsApp Support</h3><p>Support WhatsApp number set karo.</p><button class="btn ghost" onclick="setWhatsApp()">Set WhatsApp</button></article>
   <article class="feature-card"><div class="feature-icon">🤖</div><h3>AI Shopping Assistant</h3><p>Products aur shopping ke liye help panel.</p><button class="btn" onclick="openShoppingAssistant()">Open assistant</button></article>
+  <article class="feature-card"><div class="feature-icon">⚙️</div><h3>Store Preferences</h3><p>Display currency, language, theme aur contact preferences configure karo.</p><button class="btn ghost" onclick="openStoreSettings()">Open settings</button></article>
  </div>
 </section>
 <section id="tracking" class="section">
@@ -324,6 +357,29 @@ function chooseLanguage(){const choice=prompt("Language preference: English / Ur
 function setWhatsApp(){const n=prompt("WhatsApp number country code ke sath, e.g. 923001234567",bkWhatsApp);if(!n)return;const clean=n.replace(/\D/g,"");if(clean.length<10){toast("Valid WhatsApp number enter karein");return}bkWhatsApp=clean;localStorage.setItem("bk_whatsapp",clean);toast("WhatsApp number saved")}
 function openShoppingAssistant(){showFeaturePanel("AI Shopping Assistant",`<p>Welcome! Product dhoondne ke liye apna sawal likhein.</p><input id="aiShopQuestion" placeholder="e.g. Show me shoes under Rs 5000"><button class="btn" onclick="answerShoppingQuestion()">Ask</button><div id="aiShopAnswer" class="tracking-result"></div><p class="muted">Ye basic local helper hai; real AI answers ke liye secure AI service/backend integration chahiye.</p>`)}
 function answerShoppingQuestion(){const q=document.getElementById("aiShopQuestion").value.toLowerCase();const matches=products.filter(p=>(p.name+" "+p.cat+" "+p.desc).toLowerCase().includes(q.split(" ").filter(w=>w.length>3)[0]||""));document.getElementById("aiShopAnswer").textContent=matches.length?"Matching products: "+matches.map(p=>p.name+" ("+money(p.price)+")").join(", "):"Products page par categories ya search use karke dekhein."}
+
+function openStoreSettings(){
+ const currency=localStorage.getItem("bk_display_currency")||"PKR";
+ const language=localStorage.getItem("bk_language")||"English";
+ const theme=localStorage.getItem("bk_theme")||"light";
+ const support=localStorage.getItem("bk_public_support")||"";
+ showFeaturePanel("Store Preferences",`<p class="muted">Yeh preferences isi browser mein save hoti hain. Account, payments aur admin permissions ko yahan se change nahi kiya ja sakta.</p>
+ <div class="field"><label for="prefCurrency">Display currency</label><select id="prefCurrency"><option ${currency==="PKR"?"selected":""}>PKR</option><option ${currency==="USD"?"selected":""}>USD</option><option ${currency==="EUR"?"selected":""}>EUR</option><option ${currency==="GBP"?"selected":""}>GBP</option><option ${currency==="AED"?"selected":""}>AED</option><option ${currency==="SAR"?"selected":""}>SAR</option></select></div>
+ <div class="field"><label for="prefLanguage">Language preference</label><select id="prefLanguage"><option ${language==="English"?"selected":""}>English</option><option ${language==="Urdu"?"selected":""}>Urdu</option><option ${language==="Roman Urdu"?"selected":""}>Roman Urdu</option></select></div>
+ <div class="field"><label for="prefTheme">Appearance</label><select id="prefTheme"><option value="light" ${theme==="light"?"selected":""}>Light</option><option value="dark" ${theme==="dark"?"selected":""}>Dark preference (saved)</option></select></div>
+ <div class="field"><label for="prefSupport">Public support email (optional)</label><input id="prefSupport" type="email" value="${esc(support)}" placeholder="support@example.com"></div>
+ <button class="btn" onclick="saveStoreSettings()">Save preferences</button>`);
+}
+function saveStoreSettings(){
+ const email=(document.getElementById("prefSupport").value||"").trim();
+ if(email&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){toast("Valid support email enter karein");return}
+ localStorage.setItem("bk_display_currency",document.getElementById("prefCurrency").value);
+ localStorage.setItem("bk_language",document.getElementById("prefLanguage").value);
+ localStorage.setItem("bk_theme",document.getElementById("prefTheme").value);
+ localStorage.setItem("bk_public_support",email);
+ toast("Store preferences saved in this browser");
+}
+
 function showFeaturePanel(title,body){document.getElementById("cartTitle").textContent=title;document.getElementById("cartContent").innerHTML=body;document.getElementById("cartLayer").style.display="flex"}
 function trackLocalOrder(){const id=document.getElementById("trackOrderId").value.trim();const order=orders.find(o=>String(o.id)===id);document.getElementById("trackingResult").textContent=order?`Order #${order.id}\nCustomer: ${order.customer}\nItems: ${order.items}\nTotal: ${money(order.total)}\nStatus: ${order.status}`:"Order nahi mila. Sirf isi browser mein banaye gaye preview orders yahan track ho sakte hain."}
 

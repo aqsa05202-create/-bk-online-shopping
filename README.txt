@@ -1,16 +1,23 @@
-B_K ONLINE SHOPPING - CHECKOUT & PRODUCT DETAILS UPDATE
+B_K ONLINE SHOPPING - EXPANDED FEATURES PACK
 
-This package builds on the previous buttons-fixed website package.
-Replace the repository root index.html with this index.html.
+Upload this index.html to the root of your GitHub Pages repository (replace the old index.html).
 
-New front-end features:
-- Product Details opens a details panel.
-- Shopping Cart opens a proper cart page/panel.
-- Increase/decrease item quantities and remove items.
-- Continue to Checkout opens a customer details form.
-- Place Preview Order saves the order in this browser and opens Owner > Orders.
+Added sections:
+- TikTok video link gallery and TikTok profile link
+- Share website
+- Wishlist
+- Coupon preview
+- Customer review preview
+- Language preference selector
+- WhatsApp support number setting
+- Basic product-matching shopping helper
+- Local preview order tracking
 
-Limitations:
-This remains a browser-only preview. Orders are not sent to a real shop owner,
-payments are not processed, and delivery is not booked. Live checkout needs a
-secure backend and payment/courier integrations. Do not publish secret API keys.
+Also includes the previous cart, checkout, account and product-details updates.
+
+IMPORTANT:
+This is a front-end/browser-local feature pack. TikTok links open TikTok; video playback embedding
+depends on TikTok's embed permissions and is not guaranteed by a plain link. Wishlist, reviews,
+settings and preview orders are stored only in the visitor's browser. Coupons are preview codes,
+not real discounts. WhatsApp support requires setting your actual number. The shopping helper
+is not a connected AI service. Production features require secure backend integrations.

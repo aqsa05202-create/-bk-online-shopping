@@ -37,6 +37,14 @@ footer{background:var(--nav);color:#fff;padding:27px 5%;display:grid;grid-templa
 .checkout-fields .wide{grid-column:1/-1}.product-actions{display:flex;gap:7px;flex-wrap:wrap}.product-actions .btn{flex:1}
 @media(max-width:520px){.cart-line{grid-template-columns:1fr auto}.checkout-fields{grid-template-columns:1fr}.checkout-fields .wide{grid-column:auto}}
 
+
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.feature-card{background:var(--card,#fff);border:1px solid var(--line,#e5eaf0);border-radius:14px;padding:18px;box-shadow:0 8px 24px #12213a0b}
+.feature-card h3{margin:7px 0}.feature-card p{color:var(--muted,#687789);min-height:38px}
+.feature-icon{font-size:28px}.feature-card button{margin-top:8px}.social-list a{display:block;margin:8px 0;overflow-wrap:anywhere}
+.tracking-card{max-width:560px;display:grid;gap:10px}.tracking-card input{padding:12px;border:1px solid #d7dee7;border-radius:8px}
+.tracking-result{margin-top:10px;padding:10px;border-radius:9px;background:#f1f5f9;white-space:pre-wrap}
+
 </style>
 </head>
 <body>
@@ -50,7 +58,7 @@ footer{background:var(--nav);color:#fff;padding:27px 5%;display:grid;grid-templa
  <button class="headbtn" onclick="openAccount(currentUser?'account':'login')">Account</button>
  <button class="headbtn" onclick="openAccount('signup')">Sign Up</button>
 </header>
-<nav><a href="#home">Home</a><a href="#categories">Categories</a><a href="#shop">Marketplace</a><a href="#owner">Owner control</a><a href="#seller">Seller centre</a><a href="#connections">Global links</a><a href="#" onclick="openUpgrade();return false">Upgrade</a></nav>
+<nav><a href="#home">Home</a><a href="#categories">Categories</a><a href="#shop">Marketplace</a><a href="#owner">Owner control</a><a href="#seller">Seller centre</a><a href="#connections">Global links</a><a href="#" onclick="openUpgrade();return false">Upgrade</a><a href="#social">TikTok Videos</a><a href="#extras">More Features</a><a href="#tracking">Track Order</a></nav>
 <section class="hero" id="home"><div><div class="kicker">B_K ONLINE SHOPPING</div><h1>One marketplace. Your business, your control.</h1><p>A multi-vendor marketplace concept inspired by large B2B and retail platforms: products, suppliers, seller applications, RFQs, orders, logistics and owner tools in one place.</p><button class="btn" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Explore marketplace</button></div><div class="heroArt">🏪📦🌍</div></section>
 <main class="wrap">
  <div class="cards">
@@ -63,7 +71,32 @@ footer{background:var(--nav);color:#fff;padding:27px 5%;display:grid;grid-templa
   <div class="cat" onclick="setCat('Electronics')"><span>🎧</span><b>Electronics</b></div><div class="cat" onclick="setCat('Fashion')"><span>👕</span><b>Fashion</b></div><div class="cat" onclick="setCat('Home')"><span>🏠</span><b>Home & Living</b></div><div class="cat" onclick="setCat('Accessories')"><span>⌚</span><b>Accessories</b></div>
  </div></section>
  <section class="section" id="shop"><div class="toolbar"><h2>Marketplace products</h2><select id="category" onchange="renderProducts()"><option>All</option><option>Electronics</option><option>Fashion</option><option>Home</option><option>Accessories</option></select></div><div class="products" id="productGrid"></div></section>
- <section class="section" id="owner"><h2>👑 B_K owner control centre</h2><p class="muted">Owner workspace preview. Changes to products and demo records are saved in this browser only.</p>
+ 
+<section id="social" class="section">
+ <div class="section-head"><div><span class="eyebrow">SOCIAL SHOPPING</span><h2>TikTok Videos & Social Links</h2><p>Apni TikTok videos yahan feature karo aur visitors ko store tak lao.</p></div></div>
+ <div class="feature-grid">
+  <article class="feature-card"><div class="feature-icon">▶</div><h3>TikTok Store Video</h3><p>Apni TikTok video ka link add karke yahan show karo.</p><button class="btn" onclick="addTikTokLink()">Add TikTok video link</button><div id="tiktokList" class="social-list"></div></article>
+  <article class="feature-card"><div class="feature-icon">↗</div><h3>Visit TikTok Profile</h3><p>Customers ko official TikTok profile par bhejo.</p><button class="btn ghost" onclick="setTikTokProfile()">Set profile link</button><div id="tiktokProfileStatus" class="muted">Profile link not set</div></article>
+  <article class="feature-card"><div class="feature-icon">📣</div><h3>Share Store</h3><p>Website link share karke apne store ki promotion karo.</p><button class="btn ghost" onclick="shareStore()">Share website</button></article>
+ </div>
+</section>
+<section id="extras" class="section">
+ <div class="section-head"><div><span class="eyebrow">CUSTOMER EXPERIENCE</span><h2>More Shopping Features</h2><p>Useful tools ek hi jagah par.</p></div></div>
+ <div class="feature-grid">
+  <article class="feature-card"><div class="feature-icon">♡</div><h3>Wishlist</h3><p>Favourite products save karo.</p><button class="btn" onclick="openWishlist()">Open wishlist</button></article>
+  <article class="feature-card"><div class="feature-icon">🏷</div><h3>Discount Coupons</h3><p>Available coupon codes dekho aur checkout mein apply karo.</p><button class="btn" onclick="openCoupons()">View coupons</button></article>
+  <article class="feature-card"><div class="feature-icon">★</div><h3>Customer Reviews</h3><p>Products par apni rating aur review add karo.</p><button class="btn" onclick="openReviews()">Write a review</button></article>
+  <article class="feature-card"><div class="feature-icon">🌐</div><h3>Language</h3><p>Website language preference select karo.</p><button class="btn ghost" onclick="chooseLanguage()">Language settings</button></article>
+  <article class="feature-card"><div class="feature-icon">💬</div><h3>WhatsApp Support</h3><p>Support WhatsApp number set karo.</p><button class="btn ghost" onclick="setWhatsApp()">Set WhatsApp</button></article>
+  <article class="feature-card"><div class="feature-icon">🤖</div><h3>AI Shopping Assistant</h3><p>Products aur shopping ke liye help panel.</p><button class="btn" onclick="openShoppingAssistant()">Open assistant</button></article>
+ </div>
+</section>
+<section id="tracking" class="section">
+ <div class="section-head"><div><span class="eyebrow">ORDER SERVICES</span><h2>Track Your Order</h2><p>Preview order ID se is browser mein saved order status check karo.</p></div></div>
+ <div class="feature-card tracking-card"><label for="trackOrderId">Order ID</label><input id="trackOrderId" placeholder="Enter order ID"><button class="btn" onclick="trackLocalOrder()">Track order</button><div id="trackingResult" class="tracking-result"></div></div>
+</section>
+
+<section class="section" id="owner"><h2>👑 B_K owner control centre</h2><p class="muted">Owner workspace preview. Changes to products and demo records are saved in this browser only.</p>
   <div class="layout">
    <aside class="side">
     <div class="sideTitle">B_K CONTROL</div>
@@ -143,7 +176,7 @@ function save(){localStorage.setItem("bk_products",JSON.stringify(products));loc
 function money(n){return "Rs. "+Number(n).toLocaleString("en-PK")}
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
 function toast(s){let t=document.getElementById("toast");t.textContent=s;t.style.display="block";clearTimeout(window.tt);window.tt=setTimeout(()=>t.style.display="none",3200)}
-function renderProducts(){let q=document.getElementById("search").value.toLowerCase(),c=document.getElementById("category").value;let a=products.filter(p=>(c==="All"||p.cat===c)&&(p.name.toLowerCase().includes(q)||p.desc.toLowerCase().includes(q)));document.getElementById("productGrid").innerHTML=a.map(p=>`<article class="product"><div class="pic">${esc(p.icon)}</div><h3>${esc(p.name)}</h3><div class="price">${money(p.price)}</div><p class="muted">${esc(p.desc)}<br>Stock: ${p.qty}</p><div class="product-actions"><button class="btn" onclick="addCart(${p.id})">Add to cart</button><button class="btn ghost" onclick="viewProduct(${p.id})">Details</button></div></article>`).join("")||"<p>No products found.</p>";document.getElementById("metricProducts").textContent=products.length}
+function renderProducts(){let q=document.getElementById("search").value.toLowerCase(),c=document.getElementById("category").value;let a=products.filter(p=>(c==="All"||p.cat===c)&&(p.name.toLowerCase().includes(q)||p.desc.toLowerCase().includes(q)));document.getElementById("productGrid").innerHTML=a.map(p=>`<article class="product"><div class="pic">${esc(p.icon)}</div><h3>${esc(p.name)}</h3><div class="price">${money(p.price)}</div><p class="muted">${esc(p.desc)}<br>Stock: ${p.qty}</p><div class="product-actions"><button class="btn" onclick="addCart(${p.id})">Add to cart</button><button class="btn ghost" onclick="viewProduct(${p.id})">Details</button><button class="btn ghost" onclick="toggleWishlist(${p.id})">♡ Save</button></div></article>`).join("")||"<p>No products found.</p>";document.getElementById("metricProducts").textContent=products.length}
 function setCat(c){document.getElementById("category").value=c;renderProducts();document.getElementById("shop").scrollIntoView({behavior:"smooth"})}
 function addCart(id){let p=products.find(x=>x.id===id);if(!p)return;if(p.qty<1){toast("This demo item is out of stock");return}cart.push(id);document.getElementById("cartCount").textContent=cart.length;document.getElementById("metricCart").textContent=cart.length;toast(p.name+" added to demo cart")}
 function showCart(){renderCart();document.getElementById("cartLayer").style.display="flex"}
@@ -260,6 +293,40 @@ function openUpgrade(){
 }
 document.getElementById("accountLayer").addEventListener("click",function(e){if(e.target===this)closeAccount()});
 
+
+let bkWishlist=JSON.parse(localStorage.getItem("bk_wishlist")||"[]");
+let bkTikTokLinks=JSON.parse(localStorage.getItem("bk_tiktok_links")||"[]");
+let bkTikTokProfile=localStorage.getItem("bk_tiktok_profile")||"";
+let bkWhatsApp=localStorage.getItem("bk_whatsapp")||"";
+let bkReviews=JSON.parse(localStorage.getItem("bk_reviews")||"[]");
+let bkCoupon=localStorage.getItem("bk_coupon")||"";
+function persistExtra(){localStorage.setItem("bk_wishlist",JSON.stringify(bkWishlist));localStorage.setItem("bk_tiktok_links",JSON.stringify(bkTikTokLinks));localStorage.setItem("bk_reviews",JSON.stringify(bkReviews))}
+function addTikTokLink(){
+ const link=prompt("Paste your TikTok video share link:");
+ if(!link)return;
+ try{const u=new URL(link);if(!/tiktok\.com$/i.test(u.hostname)&&!u.hostname.toLowerCase().endsWith(".tiktok.com"))throw 0;bkTikTokLinks.push(link);persistExtra();renderTikTokLinks();toast("TikTok link added")}catch(e){toast("Valid TikTok link enter karein")}
+}
+function renderTikTokLinks(){
+ const el=document.getElementById("tiktokList");if(!el)return;
+ el.innerHTML=bkTikTokLinks.map((u,i)=>`<p><a href="${esc(u)}" target="_blank" rel="noopener">Open TikTok video ${i+1}</a> <button onclick="removeTikTokLink(${i})">Remove</button></p>`).join("");
+}
+function removeTikTokLink(i){bkTikTokLinks.splice(i,1);persistExtra();renderTikTokLinks()}
+function setTikTokProfile(){const u=prompt("Paste your TikTok profile URL:",bkTikTokProfile);if(!u)return;try{const x=new URL(u);if(!x.hostname.toLowerCase().endsWith("tiktok.com"))throw 0;bkTikTokProfile=u;localStorage.setItem("bk_tiktok_profile",u);document.getElementById("tiktokProfileStatus").textContent="Profile link saved";toast("TikTok profile saved")}catch(e){toast("Valid TikTok profile link enter karein")}}
+function shareStore(){const u=location.href; if(navigator.share){navigator.share({title:"B_K ONLINE SHOPPING",url:u}).catch(()=>{})}else if(navigator.clipboard){navigator.clipboard.writeText(u).then(()=>toast("Website link copied"))}else{prompt("Copy website link",u)}}
+function toggleWishlist(id){const i=bkWishlist.indexOf(id);if(i>=0)bkWishlist.splice(i,1);else bkWishlist.push(id);persistExtra();toast(i>=0?"Wishlist se remove ho gaya":"Wishlist mein add ho gaya");}
+function openWishlist(){const names=bkWishlist.map(id=>products.find(p=>p.id===id)).filter(Boolean);const body=names.length?names.map(p=>`<p>${esc(p.icon||"🛍")} <b>${esc(p.name)}</b> — ${money(p.price)} <button onclick="addCart(${p.id})">Add to cart</button></p>`).join(""):"<p>Wishlist abhi empty hai.</p>";showFeaturePanel("My Wishlist",body)}
+function openCoupons(){showFeaturePanel("Discount Coupons",`<p><b>WELCOME5</b> — preview coupon, 5% off</p><p><b>BK10</b> — preview coupon, 10% off</p><p class="notice">Coupon codes sirf preview hain; live checkout/backend par discount calculate karna abhi configure nahi.</p><button class="btn" onclick="applyPreviewCoupon('WELCOME5')">Apply WELCOME5</button> <button class="btn ghost" onclick="applyPreviewCoupon('BK10')">Apply BK10</button>`)}
+function applyPreviewCoupon(code){bkCoupon=code;localStorage.setItem("bk_coupon",code);toast(code+" selected for preview")}
+function openReviews(){const productOptions=products.map(p=>`<option value="${p.id}">${esc(p.name)}</option>`).join("");showFeaturePanel("Write a Review",`<label>Product</label><select id="reviewProduct">${productOptions}</select><label>Rating</label><select id="reviewRating"><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select><label>Your review</label><textarea id="reviewText" rows="3" placeholder="Write your feedback"></textarea><button class="btn" onclick="saveReview()">Submit review</button><div>${bkReviews.slice(-5).map(r=>`<p>★ ${r.rating}/5 — ${esc(r.text)}</p>`).join("")}</div>`)}
+function saveReview(){const p=products.find(x=>x.id===Number(document.getElementById("reviewProduct").value));const textValue=document.getElementById("reviewText").value.trim();if(!p||!textValue){toast("Product aur review likhein");return}bkReviews.push({product:p.name,rating:Number(document.getElementById("reviewRating").value),text:textValue});persistExtra();toast("Review is browser preview mein save ho gaya");openReviews()}
+function chooseLanguage(){const choice=prompt("Language preference: English / Urdu","English");if(choice){localStorage.setItem("bk_language",choice);toast("Preference saved: "+choice+". Full translation requires language content.")}}
+function setWhatsApp(){const n=prompt("WhatsApp number country code ke sath, e.g. 923001234567",bkWhatsApp);if(!n)return;const clean=n.replace(/\D/g,"");if(clean.length<10){toast("Valid WhatsApp number enter karein");return}bkWhatsApp=clean;localStorage.setItem("bk_whatsapp",clean);toast("WhatsApp number saved")}
+function openShoppingAssistant(){showFeaturePanel("AI Shopping Assistant",`<p>Welcome! Product dhoondne ke liye apna sawal likhein.</p><input id="aiShopQuestion" placeholder="e.g. Show me shoes under Rs 5000"><button class="btn" onclick="answerShoppingQuestion()">Ask</button><div id="aiShopAnswer" class="tracking-result"></div><p class="muted">Ye basic local helper hai; real AI answers ke liye secure AI service/backend integration chahiye.</p>`)}
+function answerShoppingQuestion(){const q=document.getElementById("aiShopQuestion").value.toLowerCase();const matches=products.filter(p=>(p.name+" "+p.cat+" "+p.desc).toLowerCase().includes(q.split(" ").filter(w=>w.length>3)[0]||""));document.getElementById("aiShopAnswer").textContent=matches.length?"Matching products: "+matches.map(p=>p.name+" ("+money(p.price)+")").join(", "):"Products page par categories ya search use karke dekhein."}
+function showFeaturePanel(title,body){document.getElementById("cartTitle").textContent=title;document.getElementById("cartContent").innerHTML=body;document.getElementById("cartLayer").style.display="flex"}
+function trackLocalOrder(){const id=document.getElementById("trackOrderId").value.trim();const order=orders.find(o=>String(o.id)===id);document.getElementById("trackingResult").textContent=order?`Order #${order.id}\nCustomer: ${order.customer}\nItems: ${order.items}\nTotal: ${money(order.total)}\nStatus: ${order.status}`:"Order nahi mila. Sirf isi browser mein banaye gaye preview orders yahan track ho sakte hain."}
+
+renderTikTokLinks();
 renderProducts();tab("overview",document.querySelector('[data-tab=overview]'));
 </script>
 </body></html>

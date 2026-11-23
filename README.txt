@@ -1,19 +1,16 @@
-B_K ONLINE SHOPPING - BUTTONS CONNECTED UPDATE
+B_K ONLINE SHOPPING - CHECKOUT & PRODUCT DETAILS UPDATE
 
-Upload index.html to the root of your GitHub Pages repository.
+This package builds on the previous buttons-fixed website package.
+Replace the repository root index.html with this index.html.
 
-Working front-end actions:
-- Home, category and marketplace navigation
-- Product search and category filters
-- Add to cart and local demo order creation
-- Login, Sign Up, Account and Logout (browser-only preview)
-- Upgrade page explaining the next system stage
-- Owner dashboard tabs and product/seller/RFQ/settings actions
-- Seller application and quotation request forms
-- AI assistant chat panel and external supplier/social links
+New front-end features:
+- Product Details opens a details panel.
+- Shopping Cart opens a proper cart page/panel.
+- Increase/decrease item quantities and remove items.
+- Continue to Checkout opens a customer details form.
+- Place Preview Order saves the order in this browser and opens Owner > Orders.
 
-Important:
-Authentication and stored data in this package are browser-only previews.
-They are not secure production accounts and do not sync between devices.
-Real multi-user accounts, online payments, shared inventory and live order processing
-require a secure backend. Never put secret API keys in this public HTML file.
+Limitations:
+This remains a browser-only preview. Orders are not sent to a real shop owner,
+payments are not processed, and delivery is not booked. Live checkout needs a
+secure backend and payment/courier integrations. Do not publish secret API keys.

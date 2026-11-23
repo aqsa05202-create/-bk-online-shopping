@@ -28,6 +28,15 @@ footer{background:var(--nav);color:#fff;padding:27px 5%;display:grid;grid-templa
 #toast{position:fixed;left:50%;bottom:78px;transform:translateX(-50%);background:#182438;color:#fff;border-radius:8px;padding:11px 15px;display:none;z-index:20;max-width:90%;text-align:center}
 @media(max-width:900px){.layout{grid-template-columns:1fr}.side{position:static;display:flex;overflow:auto;gap:4px}.side .sideTitle,.side .sub{display:none}.side button{white-space:nowrap;width:auto}.products{grid-template-columns:repeat(2,1fr)}.cards{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){header{gap:7px;padding:7px 2%}.brand svg{width:38px;height:38px}.brandname{font-size:11px}.brandname small{font-size:7px}.headbtn{font-size:11px;padding:8px}.search button{padding:0 9px}.hero{padding:30px 5%;grid-template-columns:1fr}.heroArt{font-size:60px}.wrap{padding:13px 3% 40px}.products{gap:8px}.product{padding:9px}.pic{height:100px;font-size:48px}.cats{grid-template-columns:repeat(2,1fr)}.twocol,.formgrid{grid-template-columns:1fr}.full{grid-column:auto}footer{grid-template-columns:1fr}.side{top:auto}.side button{font-size:11px;padding:8px}}
+
+.cart-layer{display:none;position:fixed;inset:0;background:#081323c9;z-index:60;align-items:center;justify-content:center;padding:14px}
+.cart-panel{background:#fff;width:min(650px,100%);max-height:92vh;overflow:auto;border-radius:16px;padding:22px;box-shadow:0 20px 60px #0005}
+.cart-head{display:flex;align-items:center;justify-content:space-between;gap:10px}.cart-line{display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center;border-bottom:1px solid #e7ebf0;padding:12px 0}
+.cart-line button{border:0;border-radius:7px;padding:7px 10px}.cart-total{font-size:20px;font-weight:900;text-align:right;padding:15px 0}
+.checkout-fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}.checkout-fields input,.checkout-fields textarea{width:100%;padding:11px;border:1px solid #d7dee7;border-radius:8px}
+.checkout-fields .wide{grid-column:1/-1}.product-actions{display:flex;gap:7px;flex-wrap:wrap}.product-actions .btn{flex:1}
+@media(max-width:520px){.cart-line{grid-template-columns:1fr auto}.checkout-fields{grid-template-columns:1fr}.checkout-fields .wide{grid-column:auto}}
+
 </style>
 </head>
 <body>
@@ -94,6 +103,14 @@ footer{background:var(--nav);color:#fff;padding:27px 5%;display:grid;grid-templa
 <div class="assist"><div class="chat" id="chat"><div class="chathead">🤖 B_K AI Shopping Assistant</div><div class="chatbody" id="chatBody"><div class="bubble">Assalam-o-alaikum! Main B_K website ka demo assistant hoon. Products, sellers, RFQs, suppliers aur shipping ke baare mein pooch sakte hain.</div></div><div class="chatrow"><input id="chatInput" placeholder="Ask a question..." onkeydown="if(event.key==='Enter')askAI()"><button class="btn" onclick="askAI()">Send</button></div></div><button class="chatbtn" onclick="toggleChat()">🤖 B_K Assistant</button></div>
 <div id="toast"></div>
 
+<div id="cartLayer" class="cart-layer">
+ <section class="cart-panel">
+  <div class="cart-head"><h2 id="cartTitle">Your Shopping Cart</h2><button class="btn ghost" onclick="closeCart()">Close ✕</button></div>
+  <div id="cartContent"></div>
+ </section>
+</div>
+
+
 <div id="accountLayer" class="account-layer" aria-live="polite">
  <div class="account-card"><button class="close-account" onclick="closeAccount()" aria-label="Close">✕</button><div id="accountContent"></div></div>
 </div>
@@ -126,10 +143,51 @@ function save(){localStorage.setItem("bk_products",JSON.stringify(products));loc
 function money(n){return "Rs. "+Number(n).toLocaleString("en-PK")}
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
 function toast(s){let t=document.getElementById("toast");t.textContent=s;t.style.display="block";clearTimeout(window.tt);window.tt=setTimeout(()=>t.style.display="none",3200)}
-function renderProducts(){let q=document.getElementById("search").value.toLowerCase(),c=document.getElementById("category").value;let a=products.filter(p=>(c==="All"||p.cat===c)&&(p.name.toLowerCase().includes(q)||p.desc.toLowerCase().includes(q)));document.getElementById("productGrid").innerHTML=a.map(p=>`<article class="product"><div class="pic">${esc(p.icon)}</div><h3>${esc(p.name)}</h3><div class="price">${money(p.price)}</div><p class="muted">${esc(p.desc)}<br>Stock: ${p.qty}</p><button class="btn" onclick="addCart(${p.id})">Add to cart</button></article>`).join("")||"<p>No products found.</p>";document.getElementById("metricProducts").textContent=products.length}
+function renderProducts(){let q=document.getElementById("search").value.toLowerCase(),c=document.getElementById("category").value;let a=products.filter(p=>(c==="All"||p.cat===c)&&(p.name.toLowerCase().includes(q)||p.desc.toLowerCase().includes(q)));document.getElementById("productGrid").innerHTML=a.map(p=>`<article class="product"><div class="pic">${esc(p.icon)}</div><h3>${esc(p.name)}</h3><div class="price">${money(p.price)}</div><p class="muted">${esc(p.desc)}<br>Stock: ${p.qty}</p><div class="product-actions"><button class="btn" onclick="addCart(${p.id})">Add to cart</button><button class="btn ghost" onclick="viewProduct(${p.id})">Details</button></div></article>`).join("")||"<p>No products found.</p>";document.getElementById("metricProducts").textContent=products.length}
 function setCat(c){document.getElementById("category").value=c;renderProducts();document.getElementById("shop").scrollIntoView({behavior:"smooth"})}
 function addCart(id){let p=products.find(x=>x.id===id);if(!p)return;if(p.qty<1){toast("This demo item is out of stock");return}cart.push(id);document.getElementById("cartCount").textContent=cart.length;document.getElementById("metricCart").textContent=cart.length;toast(p.name+" added to demo cart")}
-function showCart(){if(!cart.length){toast("Your demo cart is empty");return}let grouped={};cart.forEach(id=>{let p=products.find(x=>x.id===id);if(p)grouped[p.name]=(grouped[p.name]||0)+1});let total=cart.reduce((s,id)=>s+(products.find(x=>x.id===id)?.price||0),0);let detail=Object.entries(grouped).map(([n,q])=>q+" x "+n).join(" | ");if(confirm(detail+" | Total "+money(total)+"\nCreate a demo order?")){orders.push({id:Date.now(),items:detail,total,status:"New demo order"});save();cart=[];document.getElementById("cartCount").textContent="0";document.getElementById("metricCart").textContent="0";toast("Demo order created locally");tab("orders",document.querySelector('[data-tab=orders]'))}}
+function showCart(){renderCart();document.getElementById("cartLayer").style.display="flex"}
+function closeCart(){document.getElementById("cartLayer").style.display="none"}
+function cartTotal(){return cart.reduce((sum,id)=>sum+(products.find(p=>p.id===id)?.price||0),0)}
+function renderCart(){
+ const root=document.getElementById("cartContent");
+ if(!cart.length){root.innerHTML='<p>Your cart is empty.</p><button class="btn" onclick="closeCart();document.getElementById(\'shop\').scrollIntoView({behavior:\'smooth\'})">Browse products</button>';return}
+ const counts={};cart.forEach(id=>counts[id]=(counts[id]||0)+1);
+ root.innerHTML=Object.entries(counts).map(([id,qty])=>{const p=products.find(x=>x.id===Number(id));if(!p)return '';return `<div class="cart-line"><div><b>${esc(p.name)}</b><div class="muted">${money(p.price)} each</div></div><div><button onclick="changeCartQty(${p.id},-1)">−</button> ${qty} <button onclick="changeCartQty(${p.id},1)">+</button></div><button onclick="removeCartItem(${p.id})">Remove</button></div>`}).join('')+
+ `<div class="cart-total">Total: ${money(cartTotal())}</div><button class="btn" onclick="showCheckout()">Continue to checkout</button>`;
+}
+function changeCartQty(id,delta){const p=products.find(x=>x.id===id);if(delta>0&&p&&cart.filter(x=>x===id).length>=p.qty){toast("Available preview stock limit reached");return}if(delta>0)cart.push(id);else{const i=cart.indexOf(id);if(i>=0)cart.splice(i,1)}syncCartCount();renderCart()}
+function removeCartItem(id){cart=cart.filter(x=>x!==id);syncCartCount();renderCart()}
+function syncCartCount(){document.getElementById("cartCount").textContent=cart.length;document.getElementById("metricCart").textContent=cart.length}
+function showCheckout(){
+ if(!cart.length){renderCart();return}
+ document.getElementById("cartTitle").textContent="Checkout";
+ document.getElementById("cartContent").innerHTML=`<p>Order total: <b>${money(cartTotal())}</b></p>
+ <div class="checkout-fields">
+ <input id="coName" placeholder="Full name" required>
+ <input id="coPhone" placeholder="Phone number" required>
+ <input id="coEmail" type="email" placeholder="Email (optional)">
+ <input id="coCity" placeholder="City" required>
+ <textarea id="coAddress" class="wide" rows="3" placeholder="Delivery address" required></textarea>
+ </div>
+ <p class="notice">Preview checkout only: this form stores an order on this browser. No payment is taken and no courier is booked.</p>
+ <button class="btn" onclick="placeLocalOrder()">Place preview order</button> <button class="btn ghost" onclick="renderCart();document.getElementById('cartTitle').textContent='Your Shopping Cart'">Back to cart</button>`;
+}
+function placeLocalOrder(){
+ const name=document.getElementById("coName").value.trim(),phone=document.getElementById("coPhone").value.trim(),city=document.getElementById("coCity").value.trim(),address=document.getElementById("coAddress").value.trim();
+ if(!name||!phone||!city||!address){toast("Please fill name, phone, city and address");return}
+ const grouped={};cart.forEach(id=>{const p=products.find(x=>x.id===id);if(p)grouped[p.name]=(grouped[p.name]||0)+1});
+ const items=Object.entries(grouped).map(([n,q])=>q+" x "+n).join(" | ");
+ orders.push({id:Date.now(),customer:name,phone,city,address,items,total:cartTotal(),status:"New preview order"});
+ save();cart=[];syncCartCount();closeCart();toast("Preview order saved on this device");tab("orders",document.querySelector('[data-tab=orders]'));
+}
+function viewProduct(id){
+ const p=products.find(x=>x.id===id);if(!p)return;
+ document.getElementById("cartTitle").textContent="Product details";
+ document.getElementById("cartContent").innerHTML=`<div style="font-size:56px;text-align:center;padding:15px">${esc(p.icon)}</div><h2>${esc(p.name)}</h2><div class="price">${money(p.price)}</div><p>${esc(p.desc)}</p><p>Category: ${esc(p.cat)} · Available preview stock: ${p.qty}</p><button class="btn" onclick="addCart(${p.id});closeCart()">Add to cart</button>`;
+ document.getElementById("cartLayer").style.display="flex";
+}
+document.getElementById("cartLayer").addEventListener("click",function(e){if(e.target===this)closeCart()});
 function tab(name,el){document.querySelectorAll(".side button").forEach(b=>b.classList.remove("active"));if(el)el.classList.add("active");let root=document.getElementById("adminContent");if(name==="overview")root.innerHTML=`<h2>Owner overview</h2><p class="muted">Your marketplace control panel preview</p><div class="cards"><div class="metric">Products<div class="num">${products.length}</div></div><div class="metric">Seller requests<div class="num">${sellers.length}</div></div><div class="metric">RFQs<div class="num">${rfqs.length}</div></div><div class="metric">Demo orders<div class="num">${orders.length}</div></div></div><div class="notice">As owner, the live system should let you approve sellers, manage listings, set commissions, review orders, handle disputes and control platform settings.</div><h3>Marketplace modules</h3><p class="muted">Catalogue · Seller management · RFQ sourcing · Orders · Logistics · Marketing · Finance · Reports · Settings</p>`;
 else if(name==="manageProducts")root.innerHTML=`<h2>Product management</h2><p class="muted">Add demo products to the public catalogue. Changes save in this browser.</p><div class="formgrid"><div class="field"><label>Product name</label><input id="pName" placeholder="Product name"></div><div class="field"><label>Category</label><select id="pCat"><option>Electronics</option><option>Fashion</option><option>Home</option><option>Accessories</option></select></div><div class="field"><label>Price (PKR)</label><input id="pPrice" type="number" min="1" placeholder="Price"></div><div class="field"><label>Stock quantity</label><input id="pQty" type="number" min="0" placeholder="Quantity"></div><div class="field"><label>Emoji icon</label><input id="pIcon" placeholder="📦"></div><div class="field"><label>Description</label><input id="pDesc" placeholder="Product description"></div></div><button class="btn" onclick="addProduct()">Add product</button><div class="tablewrap"><table><tr><th>Product</th><th>Price</th><th>Stock</th><th>Action</th></tr>${products.map(p=>`<tr><td>${esc(p.name)}</td><td>${money(p.price)}</td><td>${p.qty}</td><td><button class="btn red small" onclick="deleteProduct(${p.id})">Delete</button></td></tr>`).join("")}</table></div>`;
 else if(name==="orders")root.innerHTML=`<h2>Order management</h2><p class="muted">Demo orders created from the shopping cart.</p><div class="tablewrap"><table><tr><th>Order</th><th>Items</th><th>Total</th><th>Status</th><th>Update</th></tr>${orders.map(o=>`<tr><td>#${o.id.toString().slice(-6)}</td><td>${esc(o.items)}</td><td>${money(o.total)}</td><td>${esc(o.status)}</td><td><select onchange="updateOrder(${o.id},this.value)"><option ${o.status==="New demo order"?"selected":""}>New demo order</option><option>Processing</option><option>Dispatched</option><option>Delivered</option><option>Cancelled</option></select></td></tr>`).join("")||"<tr><td colspan='5'>No demo orders yet.</td></tr>"}</table></div>`;

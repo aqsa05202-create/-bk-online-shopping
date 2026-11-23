@@ -1,0 +1,20 @@
+B_K ONLINE SHOPPING — BUYING / SELLING / SHIPPING
+
+BUYING
+Customers can browse the catalogue, add items to cart, choose a payment option and choose a shipping method at checkout.
+
+SELLING
+Use the Buying · Selling · Shipping hub and select Add a product. Enter name, category, selling price, stock, own-product or dropshipping type, shipping method and description. Publish demo product adds it to this browser's catalogue.
+
+SHIPPING
+Checkout supports:
+1. Seller / own shipping
+2. Courier delivery
+3. Supplier direct shipping (dropshipping)
+The selected method is recorded on the demo order and shown in the order-management preview.
+
+IMPORTANT LIMITATIONS
+The current GitHub Pages site is a static front-end. Products and orders are saved only in the current browser using local storage. This does not create shared seller accounts or live cross-device marketplace records. Courier booking, real-time tracking, shipping rates, COD remittance, supplier order forwarding, JazzCash/Easypaisa charging and automatic payment confirmation are not active. These require approved provider accounts and secure server-side integrations. Never put secret API keys in public website files.
+
+UPLOAD
+Extract this ZIP and upload its contents (not the ZIP file itself) to the root of the existing GitHub repository, replacing index.html and retaining the assets folder and other files. Commit changes, then wait for GitHub Pages deployment to finish.

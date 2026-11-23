@@ -44,3 +44,11 @@ To enable real JazzCash/Easypaisa payments later:
 6. Test using provider sandbox credentials before requesting live activation. Courier booking and COD settlement require separate courier account/API setup.
 
 This ZIP is a front-end checkout update, not a payment gateway integration. Existing localStorage demo data remains browser/device-specific.
+
+BUYING / SELLING / SHIPPING HUB UPDATE
+- Added a public Buying, Selling and Shipping hub with direct navigation cards.
+- Added a demo product listing form for own products and supplier/dropshipping products.
+- Listing form captures product category, price, stock, listing type and preferred shipping method.
+- Checkout now lets customers choose seller/own shipping, courier delivery, or supplier direct shipping.
+- Demo orders record the selected shipping method in the local browser order preview.
+- These features are front-end previews saved in the current browser only. Shared seller listings, live orders, courier bookings, labels, tracking APIs and real payments still require secure backend and provider integrations.
